@@ -1,0 +1,26 @@
+# Instructor-only materials
+instructor-private/
+instructor-*/
+*-instructor.*
+*-INSTRUCTOR.*
+*-grading.*
+*-rubric.*
+*-solution.*
+*-answer*
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log

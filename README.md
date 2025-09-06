@@ -1,23 +1,22 @@
-# CSCI 101 Fall 2025 - Git Version Control Module
+# CSCI 101 - Semester Project Submissions
 
-## Overview
-This repository contains materials for the Git and Version Control unit, part of the Networking and CLI Tools module in CSCI 101.
+## 🆕 New to Git?
+**Start here:** [Git Setup Tutorial](GIT-SETUP-TUTORIAL.md) - Complete walk-through for first-time setup!
 
-## Learning Objectives
-By the end of this module, students will be able to:
-- Understand version control concepts and terminology
-- Create and manage local Git repositories
-- Use basic Git commands (init, add, commit, status, log)
-- Connect local repositories to remote hosting services
-- Push and pull changes to/from remote repositories
-- Write meaningful commit messages
-- Navigate Git's command-line interface
+## Project Steps
+This repository contains folders for each step of the semester project:
+- project-step-1/
+- project-step-2/
+- project-step-3/
+- project-step-4/
+- project-step-5/
+- project-step-6/
+- project-step-7/
 
-## Module Structure
-- **demos/**: Instructor demonstration files
-- **exercises/**: Hands-on practice activities
-- **resources/**: Reference materials and cheat sheets
+## Submission Instructions
+Please refer to `SUBMISSION-INSTRUCTIONS.md` for detailed submission guidelines.
 
-## Prerequisites
-- Basic command line navigation
-- Text editor familiarity
+## Important
+- Follow the file naming convention exactly
+- Submit your work to the correct project-step folder
+- Do not modify other students' files
