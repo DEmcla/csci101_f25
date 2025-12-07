@@ -1,0 +1,231 @@
+Stage 1: Topic Selection
+
+Topics that interested me
+
+Topic 1: Social Media Filter Bubbles
+
+Topic 2: Bias in Ride-Sharing Algorithms
+
+Topic 3: Language Bias in AI Translation
+
+Final Topic Decision: Social Media Filter Bubbles
+
+Topic Sentence: I will examine how any kind of social media
+recommendation algorithms can create an echo chamber that could create
+political polarizations and cyber bullying. I will also be analyzing
+some pros and cons about it.
+
+Stage 2: Research Question + Working Thesis
+
+Name: Jackson Trombley
+
+Topic: Social Media Filter Bubbles
+
+Research Question: How does any kind of social media recommendation
+algorithms shape the way people see things to cause problems like
+political polarization and cyber bullying, and what is the cause of
+filter bubbles occurring
+
+Working Thesis Statement: Social media recommendation algorithms shape
+how people see the world. This happens because posts that people either
+click on, comment on, like the post, or follow the account it's on can
+cause the social media’s filter bubbles to filter in posts that relate
+to ones you've seen before. This can cause people to see only one side
+of certain topics which could lead to things like political
+polarizations, cyber bullying, and much more depending on the topic.
+
+Stage 3: Annotated Bibliography
+
+Name: Jackson Trombley
+
+Date: 10/4/2025
+
+Research Question: How does any kind of social media recommendation
+algorithms shape the way people see things to cause problems like
+political polarization and cyber bullying, and what is the cause of
+filter bubbles occurring.
+
+1. Pariser, E. (2011). The filter bubble: What the Internet is hiding
+from you. Penguin Press
+
+The book that was written by Pariser shows how people's algorithms limit
+what users see online based on what they watch. He warns you that this
+issue can lead to people having personal arguments on certain sides of
+arguments that no one knows anything about. This source shows the
+understanding and concept of what filter bubbles are and what problems
+they could cause. It helps explain how algorithms affect political views
+or social interactions based on what videos are viewed and what
+conversations are happening. This book may be old, being published in
+2011, however Pariser shows some real examples and interviews to support
+his points he makes in this book. This source is used to define and
+explain the filter bubble based on some serious problems with it.
+
+2. Cinelli, M., Morales, G. D. F., Galeazzi, A., Quattrociocchi, W., &
+Starnini, M. (2021). The echo chamber effect on social media.
+Proceedings of the National Academy of Sciences, 118(9), e2023301118
+
+This source explores how echo chambers can start to form on popular
+social media platforms such as Twitter, Facebook, and more. The source
+explains how users will engage with content that lean toward what they
+believe. This article showcases how arguments from recommendation
+algorithms cause problems in the political departments. The political
+problem exposes things like political polarization and reduces exposure
+to alternative viewpoints. This source is good however it more focuses
+on the political problems that social media filter bubbles can cause.
+This is one of the better articles to read on if you want to learn about
+the political polarization problem of filter bubbles.
+
+3. Duskin, J., Schafer, B., West, J., & Spiro, E. (2024). Echo Chambers
+in the Age of Algorithms: An Audit of Twitter's Friend Recommendation
+System. arXiv preprint
+
+This paper mainly talks about following certain accounts on twitter and
+other social media platforms. Following accounts can result in filter
+bubbles happening which causes the whole problem starting. This creates
+an echo chamber by promoting connections with similar viewports for what
+account your following. You mainly see it if the account you're
+following is a political topic. The site is pre-print but it offers
+up-to-date insights. This source shows the algorithm's shape and social
+networks showing both political polarization and diverse viewpoints.
+
+Stage 4: Detailed Outline
+
+Name: Jackson Trombley
+
+Date: 10/17/2025
+
+Topic: Social Media Filter Bubbles
+
+Research Question: How does any kind of social media recommendation
+algorithms shape the way people see things to cause problems like
+political polarization and cyber bullying, and what is the cause of
+filter bubbles occurring.
+
+Throughout this massive topic that I’m researching about, I will explain
+the concept of recommendation algorithms and define the key terms of
+filter bubbles and echo chambers. The sources I have used will explain
+the main points of this topic. Source one will explain how the filter
+bubbles can create toxic behavior on the internet about certain topics,
+source number 2 will explain how echo chambers are different from filter
+bubbles and how they can cause problems like political polarization, and
+source number 3 will explain how algorithms work and how they can create
+filter bubbles on any social media platform. I will also take the time
+to explain any pros and cons of this topic while also explaining how the
+cons can be fixed if they affect people in a bad way. Finally I will sum
+up everything and what I think is the best thing to do to prevent
+serious problems that it could cause to people and their life.
+
+Stage 5: First Draft
+
+Social media is used by a lot of people and each person uses it in a
+different way. Social media in general has become a popular site to look
+at around the world. New features get added to each social media
+platform to make their experience better. However, there is one feature
+that is a huge deal in many different ways. A good majority of people
+mostly use social media to watch things that catch their attention. Most
+of the time it could be a post from a friend or family, a post of a
+subject you like, a game, and many more. That's where the social media
+filter bubble comes in. The social media filter bubble is a system on
+all social media platforms that help generate similar posts that relate
+to ones that you have seen before. This feature sounds fine but in some
+cases, people could use social media to see topics that can have
+multiple different viewpoints. These could be things like political
+discussions, daily news, drama, or anything that is a serious deal in
+our world. The social media filter bubble will generate what the people
+have seen on their page but it will only generate one side of it. This
+leads to people favoring one side of a topic without even hearing the
+other side of a topic which could result in some big arguments. In most
+cases, people don’t understand the topic and could just get bullied
+online which could result in some serious things. In general there are
+some good things that can come from these social media filter bubble
+features However, there are plenty of bad things that could happen to
+people. There can be ways to fix these problems to ensure no one
+experiences a bad experience on any kind of social media platform.
+
+This problem is caused by what people see online. A book that was
+written by a person named Pariser in 2011 shows how people's algorithms
+limit what users see online based on what they watch. He basically warns
+people that this issue can lead to people having personal arguments on
+certain sides of topics that no one has a clue of. The main topic that
+causes this is political topics because there are always two sides in a
+political topic. Most of the time people will argue on what they think
+is the most valid statement of a political topic. An article called “The
+echo chamber effect on social media” talks about how users will engage
+with content that lean toward what they believe. In the political
+department this article exposes things like political polarization and
+reduces exposure to alternative viewpoints. Topics like these could get
+recommended to people if people follow the accounts that the videos are
+on. This creates an echo chamber by promoting connections with similar
+viewports for what account your following. These three sites basically
+explain how easy it is to get these social media filter bubbles to
+happen on your account and how easy the arguments could occur.
+
+There are ways these problems that these articles talk about can be
+fixed. The main thing that I can think of is if the social media
+recommendation filter bubble could recommend both sides of a political
+opinion when you watch only one side of it. This way people can see both
+sides of a topic and have a better and clear understanding on the topic.
+The people will only agree with one side but at least they know what the
+other person is saying and if they are right or not. This solution can
+also apply to other topics with different sides. It's a good way for
+people to see both sides of a topic and it should cause no serious
+arguments. There are other bad things about social media filter problems
+but the best way these problems can probably be fixed is if there is an
+option on the social media platforms to turn the recommendation system
+on or off. That way people who do want to use the recommendation system
+to get videos that they want can use it but for safe purpose there
+should be an off system and it's probably best that the default option
+should be off for those who don’t know the certain problems the feature
+could cause.
+
+I’ve mainly talked about the cons about this feature since they were
+serious but what about the pros of this feature. To put it simply, the
+best use for it is to make watching your favorite videos on social media
+easier because it makes finding the videos relating to your topic
+easier. On most social media platforms, you can always just follow the
+person accounts to get videos from the account on your for you page but
+in case you don’t thats what the feature is for. That's mainly the
+purpose of the social media filter bubbles, the feature mainly depends
+on how you use it but just make sure you use it with caution and try to
+hear people out and understand the topic they are talking about more.
+
+You may be wondering, what problems could the social media filter
+problems could cause. The main problem that could happen is cyber
+bullying. Cyber bullying in general is awful and has been a common
+problem for people who use social media. Cyber bullying can happen in
+this topic by people arguing with what videos you’ve seen online and if
+people really don’t like your point of view they will probably go out of
+their way to harass you online because they don’t like what you think.
+Social media filter bubbles in general can just cause negative
+interactions which can cause people to just be anxious online or just in
+public in general especially if they haven’t interacted with anybody in
+public. In general, people’s lives could be ruined because of what they
+see online and what people they interact with online because they
+haven’t seen other sides of certain topics.
+
+All in all, the social media filter bubble is a feature that could be
+good or bad depending on how it is used. The feature in general
+shouldn’t be removed completely but in my opinion there does need to be
+improvements to fix the serious problems that it could cause to people’s
+social media experience. The feature is supposed to be used to help your
+video searching experience easier not to start arguments. It's ok to
+have your opinion on certain topics but it's important to hear people
+out and not make them feel terrible for not agreeing with you especially
+if they don’t understand what you are saying. In the future there will
+be more new features and those features will probably have similar
+problems like this one but there are always ways to fix those problems
+and hopefully they will be safe for everyone to use and not cause major
+problems for people’s social media experience.
+
+Sources Used
+
+1.  Cinelli, M., Morales, G. D. F., Galeazzi, A., Quattrociocchi, W., &
+    Starnini, M. (2021). The echo chamber effect on social media.
+    Proceedings of the National Academy of Sciences, 118(9), e2023301118
+
+2.  Duskin, J., Schafer, B., West, J., & Spiro, E. (2024). Echo Chambers
+    in the Age of Algorithms: An Audit of Twitter's Friend
+    Recommendation System. arXiv preprint
+
+3.  Pariser, E. (2011). The filter bubble: What the Internet is hiding
+    from you. Penguin Press

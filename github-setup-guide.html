@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Setup Guide - CSCI 101</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0366d6;
+            border-bottom: 2px solid #0366d6;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #24292e;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #444;
+        }
+        code {
+            background-color: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f6f8fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #e1e4e8;
+        }
+        pre code {
+            padding: 0;
+            background: none;
+        }
+        .step {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0366d6;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #fff8e6;
+            border-left: 4px solid #f9a825;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success {
+            background-color: #e6ffed;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .good { color: #28a745; }
+        .bad { color: #dc3545; }
+        ul.checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.checklist li::before {
+            content: "☐ ";
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f6f8fa;
+        }
+        a {
+            color: #0366d6;
+        }
+        .time-estimate {
+            background-color: #e1e4e8;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Setup Guide</h1>
+    <p><strong>CSCI 101 - Session 1 of 2</strong></p>
+
+    <p><span class="time-estimate">Estimated time: 20-30 minutes</span></p>
+
+    <p>Complete this guide <strong>before</strong> accessing the GitHub tutorial. By the end, you'll have:</p>
+    <ul>
+        <li>A GitHub account</li>
+        <li>Git installed on your computer</li>
+        <li>Git configured with your identity</li>
+        <li>An understanding of README.md files</li>
+    </ul>
+
+    <hr>
+
+    <h2>Part 1: Create Your GitHub Account</h2>
+    <p><span class="time-estimate">5-10 minutes</span></p>
+
+    <div class="step">
+        <h3>Step 1.1: Sign Up</h3>
+        <ol>
+            <li>Go to <a href="https://github.com" target="_blank">https://github.com</a></li>
+            <li>Click the <strong>"Sign up"</strong> button</li>
+            <li>Choose a username (this will be visible to employers!)</li>
+        </ol>
+
+        <p><strong>Username tips:</strong></p>
+        <ul>
+            <li><span class="good">✓ Good:</span> <code>john-smith</code>, <code>jsmith2025</code>, <code>johnsmith</code></li>
+            <li><span class="bad">✗ Avoid:</span> <code>coolgamer123</code>, <code>dragonslayer99</code></li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h3>Step 1.2: Verify Your Email</h3>
+        <ol>
+            <li>Check your email inbox</li>
+            <li>Click the verification link from GitHub</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 1.3: Complete Your Profile</h3>
+        <ol>
+            <li>Click your avatar (top-right corner) → <strong>"Your profile"</strong></li>
+            <li>Click <strong>"Edit profile"</strong></li>
+            <li>Add:
+                <ul>
+                    <li>Your real name</li>
+                    <li>A brief bio: "Computer Science student at [University]"</li>
+                    <li>Your location (optional)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <h2>Part 2: Install Git</h2>
+    <p><span class="time-estimate">5-10 minutes</span></p>
+
+    <h3>For Windows Users</h3>
+    <div class="step">
+        <ol>
+            <li>Go to <a href="https://git-scm.com/download/windows" target="_blank">https://git-scm.com/download/windows</a></li>
+            <li>Download the installer</li>
+            <li>Run the installer</li>
+            <li>Use these settings when prompted:
+                <ul>
+                    <li><strong>Default editor:</strong> Choose "Use Notepad as Git's default editor"</li>
+                    <li><strong>PATH environment:</strong> Choose "Git from the command line and also from 3rd-party software"</li>
+                    <li><strong>Line endings:</strong> Choose "Checkout Windows-style, commit Unix-style"</li>
+                </ul>
+            </li>
+            <li>Click "Next" for all other screens</li>
+        </ol>
+    </div>
+
+    <h3>For Mac Users</h3>
+    <div class="step">
+        <ol>
+            <li>Open <strong>Terminal</strong> (find it in Applications → Utilities)</li>
+            <li>Type: <code>git --version</code></li>
+            <li>If you see a version number, Git is already installed! Skip to Part 3.</li>
+            <li>If prompted to install, click <strong>"Install"</strong></li>
+            <li>If nothing happens, download from <a href="https://git-scm.com/download/mac" target="_blank">git-scm.com/download/mac</a></li>
+        </ol>
+    </div>
+
+    <h3>For Linux Users</h3>
+    <div class="step">
+        <p>Open a terminal and run:</p>
+        <pre><code># Ubuntu/Debian:
+sudo apt update && sudo apt install git
+
+# Fedora:
+sudo dnf install git</code></pre>
+    </div>
+
+    <h3>Verify Installation</h3>
+    <div class="step">
+        <ol>
+            <li><strong>Windows:</strong> Open "Git Bash" (search in Start Menu)</li>
+            <li><strong>Mac/Linux:</strong> Open Terminal</li>
+            <li>Type: <code>git --version</code></li>
+            <li>You should see something like: <code>git version 2.42.0</code></li>
+        </ol>
+    </div>
+
+    <div class="success">
+        <strong>Success!</strong> If you see a version number, Git is installed correctly.
+    </div>
+
+    <hr>
+
+    <h2>Part 3: Configure Git</h2>
+    <p><span class="time-estimate">2-3 minutes</span></p>
+
+    <div class="step">
+        <h3>Step 3.1: Open Your Terminal</h3>
+        <ul>
+            <li><strong>Windows:</strong> Open "Git Bash"</li>
+            <li><strong>Mac/Linux:</strong> Open Terminal</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h3>Step 3.2: Set Your Identity</h3>
+        <p>Replace the name and email with YOUR information:</p>
+        <pre><code>git config --global user.name "Your Full Name"
+git config --global user.email "your.email@example.com"</code></pre>
+
+        <p><strong>Example:</strong></p>
+        <pre><code>git config --global user.name "John Smith"
+git config --global user.email "jsmith@university.edu"</code></pre>
+    </div>
+
+    <div class="step">
+        <h3>Step 3.3: Verify Configuration</h3>
+        <pre><code>git config --list</code></pre>
+        <p>You should see your name and email in the output.</p>
+    </div>
+
+    <hr>
+
+    <h2>Part 4: Understanding README.md Files</h2>
+    <p><span class="time-estimate">5 minutes (reading)</span></p>
+
+    <p>Before you start using GitHub, it's important to understand one of its most important features: the <strong>README.md</strong> file.</p>
+
+    <h3>What is a README.md?</h3>
+    <p>A <strong>README.md</strong> file is the "front page" of any repository. When you visit a repository on GitHub, the README.md content is automatically displayed below the file listing.</p>
+    <ul>
+        <li><strong>README</strong> = "Read me first!" - essential information about the project</li>
+        <li><strong>.md</strong> = Markdown format (a simple way to format text)</li>
+    </ul>
+
+    <h3>Why README.md Matters</h3>
+    <p>Every professional repository has a README.md because it:</p>
+    <ol>
+        <li><strong>Explains the project</strong> - What is this? What does it do?</li>
+        <li><strong>Provides instructions</strong> - How do I use it?</li>
+        <li><strong>Makes a first impression</strong> - Employers and collaborators see this first</li>
+        <li><strong>Documents your work</strong> - Future you will thank present you!</li>
+    </ol>
+
+    <h3>What Goes in a README.md?</h3>
+    <p>A good README typically includes:</p>
+    <ul>
+        <li><strong>Title</strong> - Name of the project</li>
+        <li><strong>Description</strong> - What it is and why it exists</li>
+        <li><strong>Contents</strong> - What files are included</li>
+        <li><strong>Author</strong> - Who created it</li>
+    </ul>
+
+    <h3>Markdown Basics</h3>
+    <p>README files use <strong>Markdown</strong> syntax for formatting:</p>
+    <table>
+        <tr>
+            <th>What you type</th>
+            <th>What you get</th>
+        </tr>
+        <tr>
+            <td><code># Heading</code></td>
+            <td>Large heading</td>
+        </tr>
+        <tr>
+            <td><code>## Smaller Heading</code></td>
+            <td>Smaller heading</td>
+        </tr>
+        <tr>
+            <td><code>**bold text**</code></td>
+            <td><strong>bold text</strong></td>
+        </tr>
+        <tr>
+            <td><code>*italic text*</code></td>
+            <td><em>italic text</em></td>
+        </tr>
+        <tr>
+            <td><code>- item</code></td>
+            <td>Bullet point</td>
+        </tr>
+    </table>
+
+    <p>You'll create README.md files for each of your submissions in the GitHub tutorial!</p>
+
+    <hr>
+
+    <h2>Setup Complete!</h2>
+
+    <div class="success">
+        <h3>Checklist - Before Moving On:</h3>
+        <ul class="checklist">
+            <li>I have a GitHub account with my real name</li>
+            <li>Git is installed on my computer</li>
+            <li>Git is configured with my name and email</li>
+            <li>I understand what a README.md file is for</li>
+        </ul>
+    </div>
+
+    <h3>Next Steps</h3>
+    <p>You're now ready for <strong>Session 2: The GitHub Tutorial</strong></p>
+    <p>Go to the course repository to continue:</p>
+    <pre><code>https://github.com/csci101_f25/csci101_f25</code></pre>
+    <p>Start with the <strong>GIT-SETUP-TUTORIAL.md</strong> file.</p>
+
+    <hr>
+
+    <h2>Troubleshooting</h2>
+
+    <h3>"git" is not recognized (Windows)</h3>
+    <div class="warning">
+        <p><strong>Solution:</strong> Make sure you're using "Git Bash", not Command Prompt or PowerShell.</p>
+    </div>
+
+    <h3>"Please tell me who you are" error</h3>
+    <div class="warning">
+        <p><strong>Solution:</strong> Run the git config commands from Part 3 again.</p>
+    </div>
+
+    <h3>Can't find Terminal (Mac)</h3>
+    <div class="warning">
+        <p><strong>Solution:</strong> Press Cmd+Space, type "Terminal", and press Enter.</p>
+    </div>
+
+    <hr>
+    <p><em>CSCI 101 - GitHub Setup Guide | Session 1 of 2</em></p>
+</body>
+</html>

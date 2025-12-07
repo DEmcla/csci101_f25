@@ -1,117 +1,39 @@
-# GitHub Tutorial: Your First Submission
-## A Complete Walk-Through for CSCI 101 Students
+# GitHub Tutorial: Your First Pull Request
+## CSCI 101 - Session 2 of 2
 
 ---
 
-## 🎯 What We'll Accomplish
+## Prerequisites
+
+**Before starting this tutorial, complete Session 1 (github-setup-guide.html):**
+- GitHub account created
+- Git installed on your computer
+- Git configured with your name and email
+
+**Time needed**: 20-30 minutes
+
+---
+
+## What We'll Accomplish
+
 By the end of this tutorial, you will have:
-- ✅ Created your GitHub account
-- ✅ Installed Git on your computer
-- ✅ Forked the course repository
-- ✅ Made a practice submission
-- ✅ Created your first Pull Request
-
-**Time needed**: 30-45 minutes
+- Forked the course repository
+- Cloned it to your computer
+- Created your first Pull Request
 
 ---
 
-## Part 1: GitHub Account Setup
+## Part 1: Fork the Course Repository
 
-### Step 1.1: Create Your GitHub Account
-1. Go to [https://github.com](https://github.com)
-2. Click the "Sign up" button
-3. Choose a username (Tip: Use something professional like `firstname-lastname` or `firstinitiallastname`)
-   - ✅ Good: `john-smith`, `jsmith2025`, `johnsmith`
-   - ❌ Avoid: `coolgamer123`, `dragonslayer99`
-4. Use your school email if possible
-5. Verify your email address
-
-### Step 1.2: Complete Your Profile
-1. Click your avatar (top-right) → "Your profile"
-2. Click "Edit profile"
-3. Add:
-   - Your real name
-   - A brief bio: "Computer Science student at [University]"
-   - Your school/location
-
----
-
-## Part 2: Git Installation
-
-### For Windows Users
-
-#### Step 2.1W: Download Git
-1. Go to [https://git-scm.com/download/windows](https://git-scm.com/download/windows)
-2. Download the installer
-3. Run the installer
-
-#### Step 2.2W: Installation Settings
-Click "Next" for most screens, but pay attention to these:
-- **Default editor**: Choose "Use Notepad as Git's default editor" (easier for beginners)
-- **PATH environment**: Choose "Git from the command line and also from 3rd-party software"
-- **Line ending conversions**: Choose "Checkout Windows-style, commit Unix-style"
-
-#### Step 2.3W: Verify Installation
-1. Open "Git Bash" (search for it in Start Menu)
-2. Type: `git --version`
-3. You should see something like: `git version 2.42.0`
-
-### For Mac Users
-
-#### Step 2.1M: Check if Git is Installed
-1. Open Terminal (find it in Applications → Utilities)
-2. Type: `git --version`
-3. If you see a version number, skip to Part 3
-4. If prompted to install, click "Install"
-
-#### Alternative Mac Installation:
-1. Go to [https://git-scm.com/download/mac](https://git-scm.com/download/mac)
-2. Download and run the installer
-
-### For Linux Users
-Open terminal and run:
-```bash
-# Ubuntu/Debian:
-sudo apt update && sudo apt install git
-
-# Fedora:
-sudo dnf install git
-```
-
----
-
-## Part 3: Configure Git
-
-### Step 3.1: Open Your Terminal
-- **Windows**: Open "Git Bash"
-- **Mac/Linux**: Open Terminal
-
-### Step 3.2: Set Your Identity
-Replace with YOUR information:
-```bash
-git config --global user.name "John Smith"
-git config --global user.email "jsmith@university.edu"
-```
-
-### Step 3.3: Verify Configuration
-```bash
-git config --list
-```
-You should see your name and email in the output.
-
----
-
-## Part 4: Fork the Course Repository
-
-### Step 4.1: Find the Course Repository
+### Step 1.1: Find the Course Repository
 1. Go to the course repository:
    ```
    https://github.com/csci101_f25/csci101_f25
    ```
-2. You should see the course repository with pullrequest folders
+2. You should see the repository with pullrequest folders and a README
 
-### Step 4.2: Fork It!
-1. Click the "Fork" button (top-right of the page)
+### Step 1.2: Fork It!
+1. Click the **"Fork"** button (top-right of the page)
 2. If asked "Where should we fork?", click your username
 3. Wait a few seconds...
 4. You now have YOUR OWN COPY! The URL will be:
@@ -119,25 +41,25 @@ You should see your name and email in the output.
    https://github.com/YOUR_USERNAME/csci101_f25
    ```
 
-**⚠️ IMPORTANT**: You're now on YOUR fork, not the instructor's repository!
+**Important:** You're now on YOUR fork, not the course repository!
 
 ---
 
-## Part 5: Clone to Your Computer
+## Part 2: Clone to Your Computer
 
-### Step 5.1: Get Your Fork's URL
+### Step 2.1: Get Your Fork's URL
 1. On YOUR fork (check the URL has your username)
-2. Click the green "Code" button
-3. Make sure "HTTPS" is selected
+2. Click the green **"Code"** button
+3. Make sure **"HTTPS"** is selected
 4. Click the copy button to copy the URL
 
-### Step 5.2: Clone It
+### Step 2.2: Clone It
 1. Open your terminal/Git Bash
 2. Navigate to where you want to store your coursework:
    ```bash
    # Windows example:
    cd /c/Users/YourName/Documents
-   
+
    # Mac example:
    cd ~/Documents
    ```
@@ -150,7 +72,7 @@ You should see your name and email in the output.
    cd csci101_f25
    ```
 
-### Step 5.3: Verify You're in the Right Place
+### Step 2.3: Verify You're in the Right Place
 ```bash
 ls
 ```
@@ -159,22 +81,20 @@ You should see:
 pullrequest_01/
 pullrequest_02/
 pullrequest_03/
-pullrequest_04/
-pullrequest_05/
 README.md
 SUBMISSION-INSTRUCTIONS.md
 ```
 
 ---
 
-## Part 6: Connect to Course Repository
+## Part 3: Connect to Course Repository
 
-### Step 6.1: Add Upstream Remote
+### Step 3.1: Add Upstream Remote
 ```bash
 git remote add upstream https://github.com/csci101_f25/csci101_f25.git
 ```
 
-### Step 6.2: Verify Your Remotes
+### Step 3.2: Verify Your Remotes
 ```bash
 git remote -v
 ```
@@ -192,83 +112,110 @@ upstream  https://github.com/csci101_f25/csci101_f25.git (push)
 
 ---
 
-## Part 7: Practice Submission
+## Part 4: Create Your First Pull Request
 
-Let's do a practice run with a simple text file before your real assignment!
+Now let's submit PR 01! You'll create a Word document with a README.md file.
 
-### Step 7.1: Create a Practice Branch
+### Step 4.1: Create a Branch
 ```bash
-git checkout -b practice_firstname_lastname
+git checkout -b pr01_firstname_lastname
 ```
-Replace with your actual name, for example:
+Replace with your actual name:
 ```bash
-git checkout -b practice_john_smith
+git checkout -b pr01_john_smith
 ```
 
-### Step 7.2: Create a Practice File
-1. Create a simple text file:
-   ```bash
-   # Windows (Git Bash):
-   echo "This is my practice submission" > practice/Practice_John_Smith.txt
-   
-   # Mac/Linux:
-   echo "This is my practice submission" > practice/Practice_John_Smith.txt
-   ```
+### Step 4.2: Create Your Subfolder
+```bash
+mkdir pullrequest_01/john_smith
+```
+(Use YOUR name, lowercase, with underscore)
 
-2. Verify it was created:
-   ```bash
-   ls practice/
-   ```
+### Step 4.3: Create Your Files
 
-### Step 7.3: Add and Commit
+You need two files in your subfolder:
+
+**1. Create README.md**
+
+Create a file called `README.md` in your subfolder with this content:
+
+```markdown
+# PR 01 Submission - John Smith
+
+## Description
+My first pull request submission for CSCI 101.
+
+## Files Included
+- `Assignment.docx` - My Word document assignment
+
+## Author
+John Smith
+CSCI 101 - Fall 2025
+```
+
+**2. Create Assignment.docx**
+
+Create a simple Word document called `Assignment.docx` with any content (e.g., "This is my first GitHub submission!").
+
+**Your folder should now contain:**
+```
+pullrequest_01/john_smith/
+  README.md
+  Assignment.docx
+```
+
+### Step 4.4: Add and Commit
 ```bash
 # See what changed
 git status
 
-# Add your file
-git add practice/Practice_John_Smith.txt
+# Add your subfolder
+git add pullrequest_01/john_smith/
 
 # Commit with message
-git commit -m "Add practice submission - John Smith"
+git commit -m "Add PR 01 submission - John Smith"
 ```
 
-### Step 7.4: Push to Your Fork
+### Step 4.5: Push to Your Fork
 ```bash
-git push origin practice_john_smith
+git push origin pr01_john_smith
 ```
 
 You might be prompted for your GitHub username and password:
 - Username: Your GitHub username
-- Password: You need a Personal Access Token (not your password!)
-  - Go to GitHub → Settings → Developer settings → Personal access tokens
+- Password: You need a **Personal Access Token** (not your password!)
+  - Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
   - Generate new token (classic)
   - Select "repo" scope
   - Copy and use this as your password
 
 ---
 
-## Part 8: Create Your First Pull Request
+## Part 5: Create the Pull Request on GitHub
 
-### Step 8.1: Go to GitHub
+### Step 5.1: Go to GitHub
 1. Go to YOUR fork on GitHub
-2. You should see a yellow banner: "practice_john_smith had recent pushes"
-3. Click "Compare & pull request"
+2. You should see a yellow banner: "pr01_john_smith had recent pushes"
+3. Click **"Compare & pull request"**
+4. **Change the base branch from `main` to `submissions`**
 
 **If you don't see the banner:**
 1. Click "Pull requests"
 2. Click "New pull request"
 3. Make sure the settings are:
    - Base repository: `csci101_f25/csci101_f25`
-   - Base: `main`
+   - Base: `submissions` (not main!)
    - Head repository: `YOUR_USERNAME/csci101_f25`
-   - Compare: `practice_john_smith`
+   - Compare: `pr01_john_smith`
 
-### Step 8.2: Create the Pull Request
-1. Title: `Practice Submission - John Smith`
-2. Description (optional): "This is my practice submission for the Git tutorial"
-3. Click "Create pull request"
+**Important:** Always change the base branch to `submissions`!
 
-### Step 8.3: Success!
+### Step 5.2: Create the Pull Request
+1. Title: `PR 01 Submission - John Smith`
+2. Description (optional): "My first pull request for CSCI 101"
+3. Click **"Create pull request"**
+
+### Step 5.3: Success!
 You should see your pull request created! The URL will be something like:
 ```
 https://github.com/csci101_f25/csci101_f25/pull/1
@@ -276,43 +223,81 @@ https://github.com/csci101_f25/csci101_f25/pull/1
 
 ---
 
-## Part 9: Your Real Assignment Workflow
+## Congratulations!
 
-Now you're ready for actual assignments! Here's the workflow:
+You've just completed your first Pull Request using the same workflow professional developers use worldwide!
 
-### Before Each Assignment:
+**The Three Pull Requests:**
+
+| PR | What to Submit |
+|----|----------------|
+| PR 01 | README.md + Word document (.docx) |
+| PR 02 | README.md + Python program (helloWorld.py) |
+| PR 03 | README.md + Markdown file (about_me.md) |
+
+See `SUBMISSION-INSTRUCTIONS.md` for detailed requirements for each PR.
+
+---
+
+## Workflow for Future PRs
+
+### Before Each PR:
 ```bash
-# Get any updates from instructor
+# Get any updates from course repo
 git fetch upstream
 git checkout main
 git merge upstream/main
 git push origin main
 ```
 
-### For Each Assignment:
+### For Each PR:
 ```bash
 # 1. Create a new branch
-git checkout -b pr01_john_smith
+git checkout -b pr02_firstname_lastname
 
-# 2. Add your assignment file to the correct folder
-# (Put your file in the pullrequest_01/ folder)
+# 2. Create your subfolder
+mkdir pullrequest_02/firstname_lastname
 
-# 3. Add and commit
-git add pullrequest_01/Assignment_John_Smith.docx
-git commit -m "Add PR 01 submission - John Smith"
+# 3. Add your README.md + assignment file to the subfolder
 
-# 4. Push
-git push origin pr01_john_smith
+# 4. Stage, commit, and push
+git add pullrequest_02/firstname_lastname/
+git commit -m "Add PR 02 submission - FirstName LastName"
+git push origin pr02_firstname_lastname
 
-# 5. Go to GitHub and create Pull Request
+# 5. Go to GitHub and create Pull Request (base branch: submissions)
 ```
 
 ---
 
-## 🚨 Common Problems and Solutions
+## Quick Reference Card
+
+```bash
+# Sync with course repo
+git fetch upstream
+git checkout main
+git merge upstream/main
+git push origin main
+
+# Create branch for PR
+git checkout -b pr0#_firstname_lastname
+
+# Create subfolder, add README.md + assignment file
+
+# Stage, commit, push
+git add pullrequest_0#/firstname_lastname/
+git commit -m "Add PR 0# submission - FirstName LastName"
+git push origin pr0#_firstname_lastname
+
+# Then create PR on GitHub (base: submissions)
+```
+
+---
+
+## Troubleshooting
 
 ### "Permission denied" when pushing
-- **Cause**: Trying to push to instructor's repo instead of your fork
+- **Cause**: Trying to push to course repo instead of your fork
 - **Fix**: Check your remotes with `git remote -v`
 
 ### "Fatal: not a git repository"
@@ -320,72 +305,23 @@ git push origin pr01_john_smith
 - **Fix**: `cd` into your csci101_f25 folder
 
 ### Can't find Git Bash (Windows)
-- **Fix**: Search "Git Bash" in Start Menu, or reinstall Git
-
-### "Please tell me who you are" error
-- **Fix**: Run the config commands from Part 3
+- **Fix**: Search "Git Bash" in Start Menu
 
 ### Password authentication was removed
 - **Fix**: Use a Personal Access Token instead of password
 - Create at: GitHub → Settings → Developer settings → Personal access tokens
 
----
-
-## ✅ Checklist: Are You Ready?
-
-Before starting real assignments, confirm:
-
-- [ ] I have a GitHub account with my real name
-- [ ] Git is installed on my computer
-- [ ] I've forked the course repository
-- [ ] I've cloned MY fork to my computer
-- [ ] I've added the upstream remote
-- [ ] I successfully created a practice PR
-- [ ] I understand the difference between:
-  - My fork (origin) vs Course repo (upstream)
-  - Branches vs Main
-  - Local vs Remote
+### Pull request going to wrong branch
+- **Fix**: Make sure base branch is `submissions`, not `main`
 
 ---
 
-## 🎉 Congratulations!
+## Branch Structure
 
-You've just learned the professional Git workflow used by millions of developers worldwide! This is a real skill that you'll use throughout your career.
+- `main` - Course materials (sync from here)
+- `submissions` - Where your PRs get merged (submit PRs here)
 
-**Next Steps:**
-1. Delete your practice branch locally:
-   ```bash
-   git checkout main
-   git branch -d practice_john_smith
-   ```
-2. Review the SUBMISSION-INSTRUCTIONS.md for assignment details
-3. Start your first real assignment!
-
-**Remember:** It's normal to feel confused at first. Every professional developer went through this learning curve. Don't hesitate to ask for help!
-
----
-
-## Quick Reference Card
-
-Keep this handy for assignments:
-
-```bash
-# Before starting assignment
-git fetch upstream
-git checkout main
-git merge upstream/main
-git push origin main
-
-# Create branch for work
-git checkout -b pr01_firstname_lastname
-
-# After adding your file
-git add pullrequest_01/Assignment_FirstName_LastName.docx
-git commit -m "Add PR 01 submission - FirstName LastName"
-git push origin pr01_firstname_lastname
-
-# Then create PR on GitHub
-```
+Students sync from `main` but submit PRs to `submissions`. This keeps your work separate from other students.
 
 ---
 

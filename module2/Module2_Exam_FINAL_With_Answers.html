@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSCI 101: Module 2 Exam - With Answers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .exam-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #16a085;
+            margin-top: 20px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .answer {
+            margin: 10px 0;
+            padding: 12px;
+            background-color: #d5f4e6;
+            border-left: 4px solid #27ae60;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .correct-answer {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .points {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            padding: 8px;
+            background-color: white;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .header-info {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 30px 0;
+        }
+        .rationale {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="exam-container">
+        <h1>CSCI 101: Module 2 Exam</h1>
+        <h2>Database Design, ERD, Normalization, and Relationships</h2>
+
+        <div class="header-info">
+            <p><strong>Name:</strong> _________________________________ <strong>Date:</strong> _____________</p>
+            <p><strong>Time Limit:</strong> 75 minutes</p>
+            <p><strong>Total Points:</strong> 100 points</p>
+            <p><strong>Exam Type:</strong> Open book, open notes, NO AI tools permitted</p>
+            <p><strong>Format:</strong> Canvas exam - you may hand-draw diagrams and upload images</p>
+        </div>
+
+        <hr>
+
+        <div class="instructions">
+            <h3>Instructions</h3>
+            <ul>
+                <li>This exam consists of <strong>35 questions</strong> divided into three sections:
+                    <ul>
+                        <li><strong>Part A: True/False</strong> (12 questions, 2 points each = 24 points)</li>
+                        <li><strong>Part B: Multiple Choice</strong> (16 questions, 2.5 points each = 40 points)</li>
+                        <li><strong>Part C: Short Answer</strong> (7 questions, varies = 36 points)</li>
+                    </ul>
+                </li>
+                <li>Write all answers clearly and legibly</li>
+                <li>For diagram questions (Q29, Q31), you may hand-draw and upload a photo/scan</li>
+                <li>You may use your notes, textbook, and course materials</li>
+                <li><strong>You may NOT use AI tools (ChatGPT, Claude, etc.) or communicate with others</strong></li>
+                <li>Time management suggestion:
+                    <ul>
+                        <li>Part A: 10 minutes</li>
+                        <li>Part B: 28 minutes</li>
+                        <li>Part C: 32 minutes</li>
+                        <li>Review: 5 minutes</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>PART A: TRUE/FALSE (24 points total)</h2>
+        <p><strong>Instructions:</strong> Select True or False. Each question is worth 2 points.</p>
+
+        <div class="question">
+            <p><strong>1.</strong> In an Entity Relationship Diagram (ERD), entities are represented as rectangles with the entity name at the top and attributes listed below in the text property.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">Entities are rectangles with the entity name at top and attributes listed in text property below (yEd-style ERD notation)</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>2.</strong> A primary key can be composed of multiple columns working together (a composite key).</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">Composite keys are made of 2+ columns (e.g., {StudentID, CourseID})</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>3.</strong> In crow's feet notation, a "crow's foot" symbol indicates the "many" side of a relationship.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">Crow's foot (≺) indicates the "many" side</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>4.</strong> First Normal Form (1NF) requires eliminating transitive dependencies.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: FALSE</span>
+                <p class="rationale">1NF eliminates non-atomic values and repeating groups. 3NF eliminates transitive dependencies.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>5.</strong> A functional dependency X → Y means "if you know X, you can determine Y."</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">This is the definition of functional dependency</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>6.</strong> Bridge tables (junction tables) are used to resolve one-to-one relationships.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: FALSE</span>
+                <p class="rationale">Bridge tables resolve many-to-many relationships, not one-to-one</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>7.</strong> A partial dependency occurs when a non-key attribute depends on only part of a composite primary key.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">This is the definition of partial dependency (violates 2NF)</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>8.</strong> Second Normal Form (2NF) requires that the table must first be in 1NF and have no partial dependencies.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">This is the definition of 2NF</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>9.</strong> A foreign key in one table references the primary key of another table, creating a relationship between them.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">This is the definition and purpose of foreign keys</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>10.</strong> In a many-to-many relationship, you must use a bridge table (junction table) to properly connect two entities.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">Many-to-many requires a bridge entity/table in between</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>11.</strong> Third Normal Form (3NF) is considered the industry standard for most database applications.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">3NF is the industry standard for most applications</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>12.</strong> Update anomalies, insertion anomalies, and deletion anomalies are problems that normalization helps prevent.</p>
+            <div class="answer">
+                <span class="correct-answer">Answer: TRUE</span>
+                <p class="rationale">These are the three anomalies normalization prevents</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>PART B: MULTIPLE CHOICE (40 points total)</h2>
+        <p><strong>Instructions:</strong> Select the BEST answer for each question. Each question is worth 2.5 points.</p>
+
+        <div class="question">
+            <p><strong>13.</strong> Which of the following is an example of a <strong>non-atomic value</strong> that violates 1NF?</p>
+            <ul>
+                <li>a) StudentID: 12345</li>
+                <li>b) PhoneNumber: "555-1234, 555-5678"</li>
+                <li>c) LastName: "Smith"</li>
+                <li>d) GPA: 3.75</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) PhoneNumber: "555-1234, 555-5678"</span>
+                <p class="rationale">Multiple values in one cell violates atomicity (1NF)</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>14.</strong> In crow's feet notation, which symbol combination represents a <strong>one-to-many</strong> relationship?</p>
+            <ul>
+                <li>a) Single line on both ends</li>
+                <li>b) Single line on one end, crow's foot on the other</li>
+                <li>c) Crow's foot on both ends</li>
+                <li>d) Double line on both ends</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) Single line on one end, crow's foot on the other</span>
+                <p class="rationale">One side = single, many side = crow's foot</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>15.</strong> Consider a table ORDER_DETAIL with <strong>Primary Key: {OrderID, ProductID}</strong>. Given the functional dependency <code>{OrderID, ProductID} → Quantity</code>, what type of key is <code>{OrderID, ProductID}</code>?</p>
+            <ul>
+                <li>a) Foreign key</li>
+                <li>b) Simple primary key</li>
+                <li>c) Composite primary key</li>
+                <li>d) Candidate key</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: c) Composite primary key</span>
+                <p class="rationale">Made of two columns working together</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>16.</strong> Which normal form specifically addresses the elimination of <strong>partial dependencies</strong>?</p>
+            <ul>
+                <li>a) First Normal Form (1NF)</li>
+                <li>b) Second Normal Form (2NF)</li>
+                <li>c) Third Normal Form (3NF)</li>
+                <li>d) Boyce-Codd Normal Form (BCNF)</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) Second Normal Form (2NF)</span>
+                <p class="rationale">2NF specifically eliminates partial dependencies</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>17.</strong> What is a <strong>transitive dependency</strong>?</p>
+            <ul>
+                <li>a) When an attribute depends on the entire composite key</li>
+                <li>b) When A → B and B → C, so A → C indirectly</li>
+                <li>c) When an attribute depends on only part of the primary key</li>
+                <li>d) When two attributes depend on each other</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) When A → B and B → C, so A → C indirectly</span>
+                <p class="rationale">This is the definition of transitive dependency</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>18.</strong> In an ERD, what does a <strong>bridge entity</strong> (associative entity) represent?</p>
+            <ul>
+                <li>a) A weak entity that cannot exist independently</li>
+                <li>b) An entity that resolves a many-to-many relationship</li>
+                <li>c) An entity with no attributes</li>
+                <li>d) The primary entity in a one-to-one relationship</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) An entity that resolves a many-to-many relationship</span>
+                <p class="rationale">Bridge/associative entities break M:N into two 1:M relationships</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>19.</strong> Consider this table: <strong>COURSE(CourseID, CourseName, InstructorID, InstructorName, InstructorOffice)</strong></p>
+            <p>If <code>CourseID → InstructorID</code> and <code>InstructorID → InstructorName, InstructorOffice</code>, which normal form is violated?</p>
+            <ul>
+                <li>a) 1NF</li>
+                <li>b) 2NF</li>
+                <li>c) 3NF</li>
+                <li>d) None - this is properly normalized</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: c) 3NF</span>
+                <p class="rationale">Transitive dependency exists: CourseID → InstructorID → InstructorName/Office. Table is in 2NF (no partial dependencies with single-column PK) but violates 3NF.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>20.</strong> What is the primary purpose of <strong>normalization</strong>?</p>
+            <ul>
+                <li>a) To make queries run faster</li>
+                <li>b) To reduce data redundancy and prevent anomalies</li>
+                <li>c) To combine multiple tables into one</li>
+                <li>d) To create more complex database structures</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) To reduce data redundancy and prevent anomalies</span>
+                <p class="rationale">This is the primary purpose of normalization</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>21.</strong> In the functional dependency notation <code>ISBN → BookTitle</code>, which term describes ISBN?</p>
+            <ul>
+                <li>a) Dependent</li>
+                <li>b) Determinant</li>
+                <li>c) Composite key</li>
+                <li>d) Foreign key</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) Determinant</span>
+                <p class="rationale">The left side of X → Y is the determinant</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>22.</strong> Which of the following scenarios would most likely benefit from <strong>denormalization</strong>?</p>
+            <ul>
+                <li>a) A frequently-run report that requires joining 8 tables and is too slow</li>
+                <li>b) A brand new database with no performance issues</li>
+                <li>c) A table with update anomalies</li>
+                <li>d) A table that violates 1NF</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: a) A frequently-run report that requires joining 8 tables and is too slow</span>
+                <p class="rationale">Performance issues are the main reason to denormalize</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>23.</strong> Consider: <strong>ENROLLMENT(StudentID, CourseID, StudentName, Grade)</strong></p>
+            <p>Primary Key: <code>{StudentID, CourseID}</code></p>
+            <p>Dependency: <code>StudentID → StudentName</code></p>
+            <p>What type of dependency problem exists?</p>
+            <ul>
+                <li>a) Full dependency</li>
+                <li>b) Partial dependency</li>
+                <li>c) Transitive dependency</li>
+                <li>d) No problem exists</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) Partial dependency</span>
+                <p class="rationale">StudentName depends on only part of the composite key {StudentID, CourseID}</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>24.</strong> In crow's feet notation, what does a <strong>perpendicular line</strong> (|) on a relationship line indicate?</p>
+            <ul>
+                <li>a) Optional participation (zero allowed)</li>
+                <li>b) Mandatory participation (at least one required)</li>
+                <li>c) Many instances</li>
+                <li>d) Exactly one instance</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) Mandatory participation (at least one required)</span>
+                <p class="rationale">Perpendicular line = mandatory, circle = optional</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>25.</strong> What is the relationship between STUDENT and COURSE entities if:</p>
+            <ul>
+                <li>One student can enroll in many courses</li>
+                <li>One course can have many students enrolled</li>
+            </ul>
+            <ul>
+                <li>a) One-to-one</li>
+                <li>b) One-to-many</li>
+                <li>c) Many-to-one</li>
+                <li>d) Many-to-many</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: d) Many-to-many</span>
+                <p class="rationale">Many students can take many courses (M:N relationship)</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>26.</strong> Given: <strong>ORDER_DETAIL(OrderID, ProductID, Quantity, ProductName)</strong></p>
+            <p>Primary Key: <code>{OrderID, ProductID}</code></p>
+            <p>If <code>ProductID → ProductName</code>, to achieve 2NF you should:</p>
+            <ul>
+                <li>a) Remove ProductName entirely</li>
+                <li>b) Create a separate PRODUCT table with ProductID and ProductName</li>
+                <li>c) Add ProductName to the primary key</li>
+                <li>d) Leave it as is - it's already in 2NF</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) Create a separate PRODUCT table with ProductID and ProductName</span>
+                <p class="rationale">This removes the partial dependency (ProductID → ProductName)</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>27.</strong> Which of the following best describes <strong>cardinality constraints</strong>?</p>
+            <ul>
+                <li>a) The data types allowed in a column</li>
+                <li>b) The number of rows in a table</li>
+                <li>c) The number of entity instances that can participate in a relationship</li>
+                <li>d) The number of attributes an entity has</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: c) The number of entity instances that can participate in a relationship</span>
+                <p class="rationale">Cardinality defines relationship quantities (1:1, 1:M, M:N)</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>28.</strong> Why is 3NF considered sufficient for most real-world applications?</p>
+            <ul>
+                <li>a) It's the easiest to understand</li>
+                <li>b) It balances data integrity with reasonable complexity</li>
+                <li>c) Higher normal forms don't exist</li>
+                <li>d) It requires the fewest number of tables</li>
+            </ul>
+            <div class="answer">
+                <span class="correct-answer">Answer: b) It balances data integrity with reasonable complexity</span>
+                <p class="rationale">3NF provides good integrity without excessive complexity</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>PART C: SHORT ANSWER (36 points total)</h2>
+        <p><strong>Instructions:</strong> Answer each question clearly and completely. Show your work where applicable.</p>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>Question 29 (4 points):</strong> Explain the difference between a <strong>primary key</strong> and a <strong>foreign key</strong>. Provide an example of each.</p>
+
+            <div class="answer">
+                <p><strong>ANSWER:</strong></p>
+
+                <p><strong>Primary Key (PK):</strong> (2 points)</p>
+                <ul>
+                    <li>A column (or set of columns) that uniquely identifies each row in a table</li>
+                    <li>Cannot contain NULL values</li>
+                    <li>Example: StudentID in STUDENT table</li>
+                </ul>
+
+                <p><strong>Foreign Key (FK):</strong> (2 points)</p>
+                <ul>
+                    <li>A column in one table that references the primary key of another table</li>
+                    <li>Creates a relationship/link between tables</li>
+                    <li>Example: StudentID in ENROLLMENT table (references STUDENT.StudentID)</li>
+                </ul>
+
+                <p><strong>Grading:</strong></p>
+                <ul>
+                    <li>1 point for correct PK definition</li>
+                    <li>1 point for PK example</li>
+                    <li>1 point for correct FK definition</li>
+                    <li>1 point for FK example</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>Question 30 (5 points):</strong> Consider this unnormalized table:</p>
+
+            <p><strong>LIBRARY_CHECKOUT</strong></p>
+            <table>
+                <tr>
+                    <th>CardNumber</th>
+                    <th>PatronName</th>
+                    <th>BookISBN1</th>
+                    <th>BookTitle1</th>
+                    <th>BookISBN2</th>
+                    <th>BookTitle2</th>
+                    <th>CheckoutDate</th>
+                </tr>
+                <tr>
+                    <td>C001</td>
+                    <td>Alice Brown</td>
+                    <td>978-01</td>
+                    <td>Database Design</td>
+                    <td>978-02</td>
+                    <td>Data Mining</td>
+                    <td>2024-01-15</td>
+                </tr>
+            </table>
+
+            <p>Identify <strong>TWO distinct structural violations of First Normal Form (1NF)</strong> in this table schema and explain why each is a problem. (Note: Look for two separate types of problems in how the table is designed.)</p>
+
+            <div class="answer">
+                <p><strong>ANSWER:</strong></p>
+
+                <p><strong>Violation #1: Repeating groups (BookISBN1, BookISBN2, BookTitle1, BookTitle2)</strong> (2.5 points)</p>
+                <ul>
+                    <li>The table has repeating columns for books (Book1, Book2, etc.)</li>
+                    <li>This violates 1NF which requires no repeating groups</li>
+                    <li>Problems:
+                        <ul>
+                            <li>What if a patron checks out 3 books? Need to add more columns</li>
+                            <li>Wasted space if patron checks out only 1 book</li>
+                            <li>Difficult to query (need to search Book1, Book2, Book3, etc. separately)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Violation #2: Non-atomic structure / Multiple values per row</strong> (2.5 points)</p>
+                <ul>
+                    <li>The "set of books" is conceptually split across multiple column pairs</li>
+                    <li>Each row contains multiple book facts (Book1 data, Book2 data)</li>
+                    <li>Proper 1NF would have one book per row</li>
+                    <li>Problems:
+                        <ul>
+                            <li>Adding or removing a book requires restructuring</li>
+                            <li>Partial NULL values if fewer than max books checked out</li>
+                            <li>Cannot enforce integrity constraints easily</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Grading:</strong></p>
+                <ul>
+                    <li>2.5 points per violation (1.25 for identification + 1.25 for explanation)</li>
+                    <li>Must identify TWO distinct 1NF violations</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>Question 31 (6 points):</strong> Draw the crow's feet notation symbols for the following. You may hand-draw and upload an image.</p>
+
+            <ul>
+                <li>a) <strong>One and only one</strong> (mandatory one) - 2 points</li>
+                <li>b) <strong>Zero or many</strong> (optional many) - 2 points</li>
+                <li>c) <strong>One or many</strong> (mandatory many) - 2 points</li>
+            </ul>
+
+            <p><strong>Note:</strong> Each symbol should clearly show BOTH the mandatory/optional indicator AND the one/many indicator.</p>
+
+            <div class="answer">
+                <p><strong>ANSWER:</strong></p>
+
+                <p><strong>a) One and only one (mandatory one): |—</strong> (2 points)</p>
+                <ul>
+                    <li>Perpendicular line (mandatory) + single line (one)</li>
+                    <li>Visual: ——|— or ——⊣—</li>
+                    <li>The perpendicular bar indicates "mandatory" (at least one required)</li>
+                    <li>The single line indicates "exactly one"</li>
+                </ul>
+
+                <p><strong>b) Zero or many (optional many): o≺</strong> (2 points)</p>
+                <ul>
+                    <li>Circle (optional) + crow's foot (many)</li>
+                    <li>Visual: ——o≺ or ——○&lt;</li>
+                    <li>The circle indicates "optional" (zero allowed)</li>
+                    <li>The crow's foot indicates "many"</li>
+                </ul>
+
+                <p><strong>c) One or many (mandatory many): |≺</strong> (2 points)</p>
+                <ul>
+                    <li>Perpendicular line (mandatory) + crow's foot (many)</li>
+                    <li>Visual: ——|≺ or ——⊣&lt;</li>
+                    <li>The perpendicular bar indicates "mandatory" (at least one required)</li>
+                    <li>The crow's foot indicates "many"</li>
+                </ul>
+
+                <p><strong>Grading:</strong></p>
+                <ul>
+                    <li>2 points per symbol if both elements present and correct</li>
+                    <li>1 point if one element correct but second missing/wrong</li>
+                    <li>Accept hand-drawn symbols that clearly show the two components</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>Question 32 (7 points):</strong> Given this table in 1NF:</p>
+
+            <p><strong>EMPLOYEE(EmpID, EmpName, DeptID, DeptName, DeptLocation)</strong></p>
+
+            <ul>
+                <li>Primary Key: EmpID</li>
+                <li>Functional Dependencies:
+                    <ul>
+                        <li><code>EmpID → EmpName, DeptID</code></li>
+                        <li><code>DeptID → DeptName, DeptLocation</code></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>a) What normal form violation exists in this table? <span class="points">(2 points)</span></p>
+            <p>b) Explain why this is a problem (what anomaly could occur?). <span class="points">(2 points)</span></p>
+            <p>c) Decompose this table to fix the problem. Show the resulting table structures with their primary keys clearly marked. <span class="points">(3 points: 1.5 per table)</span></p>
+
+            <div class="answer">
+                <p><strong>ANSWER:</strong></p>
+
+                <p><strong>a) Transitive dependency / Violates 3NF</strong> (2 points)</p>
+                <ul>
+                    <li>EmpID → DeptID → DeptName, DeptLocation</li>
+                    <li>This is a transitive dependency (goes through intermediate non-key attribute)</li>
+                    <li>The table is in 2NF (single-column PK, so no partial dependencies possible)</li>
+                    <li>But violates 3NF (has transitive dependency)</li>
+                </ul>
+
+                <p><strong>b) Anomalies that could occur:</strong> (2 points - any ONE is sufficient)</p>
+                <ul>
+                    <li><strong>Update anomaly:</strong> If a department changes name or location, must update multiple employee records (every employee in that department). Risk of inconsistency.</li>
+                    <li><strong>Deletion anomaly:</strong> If the last employee in a department is deleted, we lose all information about that department.</li>
+                    <li><strong>Insertion anomaly:</strong> Cannot add a new department without first hiring an employee in that department.</li>
+                </ul>
+
+                <p><strong>c) Decomposed tables:</strong> (3 points)</p>
+
+                <p><strong>EMPLOYEE Table:</strong> (1.5 points)</p>
+                <ul>
+                    <li>EmpID (PK)</li>
+                    <li>EmpName</li>
+                    <li>DeptID (FK)</li>
+                </ul>
+
+                <p><strong>DEPARTMENT Table:</strong> (1.5 points)</p>
+                <ul>
+                    <li>DeptID (PK)</li>
+                    <li>DeptName</li>
+                    <li>DeptLocation</li>
+                </ul>
+
+                <p><strong>Grading:</strong></p>
+                <ul>
+                    <li>1.5 points per table if structure is correct</li>
+                    <li>Deduct 0.25 points per table if PK not clearly marked</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>Question 33 (6 points):</strong> A university database needs to track students and courses.</p>
+
+            <ul>
+                <li>A student can enroll in many courses</li>
+                <li>A course can have many students</li>
+                <li>For each enrollment, we need to track the grade and semester</li>
+            </ul>
+
+            <p>Draw a simple ERD showing these three entities (STUDENT, COURSE, and the appropriate bridge entity) with their relationships using crow's feet notation. Label the entities and show the relationship lines with proper notation. Clearly indicate where Grade and Semester are stored and label primary keys (PK). You may hand-draw and upload an image.</p>
+
+            <p><strong>Grading breakdown:</strong></p>
+            <ul>
+                <li>STUDENT entity with PK labeled: 1 point</li>
+                <li>COURSE entity with PK labeled: 1 point</li>
+                <li>ENROLLMENT bridge entity with composite PK: 1.5 points</li>
+                <li>Correct crow's feet notation on relationships: 1.5 points</li>
+                <li>Grade and Semester shown in ENROLLMENT: 1 point</li>
+            </ul>
+
+            <div class="answer">
+                <p><strong>ANSWER (Visual representation):</strong></p>
+
+                <pre style="background-color: white; padding: 15px; border: 1px solid #ccc; font-family: monospace;">
+     One student, many enrollments          One course, many enrollments
+              (1:M)                                    (1:M)
+
+STUDENT ——|—————o≺—— ENROLLMENT ——≺o—————|—— COURSE
+
+┌─────────┐          ┌────────────┐          ┌─────────┐
+│ STUDENT │          │ ENROLLMENT │          │ COURSE  │
+├─────────┤          ├────────────┤          ├─────────┤
+│StudentID│          │StudentID(FK)│         │CourseID │
+│  (PK)   │          │CourseID(FK)│          │  (PK)   │
+│Name     │          │ {PK}       │          │Name     │
+│...      │          │Grade       │          │Credits  │
+│         │          │Semester    │          │...      │
+└─────────┘          └────────────┘          └─────────┘
+                </pre>
+
+                <p><strong>Key elements:</strong></p>
+                <ul>
+                    <li>STUDENT entity box with StudentID (PK)</li>
+                    <li>COURSE entity box with CourseID (PK)</li>
+                    <li>ENROLLMENT bridge entity in the middle with composite PK: {StudentID, CourseID}</li>
+                    <li>ENROLLMENT contains: StudentID (FK), CourseID (FK), Grade, Semester</li>
+                    <li>Relationship from STUDENT to ENROLLMENT: 1:M (one student, many enrollments)</li>
+                    <li>Relationship from COURSE to ENROLLMENT: 1:M (one course, many enrollments)</li>
+                    <li>Crow's feet notation showing "one" on STUDENT/COURSE sides, "many" on ENROLLMENT sides</li>
+                </ul>
+
+                <p><strong>Grading notes:</strong></p>
+                <ul>
+                    <li>Accept reasonable variations in box shapes and layout</li>
+                    <li>Hand-drawn diagrams acceptable if concepts clear</li>
+                    <li>Focus on conceptual correctness, not artistic perfection</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>Question 34 (4 points):</strong> List the three types of database anomalies that normalization helps prevent and provide a one-sentence description of each.</p>
+
+            <div class="answer">
+                <p><strong>ANSWER:</strong></p>
+
+                <p><strong>1. Update Anomaly</strong> (~1.33 points)</p>
+                <ul>
+                    <li>When you have to update the same information in multiple places, creating risk of inconsistency</li>
+                    <li>OR: Changing one fact requires updating multiple rows, and you might miss some</li>
+                </ul>
+
+                <p><strong>2. Insertion Anomaly</strong> (~1.33 points)</p>
+                <ul>
+                    <li>When you cannot add data without also adding other unrelated data</li>
+                    <li>OR: Cannot add a new record because other required information is missing or not applicable</li>
+                </ul>
+
+                <p><strong>3. Deletion Anomaly</strong> (~1.34 points)</p>
+                <ul>
+                    <li>When deleting one piece of information unintentionally causes loss of other important information</li>
+                    <li>OR: Removing a record causes loss of other unrelated data that you wanted to keep</li>
+                </ul>
+
+                <p><strong>Grading:</strong></p>
+                <ul>
+                    <li>~1.33 points per anomaly (4 points total ÷ 3 anomalies)</li>
+                    <li>0.67 points for correctly naming the anomaly</li>
+                    <li>0.67 points for providing accurate description</li>
+                    <li>Must provide all THREE anomalies for full credit</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>Question 35 (4 points):</strong> When might a database designer choose to <strong>denormalize</strong> a properly normalized database? Give TWO specific scenarios where denormalization would be appropriate and explain WHY denormalization helps in each case.</p>
+
+            <p><strong>Grading:</strong> 2 points per scenario (1 for scenario description, 1 for explanation of why it helps)</p>
+
+            <div class="answer">
+                <p><strong>ANSWER:</strong> (3 points per scenario - NOTE: Question shows 4 total points but grading note says 2 per scenario. Accept either 2 or 3 points per scenario.)</p>
+
+                <p><strong>Scenario 1: Read-heavy reporting/analytics</strong></p>
+                <ul>
+                    <li><strong>Description:</strong> Frequently-run reports that join many tables (5+ joins) and perform slowly; data warehouse or business intelligence applications; dashboard queries that need sub-second response times</li>
+                    <li><strong>Why it helps:</strong> Pre-joining tables eliminates expensive JOIN operations at query time; reduces number of table lookups; improves query performance significantly; acceptable trade-off when data changes infrequently but is queried often</li>
+                </ul>
+
+                <p><strong>Scenario 2: Performance-critical real-time queries</strong></p>
+                <ul>
+                    <li><strong>Description:</strong> High-traffic web application queries causing bottlenecks; real-time systems where query speed is critical (e.g., e-commerce product pages); customer-facing queries that must return in milliseconds</li>
+                    <li><strong>Why it helps:</strong> Reduces query complexity and execution time; decreases database server load; improves user experience (faster page loads); can handle higher concurrent user load</li>
+                </ul>
+
+                <p><strong>Alternative Scenario 3: Calculated/aggregated fields</strong></p>
+                <ul>
+                    <li><strong>Description:</strong> Storing pre-calculated totals, counts, or aggregations (e.g., Order total in ORDER table instead of calculating from ORDER_DETAIL; Student GPA stored instead of calculated from grades)</li>
+                    <li><strong>Why it helps:</strong> Avoids recalculating same value repeatedly; calculation once during write is cheaper than calculation on every read; improves read performance dramatically</li>
+                </ul>
+
+                <p><strong>Alternative Scenario 4: Historical snapshots / Audit trails</strong></p>
+                <ul>
+                    <li><strong>Description:</strong> Preserving data as it was at a point in time (e.g., storing customer address on ORDER table even though also in CUSTOMER table); audit requirements to preserve exact state at time of transaction</li>
+                    <li><strong>Why it helps:</strong> Maintains historical accuracy even if related data changes; prevents retroactive changes from affecting historical records; required for compliance/audit purposes</li>
+                </ul>
+
+                <p><strong>Grading notes:</strong></p>
+                <ul>
+                    <li>Accept any TWO distinct, valid scenarios from above</li>
+                    <li>Full credit: Specific scenario + clear explanation of benefit</li>
+                    <li>Partial credit: Vague scenario or weak explanation</li>
+                    <li>No credit: Incorrect scenarios or missing explanation</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>END OF EXAM</h2>
+
+        <div class="instructions">
+            <p><strong>Before you submit:</strong></p>
+            <ul>
+                <li>✓ Have you answered all questions?</li>
+                <li>✓ Have you uploaded your hand-drawn diagrams for Q31 and Q33?</li>
+                <li>✓ Have you shown your work for short answer questions?</li>
+                <li>✓ Is your name on the exam?</li>
+                <li>✓ Have you reviewed your answers?</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h3>FOR INSTRUCTOR USE ONLY</h3>
+
+        <table>
+            <tr>
+                <th>Section</th>
+                <th>Points Earned</th>
+                <th>Points Possible</th>
+            </tr>
+            <tr>
+                <td>Part A (T/F)</td>
+                <td>_____</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Part B (Multiple Choice)</td>
+                <td>_____</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>Part C (Short Answer)</td>
+                <td>_____</td>
+                <td>36</td>
+            </tr>
+            <tr>
+                <th>TOTAL</th>
+                <th>_____</th>
+                <th>100</th>
+            </tr>
+        </table>
+
+        <p><strong>Comments:</strong></p>
+
+    </div>
+</body>
+</html>

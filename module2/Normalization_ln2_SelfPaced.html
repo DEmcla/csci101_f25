@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Database Normalization: Self-Paced Tutorial - Third Normal Form (3NF)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Database Normalization: Self-Paced Tutorial - Third
+Normal Form (3NF)</h1>
+</header>
+<h1 id="database-normalization-self-paced-tutorial">Database
+Normalization: Self-Paced Tutorial</h1>
+<h2 id="third-normal-form-3nf---the-industry-standard">Third Normal Form
+(3NF) - The Industry Standard</h2>
+<hr />
+<h3 id="welcome-to-your-self-paced-learning-experience">📚
+<strong>Welcome to Your Self-Paced Learning Experience!</strong></h3>
+<p>This tutorial replaces today’s class session. You’ll learn about
+Third Normal Form (3NF) - the normalization level used in most
+professional databases.</p>
+<p><strong>Prerequisites:</strong> You should have completed Class 1 on
+1NF and 2NF before starting this tutorial. This lesson builds directly
+on those concepts.</p>
+<p><strong>Total Time: Approximately 90 minutes</strong></p>
+<p><strong>What You’ll Need:</strong> - ✏️ Paper and pencil for working
+through examples - 📓 Your notes from Class 1 (for reference if needed)
+- ⏰ 90 minutes of focused time</p>
+<p><strong>How to Use This Tutorial:</strong> - Work through each
+section in order - Don’t skip the practice problems - they’re essential!
+- Check your answers immediately using the provided solutions - If
+something is confusing, review that section before moving on - Take
+short breaks between major sections</p>
+<hr />
+<h2 id="learning-objectives">🎯 Learning Objectives</h2>
+<p>By the end of this tutorial, you will be able to:</p>
+<ol type="1">
+<li><strong>Identify</strong> transitive dependencies in 2NF tables</li>
+<li><strong>Decompose</strong> tables to achieve 3NF by eliminating
+transitive dependencies</li>
+<li><strong>Recognize</strong> when 3NF is sufficient versus when higher
+forms are needed</li>
+<li><strong>Evaluate</strong> trade-offs between normalization levels
+and query complexity</li>
+</ol>
+<hr />
+<h2 id="tutorial-roadmap">📋 Tutorial Roadmap</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Topic</th>
+<th>Time</th>
+<th>Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Quick Review &amp; Warm-Up</td>
+<td>10 min</td>
+<td>⬜</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Understanding Transitive Dependencies</td>
+<td>15 min</td>
+<td>⬜</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The 4-Step Process for 3NF</td>
+<td>15 min</td>
+<td>⬜</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Guided Practice Problem #1</td>
+<td>20 min</td>
+<td>⬜</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Guided Practice Problem #2</td>
+<td>20 min</td>
+<td>⬜</td>
+</tr>
+<tr>
+<td>6</td>
+<td>When to Stop: 3NF vs Higher Forms</td>
+<td>10 min</td>
+<td>⬜</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Check off each section as you complete it!</strong></p>
+<hr />
+<h1 id="section-1-quick-review-warm-up">Section 1: Quick Review &amp;
+Warm-Up</h1>
+<p>⏱️ <strong>Estimated Time: 10 minutes</strong></p>
+<p>Before diving into 3NF, let’s make sure you remember the key concepts
+from Class 1.</p>
+<h2 id="what-weve-learned-so-far">What We’ve Learned So Far</h2>
+<h3 id="nf-first-normal-form-solved">1NF (First Normal Form)
+Solved:</h3>
+<ul>
+<li>✅ Non-atomic values (multiple items in one field)</li>
+<li>✅ Repeating groups</li>
+</ul>
+<h3 id="nf-second-normal-form-solved">2NF (Second Normal Form)
+Solved:</h3>
+<ul>
+<li>✅ Partial dependencies (non-key attributes depending on part of
+composite key)</li>
+</ul>
+<h3 id="still-need-to-solve">Still Need to Solve:</h3>
+<ul>
+<li>❌ <strong>Transitive dependencies</strong> - indirect relationships
+through other attributes</li>
+<li>❌ <strong>Complex key relationships</strong> - edge cases that 3NF
+doesn’t handle</li>
+</ul>
+<hr />
+<h2 id="warm-up-quiz-5-minutes">🧪 Warm-Up Quiz (5 minutes)</h2>
+<p><strong>Test your memory from Class 1:</strong></p>
+<p><strong>Question 1:</strong> What is the composite key in this
+table?</p>
+<table>
+<thead>
+<tr>
+<th>OrderID</th>
+<th>ProductID</th>
+<th>ProductName</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>P50</td>
+<td>Laptop</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>P51</td>
+<td>Mouse</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> <code>{OrderID, ProductID}</code> - you need
+both fields together to uniquely identify each row.</p>
+<ul>
+<li>OrderID alone doesn’t work (1001 appears twice)</li>
+<li>ProductID alone doesn’t work (different orders can have the same
+product)</li>
+<li>Together they uniquely identify each row</li>
+</ul>
+</details>
+<hr />
+<p><strong>Question 2:</strong> Is this a partial dependency?</p>
+<ul>
+<li>Table key: <code>{OrderID, ProductID}</code></li>
+<li>Dependency: <code>ProductID → ProductName</code></li>
+</ul>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> YES - this is a partial dependency.</p>
+<p><strong>Why?</strong> ProductName depends on only PART of the
+composite key (just ProductID), not the whole key {OrderID,
+ProductID}.</p>
+<strong>How to fix:</strong> Move ProductName to a separate PRODUCT
+table where ProductID is the primary key.
+</details>
+<hr />
+<p><strong>Question 3:</strong> After fixing the partial dependency
+above, how many tables would you have?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> 3 tables</p>
+<ol type="1">
+<li><strong>ORDER</strong> table (OrderID, order-specific info)</li>
+<li><strong>PRODUCT</strong> table (ProductID, ProductName)</li>
+<li><strong>ORDER_DETAIL</strong> table (OrderID, ProductID, Quantity) -
+the bridge table</li>
+</ol>
+<strong>Why 3 tables?</strong> The bridge table (ORDER_DETAIL) connects
+orders to products and stores the quantity for each order-product
+combination.
+</details>
+<hr />
+<h2 id="before-you-continue">⚠️ Before You Continue</h2>
+<p><strong>If you struggled with these warm-up questions:</strong> -
+Review your notes from Class 1 - Re-read the 1NF and 2NF sections - Ask
+questions on the class forum before continuing</p>
+<p><strong>If you got all three correct:</strong> Great! You’re ready to
+move on to 3NF! ✅</p>
+<hr />
+<p><strong>✅ Section 1 Complete! Check it off in the roadmap
+above.</strong></p>
+<hr />
+<h1 id="section-2-understanding-transitive-dependencies">Section 2:
+Understanding Transitive Dependencies</h1>
+<p>⏱️ <strong>Estimated Time: 15 minutes</strong></p>
+<h2 id="the-problem-were-solving">The Problem We’re Solving</h2>
+<p>Even after achieving 2NF, we can still have serious data integrity
+problems. Let’s look at an example.</p>
+<h3 id="real-world-example-course-registration-system">Real-World
+Example: Course Registration System</h3>
+<p><strong>Course Table (in 2NF, but still has problems):</strong></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>CourseID</th>
+<th>CourseName</th>
+<th>Credits</th>
+<th>InstructorID</th>
+<th>InstructorName</th>
+<th>InstructorOffice</th>
+<th>InstructorPhone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CS101</td>
+<td>Intro Programming</td>
+<td>3</td>
+<td>I001</td>
+<td>Dr. Johnson</td>
+<td>Room 101</td>
+<td>555-1234</td>
+</tr>
+<tr>
+<td>MATH201</td>
+<td>Calculus I</td>
+<td>4</td>
+<td>I002</td>
+<td>Dr. Williams</td>
+<td>Room 205</td>
+<td>555-5678</td>
+</tr>
+<tr>
+<td>CS201</td>
+<td>Data Structures</td>
+<td>4</td>
+<td>I001</td>
+<td>Dr. Johnson</td>
+<td>Room 101</td>
+<td>555-1234</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stop and Think (2 minutes):</strong> - What problems do you
+see in this table? - What happens if Dr. Johnson moves to Room 102? -
+What if Dr. Johnson’s phone number changes?</p>
+<details>
+<summary>
+Click to see the problems
+</summary>
+<h3 id="problems-with-this-table">Problems with This Table:</h3>
+<ol type="1">
+<li><p><strong>Update Anomaly</strong>: If Dr. Johnson moves to Room
+102, we must update:</p>
+<ul>
+<li>The CS101 row</li>
+<li>The CS201 row</li>
+<li>Any other course Dr. Johnson teaches</li>
+<li>Two updates for one real-world fact!</li>
+</ul></li>
+<li><p><strong>Insertion Anomaly</strong>: We can’t add a new instructor
+to the system until they’re assigned to teach a course.</p></li>
+<li><p><strong>Deletion Anomaly</strong>: If CS201 is cancelled and
+deleted, we lose information about Dr. Johnson (assuming CS101 is also
+deleted).</p></li>
+</ol>
+<strong>Sound familiar?</strong> These are the SAME three anomalies from
+1NF and 2NF! That’s because we still have a structural problem.
+</details>
+<hr />
+<h2 id="what-is-a-transitive-dependency">What Is a Transitive
+Dependency?</h2>
+<h3 id="the-dependency-chain">The Dependency Chain</h3>
+<p>Let’s trace how information flows in the Course table:</p>
+<pre><code>[CourseID] ──────→ [InstructorID] ──────→ [InstructorName]
+   PRIMARY          INTERMEDIATE              ENDPOINT
+     KEY              BRIDGE
+
+CourseID determines InstructorID (direct)
+InstructorID determines InstructorName (direct)
+CourseID determines InstructorName (INDIRECT - through InstructorID)</code></pre>
+<p><strong>This indirect relationship is called a TRANSITIVE
+DEPENDENCY.</strong></p>
+<hr />
+<h3 id="the-formal-definition">The Formal Definition</h3>
+<p><strong>Transitive Dependency:</strong> When <code>A → B</code> and
+<code>B → C</code>, then <code>A → C</code> indirectly.</p>
+<p>In our example: - <code>CourseID → InstructorID</code> (A → B) -
+<code>InstructorID → InstructorName</code> (B → C) - Therefore:
+<code>CourseID → InstructorName</code> (A → C)
+<strong>transitively</strong></p>
+<hr />
+<h3 id="the-pattern-to-recognize">The Pattern to Recognize</h3>
+<p>🔍 <strong>“Information about the information”</strong></p>
+<p>Ask yourself: Does this field describe: - ✅ The primary key
+(CourseID)? - ❌ Another field in the table?</p>
+<p><strong>Examples:</strong> - <code>InstructorName</code> describes
+the <strong>instructor</strong>, NOT the course → Transitive dependency!
+- <code>InstructorOffice</code> describes the
+<strong>instructor</strong>, NOT the course → Transitive dependency! -
+<code>CourseName</code> describes the <strong>course</strong> directly →
+OK! - <code>Credits</code> describes the <strong>course</strong>
+directly → OK!</p>
+<hr />
+<h2 id="check-your-understanding-3-minutes">🧪 Check Your Understanding
+(3 minutes)</h2>
+<p>Look at this table:</p>
+<table>
+<thead>
+<tr>
+<th>EmployeeID</th>
+<th>EmployeeName</th>
+<th>DeptID</th>
+<th>DeptName</th>
+<th>DeptLocation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01</td>
+<td>Alice</td>
+<td>D10</td>
+<td>Sales</td>
+<td>Building A</td>
+</tr>
+<tr>
+<td>E02</td>
+<td>Bob</td>
+<td>D10</td>
+<td>Sales</td>
+<td>Building A</td>
+</tr>
+<tr>
+<td>E03</td>
+<td>Carol</td>
+<td>D20</td>
+<td>IT</td>
+<td>Building B</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: EmployeeID</p>
+<p><strong>Question 1:</strong> What field creates a transitive
+dependency chain?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> DeptID is the intermediate field that
+creates transitive dependencies.</p>
+<p><strong>The chains:</strong></p>
+<pre><code>EmployeeID → DeptID → DeptName
+EmployeeID → DeptID → DeptLocation</code></pre>
+DeptName and DeptLocation describe the DEPARTMENT, not the EMPLOYEE.
+</details>
+<hr />
+<p><strong>Question 2:</strong> What would happen if the Sales
+department moves to Building C?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> You’d have to update TWO rows (E01 and
+E02).</p>
+This is an <strong>UPDATE ANOMALY</strong> - changing one fact
+(department location) requires multiple row updates. This is inefficient
+and error-prone (what if you miss one?).
+</details>
+<hr />
+<p><strong>✅ Section 2 Complete! Check it off in the
+roadmap.</strong></p>
+<hr />
+<h1 id="section-3-the-4-step-process-for-3nf">Section 3: The 4-Step
+Process for 3NF</h1>
+<p>⏱️ <strong>Estimated Time: 15 minutes</strong></p>
+<p>Now you’ll learn a systematic process to identify and fix transitive
+dependencies.</p>
+<h2 id="the-4-step-process">The 4-Step Process</h2>
+<pre><code>STEP 1: List ALL Functional Dependencies
+├─ Write down every dependency in the table
+├─ Include both direct and potential indirect ones
+└─ Format: FieldA → FieldB
+
+STEP 2: Look for Dependency Chains
+├─ Find patterns: A → B → C
+├─ Ask: &quot;Does the primary key determine B, and then B determines C?&quot;
+└─ If YES → you found a transitive dependency
+
+STEP 3: Check Non-Key Dependencies
+├─ For each non-key attribute, ask: &quot;Does it depend on another non-key attribute?&quot;
+├─ Example: Does InstructorName depend on InstructorID (both non-key)?
+└─ If YES → transitive dependency exists
+
+STEP 4: Decompose into Separate Tables
+├─ Create a new table for the transitively dependent attributes
+├─ Use the intermediate field (B) as the primary key in the new table
+└─ Keep a foreign key in the original table to maintain the relationship</code></pre>
+<hr />
+<h2 id="worked-example-course-table">Worked Example: Course Table</h2>
+<p>Let’s apply all 4 steps to the Course table we saw earlier.</p>
+<p><strong>Original Table:</strong></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>CourseID</th>
+<th>CourseName</th>
+<th>Credits</th>
+<th>InstructorID</th>
+<th>InstructorName</th>
+<th>InstructorOffice</th>
+<th>InstructorPhone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CS101</td>
+<td>Intro Programming</td>
+<td>3</td>
+<td>I001</td>
+<td>Dr. Johnson</td>
+<td>Room 101</td>
+<td>555-1234</td>
+</tr>
+<tr>
+<td>MATH201</td>
+<td>Calculus I</td>
+<td>4</td>
+<td>I002</td>
+<td>Dr. Williams</td>
+<td>Room 205</td>
+<td>555-5678</td>
+</tr>
+<tr>
+<td>CS201</td>
+<td>Data Structures</td>
+<td>4</td>
+<td>I001</td>
+<td>Dr. Johnson</td>
+<td>Room 101</td>
+<td>555-1234</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: CourseID</p>
+<hr />
+<h3 id="step-1-list-all-functional-dependencies">STEP 1: List ALL
+Functional Dependencies</h3>
+<p><strong>Your Turn (3 minutes):</strong> Before looking at the answer,
+try to list all the functional dependencies in this table.</p>
+<details>
+<summary>
+Click to see all dependencies
+</summary>
+<pre><code>CourseID → CourseName
+CourseID → Credits
+CourseID → InstructorID
+CourseID → InstructorName
+CourseID → InstructorOffice
+CourseID → InstructorPhone
+InstructorID → InstructorName
+InstructorID → InstructorOffice
+InstructorID → InstructorPhone</code></pre>
+<strong>Notice:</strong> Some dependencies start with CourseID (the
+key), others start with InstructorID (non-key).
+</details>
+<hr />
+<h3 id="step-2-look-for-dependency-chains">STEP 2: Look for Dependency
+Chains</h3>
+<p><strong>Your Turn (2 minutes):</strong> Can you spot the chains? Look
+for A → B → C patterns.</p>
+<details>
+<summary>
+Click to see the chains
+</summary>
+<pre><code>Chain 1: CourseID → InstructorID → InstructorName ✗ PROBLEM!
+Chain 2: CourseID → InstructorID → InstructorOffice ✗ PROBLEM!
+Chain 3: CourseID → InstructorID → InstructorPhone ✗ PROBLEM!</code></pre>
+<strong>Pattern:</strong> InstructorID is the “bridge” that creates all
+three transitive dependencies.
+</details>
+<hr />
+<h3 id="step-3-check-non-key-dependencies">STEP 3: Check Non-Key
+Dependencies</h3>
+<p><strong>Your Turn (2 minutes):</strong> Which non-key attributes
+depend on other non-key attributes?</p>
+<details>
+<summary>
+Click to see non-key dependencies
+</summary>
+<pre><code>InstructorName (non-key) depends on InstructorID (non-key) ✗ PROBLEM!
+InstructorOffice (non-key) depends on InstructorID (non-key) ✗ PROBLEM!
+InstructorPhone (non-key) depends on InstructorID (non-key) ✗ PROBLEM!
+
+CourseName (non-key) depends on CourseID (key) ✓ OK
+Credits (non-key) depends on CourseID (key) ✓ OK</code></pre>
+<strong>The rule:</strong> Non-key attributes should depend ONLY on the
+primary key, not on other non-key attributes.
+</details>
+<hr />
+<h3 id="step-4-decompose-into-separate-tables">STEP 4: Decompose into
+Separate Tables</h3>
+<p><strong>Solution:</strong></p>
+<p><strong>COURSE Table (3NF):</strong></p>
+<table>
+<thead>
+<tr>
+<th>CourseID</th>
+<th>CourseName</th>
+<th>Credits</th>
+<th>InstructorID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CS101</td>
+<td>Intro Programming</td>
+<td>3</td>
+<td>I001</td>
+</tr>
+<tr>
+<td>MATH201</td>
+<td>Calculus I</td>
+<td>4</td>
+<td>I002</td>
+</tr>
+<tr>
+<td>CS201</td>
+<td>Data Structures</td>
+<td>4</td>
+<td>I001</td>
+</tr>
+</tbody>
+</table>
+<p><strong>INSTRUCTOR Table (New - 3NF):</strong></p>
+<table>
+<thead>
+<tr>
+<th>InstructorID</th>
+<th>InstructorName</th>
+<th>InstructorOffice</th>
+<th>InstructorPhone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I001</td>
+<td>Dr. Johnson</td>
+<td>Room 101</td>
+<td>555-1234</td>
+</tr>
+<tr>
+<td>I002</td>
+<td>Dr. Williams</td>
+<td>Room 205</td>
+<td>555-5678</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Relationships:</strong> - COURSE.InstructorID is a
+foreign key referencing INSTRUCTOR.InstructorID - Now Dr. Johnson’s info
+appears ONCE (not twice!)</p>
+<hr />
+<h3 id="benefits-of-this-decomposition">Benefits of This
+Decomposition</h3>
+<p>✅ <strong>Update Anomaly Fixed:</strong> Change Dr. Johnson’s office
+in ONE place ✅ <strong>Insertion Anomaly Fixed:</strong> Can add
+instructors without courses ✅ <strong>Deletion Anomaly Fixed:</strong>
+Deleting a course doesn’t lose instructor data</p>
+<hr />
+<h2 id="self-check-quiz-3-minutes">🧪 Self-Check Quiz (3 minutes)</h2>
+<p><strong>Question:</strong> Why did we put InstructorName,
+InstructorOffice, and InstructorPhone in the INSTRUCTOR table?</p>
+<details>
+<summary>
+Click to reveal answer
+</summary>
+<p><strong>Answer:</strong> Because all three of these fields describe
+the INSTRUCTOR, not the COURSE.</p>
+<p>They depend on InstructorID, not on CourseID. By moving them to their
+own table with InstructorID as the primary key, we eliminate the
+transitive dependencies.</p>
+<strong>The rule:</strong> Group attributes that describe the same
+entity (thing) together in a table.
+</details>
+<hr />
+<p><strong>✅ Section 3 Complete! Check it off in the
+roadmap.</strong></p>
+<hr />
+<h1 id="section-4-guided-practice-problem-1">Section 4: Guided Practice
+Problem #1</h1>
+<p>⏱️ <strong>Estimated Time: 15 minutes</strong></p>
+<p>Now it’s your turn to apply the 4-step process! Work through this
+problem completely before checking the solution.</p>
+<h2 id="problem-employee-department-system">Problem: Employee Department
+System</h2>
+<p><strong>Current Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>EmpID</th>
+<th>EmpName</th>
+<th>DeptID</th>
+<th>DeptName</th>
+<th>DeptLocation</th>
+<th>Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01</td>
+<td>Alice</td>
+<td>D10</td>
+<td>Sales</td>
+<td>Building A</td>
+<td>50000</td>
+</tr>
+<tr>
+<td>E02</td>
+<td>Bob</td>
+<td>D10</td>
+<td>Sales</td>
+<td>Building A</td>
+<td>55000</td>
+</tr>
+<tr>
+<td>E03</td>
+<td>Carol</td>
+<td>D20</td>
+<td>IT</td>
+<td>Building B</td>
+<td>60000</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: EmpID</p>
+<hr />
+<h2 id="your-task">Your Task</h2>
+<p><strong>Work through the 4-step process on your own (10
+minutes):</strong></p>
+<h3 id="step-1-list-all-functional-dependencies-1">STEP 1: List ALL
+Functional Dependencies</h3>
+<p>Write them down on paper in the format:
+<code>FieldA → FieldB</code></p>
+<details>
+<summary>
+Hint if you’re stuck
+</summary>
+Start with the primary key (EmpID) and think about what it determines.
+Then look for dependencies between non-key fields.
+</details>
+<hr />
+<h3 id="step-2-look-for-dependency-chains-1">STEP 2: Look for Dependency
+Chains</h3>
+<p>Find patterns like: <code>A → B → C</code></p>
+<details>
+<summary>
+Hint if you’re stuck
+</summary>
+Look at DeptID - does it serve as a “bridge” between other fields?
+</details>
+<hr />
+<h3 id="step-3-check-non-key-dependencies-1">STEP 3: Check Non-Key
+Dependencies</h3>
+<p>Which non-key attributes depend on other non-key attributes?</p>
+<details>
+<summary>
+Hint if you’re stuck
+</summary>
+DeptName and DeptLocation - do they depend on EmpID or on something
+else?
+</details>
+<hr />
+<h3 id="step-4-decompose-into-3nf-tables">STEP 4: Decompose into 3NF
+Tables</h3>
+<p>Draw the new table structure on paper.</p>
+<details>
+<summary>
+Hint if you’re stuck
+</summary>
+You should create TWO tables: one for employees and one for departments.
+</details>
+<hr />
+<h2 id="complete-solution">Complete Solution</h2>
+<p><strong>Only look at this after you’ve attempted all 4
+steps!</strong></p>
+<details>
+<summary>
+Click to reveal complete solution
+</summary>
+<h3 id="step-1-all-functional-dependencies">STEP 1: All Functional
+Dependencies</h3>
+<pre><code>EmpID → EmpName
+EmpID → DeptID
+EmpID → DeptName
+EmpID → DeptLocation
+EmpID → Salary
+DeptID → DeptName
+DeptID → DeptLocation</code></pre>
+<hr />
+<h3 id="step-2-dependency-chains-found">STEP 2: Dependency Chains
+Found</h3>
+<pre><code>Chain 1: EmpID → DeptID → DeptName ✗ TRANSITIVE!
+Chain 2: EmpID → DeptID → DeptLocation ✗ TRANSITIVE!</code></pre>
+<p><strong>Explanation:</strong> DeptName and DeptLocation depend on
+DeptID, which depends on EmpID. This creates an indirect (transitive)
+dependency.</p>
+<hr />
+<h3 id="step-3-non-key-dependencies">STEP 3: Non-Key Dependencies</h3>
+<pre><code>DeptName (non-key) depends on DeptID (non-key) ✗ PROBLEM!
+DeptLocation (non-key) depends on DeptID (non-key) ✗ PROBLEM!
+
+EmpName (non-key) depends on EmpID (key) ✓ OK
+Salary (non-key) depends on EmpID (key) ✓ OK</code></pre>
+<hr />
+<h3 id="step-4-3nf-decomposition">STEP 4: 3NF Decomposition</h3>
+<p><strong>EMPLOYEE Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>EmpID</th>
+<th>EmpName</th>
+<th>DeptID</th>
+<th>Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01</td>
+<td>Alice</td>
+<td>D10</td>
+<td>50000</td>
+</tr>
+<tr>
+<td>E02</td>
+<td>Bob</td>
+<td>D10</td>
+<td>55000</td>
+</tr>
+<tr>
+<td>E03</td>
+<td>Carol</td>
+<td>D20</td>
+<td>60000</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: EmpID Foreign Key: DeptID (references DEPARTMENT)</p>
+<p><strong>DEPARTMENT Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>DeptID</th>
+<th>DeptName</th>
+<th>DeptLocation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10</td>
+<td>Sales</td>
+<td>Building A</td>
+</tr>
+<tr>
+<td>D20</td>
+<td>IT</td>
+<td>Building B</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: DeptID</p>
+<hr />
+<h3 id="what-we-fixed">What We Fixed:</h3>
+<ol type="1">
+<li><strong>Update Anomaly:</strong> Change “Sales” to “Business
+Development” in ONE place (not two)</li>
+<li><strong>Insertion Anomaly:</strong> Can add new departments without
+hiring employees</li>
+<li><strong>Deletion Anomaly:</strong> Deleting all employees in a
+department doesn’t lose department info</li>
+</ol>
+<p><strong>Key Insight:</strong> Notice “Sales” now appears only ONCE
+(was in 2 rows before). This is the hallmark of good normalization!</p>
+</details>
+<hr />
+<h2 id="reflection-questions-3-minutes">Reflection Questions (3
+minutes)</h2>
+<p>Answer these to solidify your understanding:</p>
+<ol type="1">
+<li>Why did we create two tables instead of one?</li>
+<li>Which table would you update if the Sales department moves to
+Building C?</li>
+<li>How does this design prevent data inconsistency?</li>
+</ol>
+<details>
+<summary>
+Click to see answers
+</summary>
+<ol type="1">
+<li><p><strong>Why two tables?</strong> Because we have two distinct
+entities: EMPLOYEE (people) and DEPARTMENT (organizational units). Each
+should have its own table.</p></li>
+<li><p><strong>Which table to update?</strong> Only the DEPARTMENT table
+- change DeptLocation for DeptID D10. This updates ALL employees in
+Sales automatically (via the foreign key relationship).</p></li>
+<li><p><strong>How it prevents inconsistency:</strong> Since department
+information exists in only ONE place, you can’t have situations where
+“Sales” is in Building A in one row and Building C in another row.
+Single point of truth = no inconsistency!</p></li>
+</ol>
+</details>
+<hr />
+<p><strong>✅ Section 4 Complete! Check it off in the
+roadmap.</strong></p>
+<hr />
+<h1 id="section-5-guided-practice-problem-2">Section 5: Guided Practice
+Problem #2</h1>
+<p>⏱️ <strong>Estimated Time: 15 minutes</strong></p>
+<p>Let’s practice again with a more complex example. This time, try to
+work more independently.</p>
+<h2 id="problem-product-supplier-system">Problem: Product Supplier
+System</h2>
+<p><strong>Current Table:</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr>
+<th>ProductID</th>
+<th>ProductName</th>
+<th>SupplierID</th>
+<th>SupplierName</th>
+<th>SupplierCity</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P100</td>
+<td>Widget</td>
+<td>S01</td>
+<td>Acme Corp</td>
+<td>New York</td>
+<td>10.50</td>
+</tr>
+<tr>
+<td>P101</td>
+<td>Gadget</td>
+<td>S01</td>
+<td>Acme Corp</td>
+<td>New York</td>
+<td>15.00</td>
+</tr>
+<tr>
+<td>P102</td>
+<td>Doohickey</td>
+<td>S02</td>
+<td>Tech Supply</td>
+<td>Boston</td>
+<td>8.75</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: ProductID</p>
+<hr />
+<h2 id="your-independent-work-12-minutes">Your Independent Work (12
+minutes)</h2>
+<p><strong>Apply all 4 steps on your own. Write your work on paper
+before checking the solution.</strong></p>
+<p>Some questions to guide you: - What information describes the
+product? - What information describes the supplier? - If Acme Corp moves
+from New York to Chicago, how many rows need updating? - Can you add a
+new supplier without adding a product?</p>
+<hr />
+<h2 id="complete-solution-1">Complete Solution</h2>
+<p><strong>Only look after completing your work!</strong></p>
+<details>
+<summary>
+Click to reveal complete solution
+</summary>
+<h3 id="step-1-all-functional-dependencies-1">STEP 1: All Functional
+Dependencies</h3>
+<pre><code>ProductID → ProductName
+ProductID → SupplierID
+ProductID → SupplierName
+ProductID → SupplierCity
+ProductID → Price
+SupplierID → SupplierName
+SupplierID → SupplierCity</code></pre>
+<hr />
+<h3 id="step-2-dependency-chains">STEP 2: Dependency Chains</h3>
+<pre><code>Chain 1: ProductID → SupplierID → SupplierName ✗ TRANSITIVE!
+Chain 2: ProductID → SupplierID → SupplierCity ✗ TRANSITIVE!</code></pre>
+<p><strong>The pattern:</strong> SupplierName and SupplierCity tell us
+about the SUPPLIER, not the PRODUCT.</p>
+<hr />
+<h3 id="step-3-non-key-dependencies-1">STEP 3: Non-Key Dependencies</h3>
+<pre><code>SupplierName (non-key) depends on SupplierID (non-key) ✗ PROBLEM!
+SupplierCity (non-key) depends on SupplierID (non-key) ✗ PROBLEM!
+
+ProductName (non-key) depends on ProductID (key) ✓ OK
+Price (non-key) depends on ProductID (key) ✓ OK</code></pre>
+<hr />
+<h3 id="step-4-3nf-decomposition-1">STEP 4: 3NF Decomposition</h3>
+<p><strong>PRODUCT Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>ProductID</th>
+<th>ProductName</th>
+<th>SupplierID</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P100</td>
+<td>Widget</td>
+<td>S01</td>
+<td>10.50</td>
+</tr>
+<tr>
+<td>P101</td>
+<td>Gadget</td>
+<td>S01</td>
+<td>15.00</td>
+</tr>
+<tr>
+<td>P102</td>
+<td>Doohickey</td>
+<td>S02</td>
+<td>8.75</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: ProductID Foreign Key: SupplierID (references
+SUPPLIER)</p>
+<p><strong>SUPPLIER Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>SupplierID</th>
+<th>SupplierName</th>
+<th>SupplierCity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01</td>
+<td>Acme Corp</td>
+<td>New York</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Tech Supply</td>
+<td>Boston</td>
+</tr>
+</tbody>
+</table>
+<p>Primary Key: SupplierID</p>
+<hr />
+<h3 id="key-observations">Key Observations:</h3>
+<ol type="1">
+<li><strong>Acme Corp appears only ONCE</strong> (was in 2 rows
+before)</li>
+<li><strong>SupplierID links the tables</strong> (foreign key
+relationship)</li>
+<li><strong>Update Acme’s city in ONE place</strong> (SUPPLIER
+table)</li>
+<li><strong>Can add suppliers without products</strong> (no insertion
+anomaly)</li>
+</ol>
+</details>
+<hr />
+<h2 id="self-assessment-3-minutes">Self-Assessment (3 minutes)</h2>
+<p><strong>Rate your confidence:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox" />I can identify transitive
+dependencies confidently</label></li>
+<li><label><input type="checkbox" />I can apply the 4-step process
+independently</label></li>
+<li><label><input type="checkbox" />I understand why we separate
+entities into different tables</label></li>
+<li><label><input type="checkbox" />I’m ready to work on the
+assignment</label></li>
+</ul>
+<p><strong>If you didn’t check all boxes:</strong> - Review the sections
+that are unclear - Work through the examples again - Ask questions on
+the class forum</p>
+<hr />
+<p><strong>✅ Section 5 Complete! Check it off in the
+roadmap.</strong></p>
+<hr />
+<h1 id="section-6-when-to-stop---3nf-vs-higher-forms">Section 6: When to
+Stop - 3NF vs Higher Forms</h1>
+<p>⏱️ <strong>Estimated Time: 10 minutes</strong></p>
+<h2 id="youve-mastered-the-industry-standard">You’ve Mastered the
+Industry Standard!</h2>
+<p><strong>Congratulations!</strong> 3NF is the normalization level used
+in most professional databases.</p>
+<hr />
+<h2 id="why-3nf-is-usually-enough">Why 3NF is Usually Enough</h2>
+<h3 id="benefits-of-3nf">Benefits of 3NF:</h3>
+<ul>
+<li>✅ Eliminates most common anomalies (update, insert, delete)</li>
+<li>✅ Balances data integrity with query performance</li>
+<li>✅ Easier to understand and maintain than higher forms</li>
+<li>✅ Sufficient for 95% of real-world applications</li>
+</ul>
+<hr />
+<h2 id="what-about-higher-normal-forms">What About Higher Normal
+Forms?</h2>
+<p><strong>Beyond 3NF:</strong> - There are higher normal forms (4NF,
+5NF, etc.) - They handle very specialized situations - Rarely needed in
+practice - You’ll learn about these in Class 3</p>
+<hr />
+<h2 id="the-trade-off-complexity-vs-integrity">The Trade-Off: Complexity
+vs Integrity</h2>
+<h3 id="example-query-finding-students-and-their-instructors">Example
+Query: Finding Students and Their Instructors</h3>
+<p><strong>Unnormalized (1 table):</strong></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> StudentName, InstructorName</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> BigTable;</span></code></pre></div>
+<p><strong>3NF (4 tables):</strong></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.StudentName, i.InstructorName</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Student s</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Enrollment e <span class="kw">ON</span> s.StudentID <span class="op">=</span> e.StudentID</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Course c <span class="kw">ON</span> e.CourseID <span class="op">=</span> c.CourseID</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Instructor i <span class="kw">ON</span> c.InstructorID <span class="op">=</span> i.InstructorID;</span></code></pre></div>
+<hr />
+<h3 id="the-question-is-the-complexity-worth-it">The Question: Is the
+Complexity Worth It?</h3>
+<p><strong>Unnormalized Approach:</strong> - ✅ Simpler query (1 table,
+no JOINs) - ❌ Dr. Johnson’s name might be misspelled in 50 different
+rows - ❌ Changing office requires 50 updates - ❌ Data inconsistency is
+almost guaranteed</p>
+<p><strong>3NF Approach:</strong> - ✅ Dr. Johnson’s info in ONE place -
+fix typo once - ✅ Update office in ONE place - ✅ Guaranteed
+consistency - ❌ More complex query (3 JOINs)</p>
+<hr />
+<h2 id="the-professional-perspective">The Professional Perspective</h2>
+<p>💡 <strong>Key Insight:</strong> The extra query complexity is a
+small price to pay for data integrity.</p>
+<p><strong>In the real world:</strong> - Queries are written once, run
+many times - Data errors are expensive and embarrassing - Fixing
+inconsistent data is time-consuming - Modern databases handle JOINs
+efficiently</p>
+<p><strong>The verdict:</strong> 3NF is worth it for almost all
+applications!</p>
+<hr />
+<h2 id="when-to-stop-at-3nf">When to Stop at 3NF</h2>
+<p><strong>Stop at 3NF when:</strong> - ✅ No anomalies exist (test by
+trying to update, insert, delete) - ✅ Queries are still manageable (3-4
+JOINs is normal) - ✅ Performance is acceptable - ✅ The team
+understands the design</p>
+<p><strong>Consider higher forms only when:</strong> - ❌ 3NF still
+shows anomalies in your specific domain - ❌ You have overlapping
+candidate keys (rare!) - ❌ Data integrity requirements are extreme</p>
+<hr />
+<p><strong>✅ Section 6 Complete! Check it off in the
+roadmap.</strong></p>
+<hr />
+<h1 id="tutorial-complete">🎉 Tutorial Complete!</h1>
+<h2 id="what-youve-accomplished">What You’ve Accomplished</h2>
+<p>You’ve learned:</p>
+<p>✅ How to identify transitive dependencies ✅ The 4-step process for
+achieving 3NF ✅ How to decompose tables to eliminate anomalies ✅ When
+3NF is sufficient vs when higher forms are needed ✅ The trade-offs
+between normalization and query complexity</p>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<ol type="1">
+<li><strong>Take a 10-minute break</strong> - you’ve earned it!</li>
+<li><strong>Review any sections</strong> where you struggled</li>
+<li><strong>Practice with your own examples</strong> - find tables that
+need normalization</li>
+<li><strong>Ask questions</strong> on the class forum if needed</li>
+<li><strong>Prepare for Class 3</strong> where we’ll cover advanced
+normal forms and complete a hands-on assignment</li>
+</ol>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>💡 <strong>3NF eliminates transitive dependencies</strong> - no
+non-key attribute should depend on another non-key attribute</p>
+<p>💡 <strong>Most real-world databases stop at 3NF</strong> for
+practical reasons</p>
+<p>💡 <strong>Higher normalization trades query complexity for data
+integrity</strong> - usually worth it!</p>
+<p>💡 <strong>The 4-step process is your friend</strong> - use it
+systematically on every table</p>
+<hr />
+<h2 id="quick-reference-card">Quick Reference Card</h2>
+<h3 id="how-to-achieve-3nf">How to Achieve 3NF:</h3>
+<p><strong>Step 1: Check if you’re in 2NF</strong> - Table must have a
+primary key - No partial dependencies (all attributes depend on the
+WHOLE key, not part of it)</p>
+<p><strong>Step 2: Find transitive dependencies</strong> - Look for
+chains: Primary Key → Field A → Field B - Ask: “Does this non-key field
+depend on another non-key field?” - Pattern: “Information about
+information” (Field B describes Field A, not the primary key)</p>
+<p><strong>Step 3: Decompose</strong> - Create a new table for the
+transitively dependent attributes - Use the intermediate field as the
+new table’s primary key - Keep a foreign key in the original table</p>
+<h3 id="common-transitive-dependency-examples">Common Transitive
+Dependency Examples:</h3>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 32%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Employee → DeptID → DeptName</code></td>
+<td>Department info stored with every employee</td>
+<td>Create DEPARTMENT table</td>
+</tr>
+<tr>
+<td><code>Order → CustomerID → CustomerCity</code></td>
+<td>Customer info repeated in every order</td>
+<td>Create CUSTOMER table</td>
+</tr>
+<tr>
+<td><code>Product → CategoryID → CategoryName</code></td>
+<td>Category info duplicated across products</td>
+<td>Create CATEGORY table</td>
+</tr>
+<tr>
+<td><code>Course → InstructorID → InstructorOffice</code></td>
+<td>Instructor info stored with every course</td>
+<td>Create INSTRUCTOR table</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quick-test">Quick Test:</h3>
+<p>✅ <strong>Your table is in 3NF if:</strong> - Every non-key field
+depends ONLY on the primary key - No non-key field depends on another
+non-key field - Changing one fact requires updating only ONE row</p>
+<hr />
+<h2 id="questions-or-concerns">Questions or Concerns?</h2>
+<ul>
+<li>📧 Email your instructor</li>
+<li>💬 Post on the class discussion forum</li>
+<li>👥 Form a study group with classmates</li>
+<li>📅 Attend office hours</li>
+</ul>
+<hr />
+<p><strong>Good luck with your assignment! You’ve got this!</strong>
+🚀</p>
+<hr />
+<p><em>This self-paced tutorial was adapted from the Class 2 lecture
+materials for independent learning.</em></p>
+</body>
+</html>

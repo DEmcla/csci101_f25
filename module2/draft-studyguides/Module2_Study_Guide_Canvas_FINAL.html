@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSCI 101: Module 2 Study Guide (Final Edition)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+        }
+        .pathway {
+            background-color: #fff;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .pathway-a {
+            border-left-color: #27ae60;
+        }
+        .pathway-b {
+            border-left-color: #f39c12;
+        }
+        .pathway-c {
+            border-left-color: #e74c3c;
+        }
+        .concept-box {
+            background-color: #fff;
+            border: 2px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .tip {
+            background-color: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .checklist {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .difficulty-basic {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .difficulty-moderate {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .difficulty-challenging {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .emergency {
+            background-color: #f8d7da;
+            border: 3px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .bridge-section {
+            background-color: #fff9e6;
+            border: 3px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .resource-box {
+            background-color: #e7f3ff;
+            border: 2px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .rating-scale {
+            background-color: #f0f8ff;
+            border: 2px solid #4682b4;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .try-first {
+            background-color: #ffe6f0;
+            border: 3px dashed #ff1493;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .minimum-pass {
+            background-color: #fff0e6;
+            border: 4px solid #ff6347;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        details {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+        }
+        summary:hover {
+            background-color: #e9e9e9;
+        }
+        .quick-ref {
+            background-color: #ffffcc;
+            border: 3px solid #ffd700;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+
+<h1>CSCI 101: Module 2 Study Guide (Final Edition)</h1>
+<p><strong>Database Design, ERD, Normalization, and Relationships</strong></p>
+
+<div class="tip">
+    <strong>📚 How to Use This Study Guide:</strong>
+    <ul>
+        <li>Follow the decision tree below to find YOUR path</li>
+        <li>Work through sections in order (don't skip around)</li>
+        <li>Use checkpoints to verify understanding</li>
+        <li>Cross-reference with course materials when deeper understanding needed</li>
+    </ul>
+</div>
+
+<h2>🎯 START HERE: Which Study Path Is Right for You?</h2>
+
+<div class="pathway pathway-a">
+    <h3>Path A: Well-Prepared Student</h3>
+    <p><strong>You are here if:</strong></p>
+    <ul>
+        <li>✓ Completed all assigned readings (Normalization_ln1, ln2, ln3)</li>
+        <li>✓ Attended all classes and took notes</li>
+        <li>✓ Completed homework assignments</li>
+        <li>✓ Understand most concepts, just need review</li>
+    </ul>
+    <p><strong>👉 Your Path: <a href="#quick-review">"Quick Review Track" (30-60 minutes)</a></strong></p>
+</div>
+
+<div class="pathway pathway-b">
+    <h3>Path B: Average Student</h3>
+    <p><strong>You are here if:</strong></p>
+    <ul>
+        <li>✓ Did most readings and assignments</li>
+        <li>✓ Attended most classes</li>
+        <li>⚠️ Some concepts are fuzzy</li>
+        <li>⚠️ Need structured review</li>
+    </ul>
+    <p><strong>👉 Your Path: <a href="#crash-course">"3-Hour Crash Course"</a> (recommended)</strong></p>
+</div>
+
+<div class="pathway pathway-c">
+    <h3>Path C: Struggling Student</h3>
+    <p><strong>You are here if:</strong></p>
+    <ul>
+        <li>✗ Missed several classes or readings</li>
+        <li>✗ Didn't complete all assignments</li>
+        <li>✗ Many concepts unclear</li>
+        <li>✗ Need to learn from scratch</li>
+    </ul>
+    <p><strong>👉 Your Path: <a href="#emergency">"Emergency Rescue Guide"</a> (30 min) → <a href="#bridge">"Bridge Section"</a> (30 min) → <a href="#crash-course">"Crash Course"</a></strong></p>
+</div>
+
+<hr>
+
+<div class="minimum-pass" id="minimum">
+    <h2>🆘 ABSOLUTE MINIMUM TO PASS (If you have &lt;1 hour)</h2>
+    <p><strong>Running out of time? Focus ONLY on these 4 concepts for maximum points-per-minute:</strong></p>
+
+    <ol>
+        <li><strong>Crow's Feet Notation (12+ possible points)</strong>
+            <ul>
+                <li>|— = Mandatory One</li>
+                <li>o— = Optional One</li>
+                <li>|≺ = Mandatory Many</li>
+                <li>o≺ = Optional Many</li>
+            </ul>
+        </li>
+        <li><strong>Bridge Tables for M:N (6-10 possible points)</strong>
+            <ul>
+                <li>ONLY for Many-to-Many relationships</li>
+                <li>NOT for One-to-Many!</li>
+                <li>Example: STUDENT ↔ COURSE needs ENROLLMENT bridge</li>
+            </ul>
+        </li>
+        <li><strong>Partial vs. Transitive Dependencies (10-15 possible points)</strong>
+            <ul>
+                <li><strong>Partial (2NF):</strong> Depends on PART of composite key</li>
+                <li><strong>Transitive (3NF):</strong> A→B→C chain problem</li>
+            </ul>
+        </li>
+        <li><strong>The Three Anomalies - UID (4 possible points)</strong>
+            <ul>
+                <li><strong>U</strong>pdate: Same data in multiple rows</li>
+                <li><strong>I</strong>nsertion: Can't add without other data</li>
+                <li><strong>D</strong>eletion: Lose data when deleting</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p><strong>Total: 32-41 possible points from just these 4 topics.</strong></p>
+    <p>You can potentially pass (60+ points) by mastering ONLY these plus getting partial credit on other questions.</p>
+</div>
+
+<hr>
+
+<div class="emergency" id="emergency">
+    <h2>🆘 EMERGENCY RESCUE GUIDE (Path C: 30 minutes)</h2>
+    <p><em>Start here if you missed most of the coursework. This gives you the absolute basics.</em></p>
+
+    <h3>What You MUST Know to Pass</h3>
+
+    <div class="concept-box">
+        <h4>Concept #1: What is a Database Table?</h4>
+        <p>Think of it like a <strong>spreadsheet</strong> with rows and columns:</p>
+        <ul>
+            <li><strong>Rows</strong> = individual records (like one student, one order)</li>
+            <li><strong>Columns</strong> = properties (like name, date, price)</li>
+            <li><strong>Primary Key (PK)</strong> = unique identifier for each row (like Student ID)</li>
+        </ul>
+    </div>
+
+    <div class="concept-box">
+        <h4>Concept #2: Relationships Between Tables</h4>
+        <p>Tables can be connected:</p>
+        <ul>
+            <li><strong>One-to-Many (1:M):</strong> One customer has many orders
+                <br><em>Implementation: Add foreign key to "many" side</em></li>
+            <li><strong>Many-to-Many (M:N):</strong> Many students take many courses
+                <br><em>Implementation: NEED bridge table (e.g., ENROLLMENT)</em></li>
+        </ul>
+    </div>
+
+    <div class="concept-box">
+        <h4>Concept #3: The Three Normal Forms (Super Simplified)</h4>
+        <ul>
+            <li><strong>1NF:</strong> No lists in cells
+                <br>❌ Bad: "555-1234, 555-5678"
+                <br>✓ Good: Separate rows for each phone</li>
+            <li><strong>2NF:</strong> Everything depends on the FULL key (not just part of it)
+                <br><em>Only matters if you have composite key!</em></li>
+            <li><strong>3NF:</strong> No chains (A→B→C is bad)
+                <br><em>Most important form - industry standard</em></li>
+        </ul>
+    </div>
+
+    <div class="concept-box">
+        <h4>Concept #4: Crow's Feet Symbols (MEMORIZE THESE)</h4>
+        <pre>
+|—  = exactly one (required)        Example: Order → Customer
+o—  = zero or one (optional)         Example: Person → Driver's License
+|≺  = one or more (required, many)   Example: Department → Employees
+o≺  = zero or more (optional, many)  Example: Customer → Orders
+        </pre>
+        <p><strong>Memory Trick:</strong></p>
+        <ul>
+            <li><strong>o</strong> = "Optional" (starts with O)</li>
+            <li><strong>|</strong> = "Mandatory" (stands firm like a wall)</li>
+            <li><strong>—</strong> = "One"</li>
+            <li><strong>≺</strong> = "Many" (three toes)</li>
+        </ul>
+    </div>
+
+    <div class="concept-box">
+        <h4>Concept #5: When You Need a Bridge Table</h4>
+        <p><strong>ONLY for Many-to-Many (M:N) relationships!</strong></p>
+        <p><strong>Example:</strong> Students ↔ Courses</p>
+        <pre>
+STUDENT(StudentID, Name)
+COURSE(CourseID, Title)
+ENROLLMENT(StudentID, CourseID, Grade, Semester)  ← Bridge table
+  PK: {StudentID, CourseID}
+  FK: StudentID → STUDENT
+  FK: CourseID → COURSE
+        </pre>
+        <p><strong>Key Rule:</strong> One-to-Many does NOT need bridge table!</p>
+    </div>
+
+    <h3>Checkpoint: Can You Answer These 5 Basic Questions?</h3>
+
+    <details>
+        <summary>❓ Q1: What uniquely identifies each row in a table?</summary>
+        <p><strong>Answer:</strong> Primary Key (PK)</p>
+    </details>
+
+    <details>
+        <summary>❓ Q2: "PhoneNumber: 555-1234, 555-5678" - What's wrong?</summary>
+        <p><strong>Answer:</strong> Multiple values in one cell - violates 1NF (not atomic)</p>
+    </details>
+
+    <details>
+        <summary>❓ Q3: Do One-to-Many relationships need a bridge table?</summary>
+        <p><strong>Answer:</strong> NO - only Many-to-Many needs bridge tables</p>
+    </details>
+
+    <details>
+        <summary>❓ Q4: In EMPLOYEE table, EmpID → DeptID → DeptName. What's the problem?</summary>
+        <p><strong>Answer:</strong> Transitive dependency - violates 3NF</p>
+    </details>
+
+    <details>
+        <summary>❓ Q5: What does this mean: CUSTOMER ——|—————o≺—— ORDER?</summary>
+        <p><strong>Answer:</strong> One customer has zero or more orders; One order has exactly one customer</p>
+    </details>
+
+    <div class="checklist">
+        <p><strong>✅ Progress Check:</strong></p>
+        <ul>
+            <li><strong>Got 3+ correct?</strong> → Move to <a href="#bridge">Bridge Section</a></li>
+            <li><strong>Got 0-2 correct?</strong> → Review this section again, then seek help (see <a href="#resources">resources</a>)</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+
+<div class="bridge-section" id="bridge">
+    <h2>🌉 BRIDGE: From Basics to Crash Course (Path C: 30 minutes)</h2>
+    <p><em>Completed the Emergency Rescue Guide? Not quite ready for the 3-Hour Crash Course? Do this bridge section first.</em></p>
+
+    <h3>Intermediate Concepts (Build on Basics)</h3>
+
+    <div class="concept-box">
+        <h4>Keys in More Detail</h4>
+
+        <p><strong>Primary Key (PK) - Three Types:</strong></p>
+        <ol>
+            <li><strong>Simple PK:</strong> One column (e.g., StudentID)
+                <br><em>Most common type</em></li>
+            <li><strong>Composite PK:</strong> Two+ columns together (e.g., {StudentID, CourseID})
+                <br><em>Common in bridge tables</em></li>
+            <li><strong>Surrogate PK:</strong> Artificial ID you create (e.g., OrderID = 1, 2, 3...)
+                <br><em>Recommended for most tables</em></li>
+        </ol>
+
+        <p><strong>Foreign Key (FK) - Creates Relationships:</strong></p>
+        <ul>
+            <li>Points to a Primary Key in another table</li>
+            <li>Can be NULL (if relationship is optional)</li>
+            <li>Can be part of a Primary Key (in bridge tables)</li>
+        </ul>
+
+        <p><strong>Example:</strong></p>
+        <pre>
+STUDENT(StudentID, Name)              ← StudentID is PK
+         ↑
+         | References
+         |
+ENROLLMENT(StudentID, CourseID)       ← StudentID is both FK and part of PK
+         PK: {StudentID, CourseID}
+        </pre>
+    </div>
+
+    <div class="concept-box">
+        <h4>Functional Dependencies Explained</h4>
+
+        <p><strong>Notation:</strong> X → Y means "if you know X, you can determine Y"</p>
+
+        <table>
+            <tr>
+                <th>Dependency</th>
+                <th>Example</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>StudentID → StudentName</td>
+                <td>Know ID 12345</td>
+                <td>Can look up name "John Smith"</td>
+            </tr>
+            <tr>
+                <td>ISBN → BookTitle</td>
+                <td>Know ISBN 978-123</td>
+                <td>Can look up title "Database Design"</td>
+            </tr>
+            <tr>
+                <td>{StudentID, CourseID} → Grade</td>
+                <td>Know Student 12345 in CS101</td>
+                <td>Can look up grade "A"</td>
+            </tr>
+        </table>
+
+        <p><strong>Three Important Terms:</strong></p>
+        <ul>
+            <li><strong>Determinant:</strong> Left side (X in X → Y) - what you know</li>
+            <li><strong>Dependent:</strong> Right side (Y in X → Y) - what you can find</li>
+            <li><strong>Full Dependency:</strong> Depends on the ENTIRE key (good!)</li>
+        </ul>
+    </div>
+
+    <div class="concept-box">
+        <h4>Normal Forms with Examples</h4>
+
+        <table>
+            <tr>
+                <th>Normal Form</th>
+                <th>Rule</th>
+                <th>Example Violation</th>
+                <th>How to Fix</th>
+            </tr>
+            <tr>
+                <td><strong>1NF</strong></td>
+                <td>Atomic values</td>
+                <td>Phone: "555-1234, 555-5678"</td>
+                <td>Split into separate rows</td>
+            </tr>
+            <tr>
+                <td><strong>2NF</strong></td>
+                <td>No partial dependencies</td>
+                <td>ProductName depends on only ProductID (part of key)</td>
+                <td>Move ProductName to PRODUCT table</td>
+            </tr>
+            <tr>
+                <td><strong>3NF</strong></td>
+                <td>No transitive dependencies</td>
+                <td>EmpID → DeptID → DeptName (chain)</td>
+                <td>Move DeptName to DEPARTMENT table</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="try-first">
+        <h4>⏸️ PAUSE: Try This Yourself First</h4>
+        <p><strong>Practice Problem:</strong> Identify the violation</p>
+        <pre>
+COURSE_REGISTRATION(StudentID, StudentName, CourseID, CourseName)
+Primary Key: {StudentID, CourseID}
+        </pre>
+        <p><strong>Question:</strong> What normal form is violated and why?</p>
+        <p><em>Give yourself 3 minutes to think through this. Even if you get stuck, trying first makes the answer more memorable!</em></p>
+
+        <details>
+            <summary><strong>Click to see answer</strong></summary>
+            <p><strong>Violation:</strong> 2NF (has partial dependencies)</p>
+            <p><strong>Why:</strong></p>
+            <ul>
+                <li>StudentName depends on only StudentID (part of the composite key)</li>
+                <li>CourseName depends on only CourseID (part of the composite key)</li>
+            </ul>
+            <p><strong>Fix:</strong> Create separate STUDENT and COURSE tables</p>
+        </details>
+    </div>
+
+    <div class="checklist">
+        <p><strong>✅ Ready for Crash Course?</strong></p>
+        <p>You should now be able to:</p>
+        <ul>
+            <li>☐ Explain what primary and foreign keys do</li>
+            <li>☐ Read functional dependency notation (X → Y)</li>
+            <li>☐ Identify which normal form a table violates</li>
+            <li>☐ Understand the difference between 1NF, 2NF, and 3NF</li>
+        </ul>
+        <p><strong>If yes →</strong> Proceed to <a href="#crash-course">3-Hour Crash Course</a></p>
+        <p><strong>If no →</strong> Review this bridge section or seek <a href="#resources">help</a></p>
+    </div>
+</div>
+
+<hr>
+
+<h2 id="quick-review">⚡ QUICK REVIEW TRACK (Path A: 30-60 minutes)</h2>
+
+<div class="tip">
+    <p><strong>For Well-Prepared Students:</strong> You've done the work. Here's a focused refresher on the hardest concepts.</p>
+</div>
+
+<h3>Top 5 Concepts Students Get Wrong (Focus Here!)</h3>
+
+<div class="warning">
+    <h4>⚠️ COMMON MISTAKE #1: Confusing Partial vs. Transitive Dependencies</h4>
+
+    <table>
+        <tr>
+            <th>Aspect</th>
+            <th>Partial Dependency (2NF)</th>
+            <th>Transitive Dependency (3NF)</th>
+        </tr>
+        <tr>
+            <td><strong>When it occurs</strong></td>
+            <td>ONLY with composite keys</td>
+            <td>With any key type</td>
+        </tr>
+        <tr>
+            <td><strong>Problem</strong></td>
+            <td>Depends on PART of the key</td>
+            <td>Depends THROUGH another attribute</td>
+        </tr>
+        <tr>
+            <td><strong>Example</strong></td>
+            <td>{OrderID, ProductID} → ProductName<br>(ProductName only needs ProductID)</td>
+            <td>EmpID → DeptID → DeptName<br>(DeptName depends via DeptID)</td>
+        </tr>
+        <tr>
+            <td><strong>Memory trick</strong></td>
+            <td>"PART of the key"</td>
+            <td>"THROUGH another attribute"</td>
+        </tr>
+    </table>
+
+    <p><strong>📖 Review:</strong> Normalization_ln1.md (Section 4: 2NF), Normalization_ln2.md (Section 2: 3NF)</p>
+</div>
+
+<div class="warning">
+    <h4>⚠️ COMMON MISTAKE #2: When Bridge Tables Are Needed</h4>
+    <p><strong>Bridge tables are ONLY for Many-to-Many (M:N) relationships!</strong></p>
+
+    <table>
+        <tr>
+            <th>Relationship Type</th>
+            <th>Need Bridge Table?</th>
+            <th>Example</th>
+            <th>Implementation</th>
+        </tr>
+        <tr>
+            <td>One-to-Many (1:M)</td>
+            <td>❌ NO</td>
+            <td>Customer → Orders</td>
+            <td>Add FK to "many" side (ORDER table)</td>
+        </tr>
+        <tr>
+            <td>Many-to-Many (M:N)</td>
+            <td>✅ YES</td>
+            <td>Students ↔ Courses</td>
+            <td>Create ENROLLMENT bridge table</td>
+        </tr>
+    </table>
+
+    <p><strong>📖 Review:</strong> Normalization_ln1.md (Section 5: Bridge Tables), In-class Exercise 3</p>
+</div>
+
+<div class="warning">
+    <h4>⚠️ COMMON MISTAKE #3: Reading Crow's Feet Notation Direction</h4>
+    <p><strong>Read from one entity TOWARD the other entity's symbols!</strong></p>
+
+    <pre>
+CUSTOMER ——|—————o≺—— ORDER
+
+Left to Right:
+  Start at CUSTOMER → Look at ORDER end (o≺)
+  Read: "One customer has zero or many orders"
+
+Right to Left:
+  Start at ORDER → Look at CUSTOMER end (|—)
+  Read: "One order belongs to exactly one customer"
+    </pre>
+
+    <p><strong>Tip:</strong> The symbols you're looking at describe the OTHER entity!</p>
+    <p><strong>📖 Review:</strong> Normalization_ln1.md (Section 2: Cardinality)</p>
+</div>
+
+<div class="warning">
+    <h4>⚠️ COMMON MISTAKE #4: 2NF with Single-Column Keys</h4>
+    <p><strong>2NF only matters when you have a COMPOSITE primary key!</strong></p>
+
+    <p><strong>Quick Check:</strong></p>
+    <ul>
+        <li>Is the PK a single column? → <strong>Automatically in 2NF</strong> (no "part" to depend on)</li>
+        <li>Is the PK composite {Col1, Col2}? → <strong>Check for partial dependencies</strong></li>
+    </ul>
+
+    <p><strong>Example:</strong></p>
+    <pre>
+STUDENT(StudentID, Name, Major)
+PK: StudentID (single column)
+
+✓ Automatically in 2NF - can skip to checking 3NF!
+    </pre>
+
+    <p><strong>📖 Review:</strong> Homework 2 feedback, Normalization_ln1.md (Section 4: 2NF)</p>
+</div>
+
+<div class="warning">
+    <h4>⚠️ COMMON MISTAKE #5: Foreign Keys in Bridge Tables</h4>
+    <p><strong>A column can be BOTH a foreign key AND part of the primary key!</strong></p>
+
+    <pre>
+ENROLLMENT(StudentID, CourseID, Grade, Semester)
+  PK: {StudentID, CourseID}  ← Both columns form composite PK
+  FK: StudentID → STUDENT    ← StudentID is also FK
+  FK: CourseID → COURSE      ← CourseID is also FK
+    </pre>
+
+    <p><strong>Key Insight:</strong> This is normal and correct in bridge tables!</p>
+    <p><strong>📖 Review:</strong> Normalization_ln1.md (Section 5: Bridge Tables)</p>
+</div>
+
+<hr>
+
+<h2 id="crash-course">🚨 3-HOUR CRASH COURSE (Path B: Comprehensive Review)</h2>
+
+<div class="tip">
+    <p><strong>For Average Students:</strong> Structured review of all key concepts. Work through in order.</p>
+</div>
+
+<h3>Hour 1: Core Concepts (60 minutes)</h3>
+
+<h4>Minutes 1-15: ERD & Crow's Feet Notation <span class="difficulty-basic">⭐ BASIC</span></h4>
+
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td><code>|—</code></td>
+        <td>Mandatory One (exactly one, required)</td>
+        <td>ORDER → CUSTOMER</td>
+    </tr>
+    <tr>
+        <td><code>o—</code></td>
+        <td>Optional One (zero or one)</td>
+        <td>PERSON → DRIVER_LICENSE</td>
+    </tr>
+    <tr>
+        <td><code>|≺</code></td>
+        <td>Mandatory Many (one or more, required)</td>
+        <td>DEPARTMENT → EMPLOYEE</td>
+    </tr>
+    <tr>
+        <td><code>o≺</code></td>
+        <td>Optional Many (zero or more)</td>
+        <td>CUSTOMER → ORDER</td>
+    </tr>
+</table>
+
+<p><strong>📖 See Also:</strong> Normalization_ln1.md (Section 2), In-class ERD exercises</p>
+
+<h4>Minutes 16-30: Keys & Dependencies <span class="difficulty-moderate">⭐⭐ MODERATE</span></h4>
+
+<p><strong>Primary Key (PK):</strong> Uniquely identifies each row</p>
+<p><strong>Foreign Key (FK):</strong> Creates relationships between tables</p>
+<p><strong>Composite Key:</strong> PK made of 2+ columns</p>
+
+<p><strong>Functional Dependency:</strong> X → Y means "X determines Y"</p>
+
+<p><strong>📖 See Also:</strong> Normalization_ln1.md (Section 3), Homework 2 (Question 1)</p>
+
+<h4>Minutes 31-45: Partial vs. Transitive <span class="difficulty-challenging">⭐⭐⭐ CHALLENGING</span></h4>
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Violates</th>
+        <th>Key Characteristic</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td><strong>Partial</strong></td>
+        <td>2NF</td>
+        <td>Depends on PART of composite key</td>
+        <td>{OrderID, ProductID} → ProductName</td>
+    </tr>
+    <tr>
+        <td><strong>Transitive</strong></td>
+        <td>3NF</td>
+        <td>A → B → C chain</td>
+        <td>EmpID → DeptID → DeptName</td>
+    </tr>
+</table>
+
+<p><strong>📖 See Also:</strong> Normalization_ln2.md (Full lesson), Homework 2 (Questions 2-3)</p>
+
+<h4>Minutes 46-60: Database Anomalies <span class="difficulty-moderate">⭐⭐ MODERATE</span></h4>
+
+<p><strong>Memory Trick: UID</strong></p>
+<ul>
+    <li><strong>U</strong>pdate Anomaly: Same data in multiple rows</li>
+    <li><strong>I</strong>nsertion Anomaly: Can't add without other data</li>
+    <li><strong>D</strong>eletion Anomaly: Lose data when deleting</li>
+</ul>
+
+<p><strong>📖 See Also:</strong> Normalization_ln1.md (Introduction), In-class discussion</p>
+
+<hr>
+
+<h3>Hour 2: Normal Forms (60 minutes)</h3>
+
+<h4>Minutes 1-20: First Normal Form (1NF) <span class="difficulty-basic">⭐ BASIC</span></h4>
+
+<p><strong>Rule:</strong> Atomic values, no repeating groups</p>
+
+<table>
+    <tr>
+        <th>Violation</th>
+        <th>❌ Bad</th>
+        <th>✓ Good</th>
+    </tr>
+    <tr>
+        <td>Non-atomic</td>
+        <td>PhoneNumber: "555-1234, 555-5678"</td>
+        <td>Two separate rows</td>
+    </tr>
+    <tr>
+        <td>Repeating groups</td>
+        <td>Course1, Course2, Course3 columns</td>
+        <td>One CourseID column, multiple rows</td>
+    </tr>
+</table>
+
+<p><strong>📖 See Also:</strong> Normalization_ln1.md (Section 3), Example 1</p>
+
+<h4>Minutes 21-40: Second Normal Form (2NF) <span class="difficulty-challenging">⭐⭐⭐ CHALLENGING</span></h4>
+
+<p><strong>Rule:</strong> 1NF + No partial dependencies</p>
+<p><strong>Quick Check:</strong> Single-column PK? → Automatically in 2NF!</p>
+
+<div class="try-first">
+    <h4>⏸️ Try This First (5 minutes):</h4>
+    <pre>
+ORDER_DETAIL(OrderID, ProductID, Quantity, ProductName, ProductPrice)
+PK: {OrderID, ProductID}
+    </pre>
+    <p><strong>Question:</strong> What violates 2NF?</p>
+    <details>
+        <summary>Click for answer</summary>
+        <ul>
+            <li>ProductName depends on only ProductID (partial!)</li>
+            <li>ProductPrice depends on only ProductID (partial!)</li>
+            <li><strong>Fix:</strong> Move to PRODUCT(ProductID, ProductName, ProductPrice)</li>
+        </ul>
+    </details>
+</div>
+
+<p><strong>📖 See Also:</strong> Normalization_ln1.md (Section 4), Homework 2 (Question 2)</p>
+
+<h4>Minutes 41-60: Third Normal Form (3NF) <span class="difficulty-challenging">⭐⭐⭐ CHALLENGING</span></h4>
+
+<p><strong>Rule:</strong> 2NF + No transitive dependencies</p>
+<p><strong>Look for:</strong> Non-key → Non-key dependencies</p>
+
+<div class="try-first">
+    <h4>⏸️ Try This First (5 minutes):</h4>
+    <pre>
+EMPLOYEE(EmpID, EmpName, DeptID, DeptName, DeptLocation)
+PK: EmpID
+    </pre>
+    <p><strong>Question:</strong> What violates 3NF?</p>
+    <details>
+        <summary>Click for answer</summary>
+        <ul>
+            <li>DeptName depends on DeptID (non-key), not directly on EmpID</li>
+            <li>DeptLocation depends on DeptID (non-key), not directly on EmpID</li>
+            <li>Chain: EmpID → DeptID → DeptName (transitive!)</li>
+            <li><strong>Fix:</strong> Move to DEPARTMENT(DeptID, DeptName, DeptLocation)</li>
+        </ul>
+    </details>
+</div>
+
+<p><strong>Why 3NF Matters:</strong> Industry standard for most databases</p>
+
+<p><strong>📖 See Also:</strong> Normalization_ln2.md (Full lesson), Homework 2 (Question 3)</p>
+
+<hr>
+
+<h3>Hour 3: Practice & Application (60 minutes)</h3>
+
+<h4>Minutes 1-30: Bridge Tables & Many-to-Many <span class="difficulty-moderate">⭐⭐ MODERATE</span></h4>
+
+<p><strong>When:</strong> ONLY for Many-to-Many relationships</p>
+<p><strong>Why:</strong> Databases can't directly represent M:N</p>
+
+<pre>
+STUDENT(StudentID, Name)
+COURSE(CourseID, Title)
+
+ENROLLMENT(StudentID, CourseID, Grade, Semester)  ← Bridge
+  PK: {StudentID, CourseID}
+  FK: StudentID → STUDENT
+  FK: CourseID → COURSE
+</pre>
+
+<p><strong>Characteristics:</strong></p>
+<ul>
+    <li>PK = composite of both FKs</li>
+    <li>Can have additional attributes (Grade, Semester)</li>
+    <li>Connects the "many" sides of two entities</li>
+</ul>
+
+<p><strong>📖 See Also:</strong> Normalization_ln1.md (Section 5), In-class Exercise 3</p>
+
+<h4>Minutes 31-60: Practice Questions</h4>
+
+<div class="concept-box">
+    <h4>Basic Questions <span class="difficulty-basic">⭐</span> (Aim for 100%)</h4>
+
+    <details>
+        <summary>Q1: What shape represents an entity in an ERD?</summary>
+        <p><strong>Answer:</strong> Rectangle</p>
+    </details>
+
+    <details>
+        <summary>Q2: What does "o≺" mean in crow's feet notation?</summary>
+        <p><strong>Answer:</strong> Zero or many (optional many)</p>
+    </details>
+
+    <details>
+        <summary>Q3: Can a primary key be NULL?</summary>
+        <p><strong>Answer:</strong> NO - primary keys must have a value</p>
+    </details>
+
+    <details>
+        <summary>Q4: What does 1NF require?</summary>
+        <p><strong>Answer:</strong> Atomic values, no repeating groups</p>
+    </details>
+</div>
+
+<div class="concept-box">
+    <h4>Moderate Questions <span class="difficulty-moderate">⭐⭐</span> (Aim for 70%+)</h4>
+
+    <details>
+        <summary>Q5: Where do you place the FK in a one-to-many relationship?</summary>
+        <p><strong>Answer:</strong> In the "many" side table</p>
+    </details>
+
+    <details>
+        <summary>Q6: If table has single-column PK and is in 1NF, is it automatically in 2NF?</summary>
+        <p><strong>Answer:</strong> YES (no composite key = no partial dependencies possible)</p>
+    </details>
+
+    <details>
+        <summary>Q7: What does 2NF eliminate?</summary>
+        <p><strong>Answer:</strong> Partial dependencies (depends on part of composite key)</p>
+    </details>
+
+    <details>
+        <summary>Q8: What does 3NF eliminate?</summary>
+        <p><strong>Answer:</strong> Transitive dependencies (A→B→C chains)</p>
+    </details>
+</div>
+
+<div class="concept-box">
+    <h4>Challenging Questions <span class="difficulty-challenging">⭐⭐⭐</span> (Aim for 50%+)</h4>
+
+    <details>
+        <summary>Q9: Given PK: {OrderID, ProductID}, is "ProductID → ProductName" a partial dependency?</summary>
+        <p><strong>Answer:</strong> YES (ProductName depends on only ProductID, not the full key)</p>
+    </details>
+
+    <details>
+        <summary>Q10: True or False: Partial dependencies violate 3NF.</summary>
+        <p><strong>Answer:</strong> FALSE (they violate 2NF, not 3NF)</p>
+    </details>
+
+    <details>
+        <summary>Q11: Given PK: EmpID, and "EmpID → DeptID → DeptName", what violates 3NF?</summary>
+        <p><strong>Answer:</strong> The transitive dependency (DeptID → DeptName)</p>
+    </details>
+
+    <details>
+        <summary>Q12: Can a table with single-column PK have partial dependencies?</summary>
+        <p><strong>Answer:</strong> NO (no "part" of key to depend on - partial only with composite keys)</p>
+    </details>
+</div>
+
+<hr>
+
+<div class="rating-scale">
+    <h2>🎯 SELF-ASSESSMENT: Am I Ready?</h2>
+
+    <p><strong>Rate your confidence (1-5) for each skill:</strong></p>
+
+    <table>
+        <tr>
+            <th>Rating</th>
+            <th>What It Means</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>"I don't understand this at all"</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>"I've heard of it but can't explain it"</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>"I can define it and apply it to familiar examples"</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>"I can apply it to new examples and explain WHY"</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>"I could teach this to someone else confidently"</td>
+        </tr>
+    </table>
+
+    <p><strong>Concepts to Rate:</strong></p>
+    <ul>
+        <li>___ Can identify entities, attributes, relationships in ERD</li>
+        <li>___ Can read and draw crow's feet notation</li>
+        <li>___ Can determine relationship types (1:1, 1:M, M:N)</li>
+        <li>___ Understand when bridge tables are needed</li>
+        <li>___ Can identify primary keys (simple, composite)</li>
+        <li>___ Can identify foreign keys and their purpose</li>
+        <li>___ Understand functional dependency notation (X → Y)</li>
+        <li>___ Can identify partial dependencies</li>
+        <li>___ Can identify transitive dependencies</li>
+        <li>___ Know the requirements for 1NF, 2NF, 3NF</li>
+        <li>___ Can decompose tables to achieve higher normal forms</li>
+        <li>___ Understand the three types of database anomalies</li>
+    </ul>
+
+    <div class="checklist">
+        <p><strong>✅ Readiness Assessment:</strong></p>
+        <ul>
+            <li><strong>Most ratings 4-5:</strong> You're very well prepared! 🎓</li>
+            <li><strong>Most ratings 3:</strong> You're ready to pass, may want to review challenging topics ✓</li>
+            <li><strong>Many ratings 1-2:</strong> Focus study time on those specific topics, consider getting help ⚠️</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+
+<div class="quick-ref">
+    <h2>📋 QUICK REFERENCE SHEET (Print/Save This!)</h2>
+
+    <h3>Crow's Feet Notation:</h3>
+    <pre>
+|—  = Mandatory One       (exactly one, required)
+o—  = Optional One        (zero or one)
+|≺  = Mandatory Many      (one or more, required)
+o≺  = Optional Many       (zero or more)
+    </pre>
+
+    <h3>Normal Forms Quick Check:</h3>
+    <pre>
+1NF: Atomic values? No repeating groups? ✓
+2NF: 1NF + No partial dependencies? ✓ (only if composite PK)
+3NF: 2NF + No transitive dependencies? ✓
+    </pre>
+
+    <h3>Functional Dependencies:</h3>
+    <pre>
+X → Y = "X determines Y"
+Partial    = depends on PART of composite key (2NF issue)
+Transitive = A → B → C chain (3NF issue)
+    </pre>
+
+    <h3>Relationship Types:</h3>
+    <pre>
+1:1 = One person, one passport (FK in either table)
+1:M = One customer, many orders (FK in "many" side) ⭐ Most common
+M:N = Many students, many courses (NEEDS bridge table)
+    </pre>
+
+    <h3>Three Anomalies (UID):</h3>
+    <pre>
+U = Update:    Same data in multiple rows
+I = Insertion: Can't add without other data
+D = Deletion:  Lose data when deleting
+    </pre>
+
+    <h3>Keys:</h3>
+    <pre>
+PK = Uniquely identifies row, not NULL, minimal
+FK = References PK in another table, creates relationship
+Composite = PK made of 2+ columns
+    </pre>
+</div>
+
+<hr>
+
+<div class="resource-box" id="resources">
+    <h2>🆘 Need Help? Resources Available</h2>
+
+    <h3>Official Course Resources:</h3>
+    <ul>
+        <li><strong>Office Hours:</strong> [Check Canvas for current schedule and Zoom link]</li>
+        <li><strong>Tutoring Center:</strong> [Check with instructor for availability]</li>
+        <li><strong>Course Materials:</strong>
+            <ul>
+                <li>Normalization_ln1.md - Foundations (1NF, 2NF)</li>
+                <li>Normalization_ln2.md - Third Normal Form (3NF)</li>
+                <li>Normalization_ln3.md - Advanced topics</li>
+                <li>Homework 2 - Practice problems with solutions</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>External Resources (Recommended):</h3>
+    <ul>
+        <li><strong>Video Tutorials:</strong>
+            <ul>
+                <li>Search YouTube: "database normalization tutorial"</li>
+                <li>Search YouTube: "crow's feet notation ERD"</li>
+                <li>Search YouTube: "partial vs transitive dependency"</li>
+            </ul>
+        </li>
+        <li><strong>Practice:</strong>
+            <ul>
+                <li>Review in-class exercises (especially Examples 2-3)</li>
+                <li>Redo homework problems without looking at answers</li>
+                <li>Create your own examples and check with study group</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Study Groups:</h3>
+    <p>Form or join a study group! Teaching others is one of the best ways to learn.</p>
+    <ul>
+        <li>Meet 2-3 days before exam</li>
+        <li>Each person explains one concept</li>
+        <li>Work through practice problems together</li>
+        <li>Quiz each other on crow's feet notation</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="tip">
+    <h2>🎯 EXAM STRATEGY</h2>
+
+    <h3>Time Management (75 minutes total):</h3>
+    <ul>
+        <li><strong>Part A (T/F):</strong> 10-12 minutes (12 questions × 2 pts = 24 pts)</li>
+        <li><strong>Part B (MC):</strong> 25-30 minutes (16 questions × 2.5 pts = 40 pts)</li>
+        <li><strong>Part C (Short Answer):</strong> 28-32 minutes (7 questions = 36 pts)</li>
+        <li><strong>Review:</strong> 5-8 minutes</li>
+    </ul>
+
+    <h3>Strategy by Section:</h3>
+
+    <h4>True/False Tips:</h4>
+    <ul>
+        <li>Look for absolute words ("always," "never") → often FALSE</li>
+        <li>Look for qualifiers ("usually," "often") → often TRUE</li>
+        <li>If unsure, think of a counterexample</li>
+    </ul>
+
+    <h4>Multiple Choice Tips:</h4>
+    <ul>
+        <li>Eliminate obviously wrong answers first</li>
+        <li>Watch for "all of the above" - test each option</li>
+        <li>Choose the BEST answer if multiple seem right</li>
+    </ul>
+
+    <h4>Short Answer Tips:</h4>
+    <ul>
+        <li>Define terms clearly before using them</li>
+        <li>Give examples when asked</li>
+        <li>Show your work on decomposition problems</li>
+        <li>Label tables clearly (mark PKs and FKs)</li>
+        <li><strong>Write SOMETHING</strong> - partial credit is common!</li>
+    </ul>
+
+    <h4>Diagram Questions:</h4>
+    <ul>
+        <li>Draw clearly and large enough to read</li>
+        <li>Label everything (entities, relationships, notation)</li>
+        <li>Show BOTH mandatory/optional AND one/many indicators</li>
+        <li>Include a legend if notation might be unclear</li>
+    </ul>
+
+    <h3>Common Mistakes to Avoid:</h3>
+    <ul>
+        <li>❌ Confusing partial (2NF) and transitive (3NF)</li>
+        <li>❌ Forgetting the circle (o) for optional relationships</li>
+        <li>❌ Creating bridge tables for 1:M relationships</li>
+        <li>❌ Not stating which normal form is violated</li>
+        <li>❌ Leaving questions blank (try for partial credit!)</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="checklist">
+    <h2>✅ NIGHT BEFORE EXAM CHECKLIST</h2>
+    <ul>
+        <li>☐ Review this study guide (focus on ⚠️ warnings)</li>
+        <li>☐ Complete the practice quiz (aim for 70%+)</li>
+        <li>☐ Review crow's feet notation (memorize 4 symbols)</li>
+        <li>☐ Review common mistakes section</li>
+        <li>☐ Get good sleep (7-8 hours - seriously!)</li>
+        <li>☐ Have materials ready (pencils, eraser, notes if open-book)</li>
+    </ul>
+
+    <h3>Day of Exam:</h3>
+    <ul>
+        <li>☐ Eat a good breakfast</li>
+        <li>☐ Arrive 10 minutes early</li>
+        <li>☐ Bring water (if allowed)</li>
+        <li>☐ Take deep breaths</li>
+        <li>☐ Read ALL questions before starting</li>
+    </ul>
+</div>
+
+<hr>
+
+<div style="background-color: #d4edda; border: 3px solid #28a745; padding: 20px; text-align: center; margin: 30px 0;">
+    <h2 style="color: #155724;">🍀 Good Luck!</h2>
+    <p style="font-size: 1.1em;">Understanding the "why" behind each rule is more important than memorizing.</p>
+    <p style="font-size: 1.1em;">Think through the logic, and you'll do great!</p>
+    <h3 style="color: #155724;">You've got this! 💪</h3>
+</div>
+
+<hr>
+
+<div style="background-color: #f9f9f9; padding: 15px; border-top: 2px solid #3498db;">
+    <p style="text-align: center; color: #666;">
+        <em>Study guide created for CSCI 101 Module 2 Exam<br>
+        Final Edition with multi-pathway support for all student preparation levels<br>
+        Topics: Database Design, ERD, Normalization, and Relationships</em>
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,20 +1,43 @@
 # CSCI 101 - GitHub Tutorial
 
-## 🆕 New to GitHub?
-**Start here:** [GitHub Tutorial](GIT-SETUP-TUTORIAL.md) - Complete walk-through for first-time setup!
+## Getting Started
 
-## Pull Request Folders
-This tutorial has five pull requests. Each is a separate, isolated submission:
-- pullrequest_01/ → PR 01 submission only
-- pullrequest_02/ → PR 02 submission only
-- pullrequest_03/ → PR 03 submission only
-- pullrequest_04/ → PR 04 submission only
-- pullrequest_05/ → PR 05 submission only
+**This is a two-session tutorial:**
 
-## Submission Instructions
-Please refer to `SUBMISSION-INSTRUCTIONS.md` for detailed submission guidelines.
+1. **Session 1:** Complete `github-setup-guide.html` first (distributed separately)
+2. **Session 2:** Then follow `GIT-SETUP-TUTORIAL.md` in this repository
+
+## The Three Pull Requests
+
+Each PR requires a `README.md` + one file:
+
+| Folder | Assignment | What You Submit |
+|--------|------------|-----------------|
+| pullrequest_01/ | Word Document | README.md + Assignment.docx |
+| pullrequest_02/ | Python Program | README.md + helloWorld.py |
+| pullrequest_03/ | Markdown File | README.md + about_me.md |
+
+## Branch Structure
+
+- `main` - Course materials (sync from here)
+- `submissions` - Where your PRs get merged (submit PRs here)
+
+**When creating a Pull Request, always set the base branch to `submissions`!**
+
+## Files in This Repository
+
+- `GIT-SETUP-TUTORIAL.md` - Session 2 tutorial (start here after Session 1)
+- `SUBMISSION-INSTRUCTIONS.md` - Detailed requirements for each PR
+- `pullrequest_01/` - Folder for PR 01 submissions
+- `pullrequest_02/` - Folder for PR 02 submissions
+- `pullrequest_03/` - Folder for PR 03 submissions
 
 ## Important
-- Each pull request should only include files from its corresponding folder
-- Follow the file naming convention exactly
-- Do not modify other students' files
+
+- Complete Session 1 before starting Session 2
+- Each PR should only include files from its corresponding folder
+- Always submit PRs to the `submissions` branch
+
+---
+
+*Questions? Ask during office hours!*

@@ -1,181 +1,208 @@
-# Course Submission Instructions
+# Submission Instructions
 
-## 🚀 First Time Here?
-**Start with the [GitHub Tutorial](GIT-SETUP-TUTORIAL.md)** - A complete walk-through that will:
-- Help you install Git
-- Set up your GitHub account
-- Practice making a submission
-- Create your first Pull Request
+## Prerequisites
+Complete **Session 1 (github-setup-guide.html)** before starting this tutorial.
 
 ## Overview
-This tutorial has five pull requests. Each pull request is a separate, isolated submission containing only the materials for that specific assignment.
+This tutorial has three pull requests. Each pull request is a separate, isolated submission containing only the materials for that specific assignment.
 
 **Important:** Each pull request should only include files from its corresponding folder:
 - PR 01 → only `pullrequest_01/` files
 - PR 02 → only `pullrequest_02/` files
 - PR 03 → only `pullrequest_03/` files
-- PR 04 → only `pullrequest_04/` files
-- PR 05 → only `pullrequest_05/` files
 
-**We will use the professional Fork & Pull Request workflow - the same process used by software developers worldwide!**
+---
 
-## Initial Setup (Do This Once)
+## The Three Pull Request Assignments
 
-### Step 1: Fork the Repository
-1. Go to the main course repository on GitHub
-2. Click the "Fork" button in the top-right corner
-3. This creates YOUR own copy of the repository
+Each submission requires a `README.md` file plus the assigned file type.
 
-### Step 2: Clone Your Fork
-```bash
-# Clone your fork (not the original!)
-# Replace YOUR_USERNAME with your GitHub username
-git clone https://github.com/YOUR_USERNAME/csci101_f25.git
-cd csci101_f25
+### PR 01: Word Document
+**Files required in your subfolder:**
+- `README.md` - Describes your submission
+- `Assignment.docx` - A Word document
+
+**Purpose:** Learn the basic submission workflow with a familiar file type.
+
+**Example folder structure:**
+```
+pullrequest_01/john_smith/
+  README.md
+  Assignment.docx
 ```
 
-### Step 3: Set Up the Upstream Remote
-```bash
-# Connect to the course repository for updates
-git remote add upstream https://github.com/csci101_f25/csci101_f25.git
+---
 
-# Verify your remotes
-git remote -v
-# You should see:
-# origin = your fork
-# upstream = course repository
+### PR 02: Python Program
+**Files required in your subfolder:**
+- `README.md` - Describes what your program does
+- `helloWorld.py` - A simple Python program
+
+**Purpose:** Submit your first code file! Your Python program should print "Hello, World!" when run.
+
+**Example folder structure:**
+```
+pullrequest_02/john_smith/
+  README.md
+  helloWorld.py
 ```
 
-## Submission Process for Each Pull Request
+**Example helloWorld.py:**
+```python
+# My first Python program
+# Author: John Smith
+
+print("Hello, World!")
+```
+
+---
+
+### PR 03: Markdown File
+**Files required in your subfolder:**
+- `README.md` - Describes your submission
+- `about_me.md` - A Markdown file about yourself
+
+**Purpose:** Learn Markdown syntax by creating a formatted document. This reinforces why README.md files are powerful!
+
+**Example folder structure:**
+```
+pullrequest_03/john_smith/
+  README.md
+  about_me.md
+```
+
+**Your about_me.md should include:**
+- A heading with your name
+- A brief introduction
+- A bulleted list (hobbies, interests, or goals)
+- At least one **bold** or *italic* text
+
+**Example about_me.md:**
+```markdown
+# About Me - John Smith
+
+## Introduction
+I'm a computer science student learning to code!
+
+## My Interests
+- Programming
+- Video games
+- **Machine learning**
+
+## Goals
+I want to become a *software developer* after graduation.
+```
+
+---
+
+## README.md Template
+
+Every submission needs a README.md file. Use this template:
+
+```markdown
+# PR 0X Submission - Your Name
+
+## Description
+Brief description of what you're submitting.
+
+## Files Included
+- `filename.ext` - Description of this file
+
+## Author
+Your Name
+CSCI 101 - Fall 2025
+```
+
+---
+
+## Submission Process
 
 ### 1. Update Your Fork
-Before starting each assignment, get the latest updates:
+Before starting each assignment:
 ```bash
-# Get updates from the course repository
 git fetch upstream
 git checkout main
 git merge upstream/main
 git push origin main
 ```
 
-### 2. Create a Branch for Your Work
+### 2. Create a Branch
 ```bash
-# Create a new branch for your submission
-# Format: pr0#_firstname_lastname
-git checkout -b pr01_john_smith
+git checkout -b pr01_firstname_lastname
 ```
 
-### 3. Add Your Assignment File
-- **File name**: `Assignment_FirstName_LastName.docx`
-- **Location**: Place in the appropriate pullrequest folder
-- **Example**: `pullrequest_01/Assignment_John_Smith.docx`
-
-### 4. Commit Your Work
+### 3. Create Your Subfolder
 ```bash
-# Add your file
-git add pullrequest_01/Assignment_John_Smith.docx
-
-# Commit with a clear message
-git commit -m "Add PR 01 submission - John Smith"
-
-# Push to YOUR fork
-git push origin pr01_john_smith
+mkdir pullrequest_01/firstname_lastname
 ```
 
-### 5. Create a Pull Request
-1. Go to YOUR fork on GitHub
-2. Click "Pull requests" → "New pull request"
-3. Make sure:
-   - Base repository: Course repository (csci101_f25/csci101_f25)
-   - Base branch: main
-   - Head repository: Your fork
-   - Compare branch: Your PR branch (e.g., pr01_john_smith)
-4. Click "Create pull request"
-5. **Title your PR**: `PR 01 Submission - FirstName LastName`
-6. Add any comments about your submission
-7. Click "Create pull request"
+### 4. Add Your Files
+Add your `README.md` and assignment file to your subfolder.
+
+### 5. Commit and Push
+```bash
+git add pullrequest_01/firstname_lastname/
+git commit -m "Add PR 01 submission - FirstName LastName"
+git push origin pr01_firstname_lastname
+```
+
+### 6. Create Pull Request on GitHub
+1. Go to your fork on GitHub
+2. Click "Compare & pull request"
+3. **Set base branch to `submissions`** (not main!)
+4. Title: `PR 01 Submission - FirstName LastName`
+5. Click "Create pull request"
+
+---
 
 ## Important Guidelines
 
-### File Naming Convention
-**MUST follow this format exactly:**
+### Subfolder Naming
 ```
-Assignment_FirstName_LastName.docx
+firstname_lastname
 ```
-Examples:
-- ✅ `Assignment_John_Smith.docx`
-- ✅ `Assignment_Maria_Garcia.docx`
-- ❌ `assignment-john-smith.docx` (wrong format)
-- ❌ `John Smith Assignment.docx` (wrong format)
+- Use lowercase
+- Use underscore between names
+- Example: `john_smith`
 
-### Branch Naming Convention
-**MUST follow this format:**
+### Branch Naming
 ```
 pr0#_firstname_lastname
 ```
-Examples:
-- ✅ `pr01_john_smith`
-- ✅ `pr02_maria_garcia`
-- ❌ `PR01-John-Smith` (wrong format)
-- ❌ `john_pr01` (wrong format)
+- Example: `pr01_john_smith`, `pr02_john_smith`
 
-### Pull Request Title Convention
-**MUST follow this format:**
+### Pull Request Title
 ```
 PR 0# Submission - FirstName LastName
 ```
-Examples:
-- ✅ `PR 01 Submission - John Smith`
-- ✅ `PR 02 Submission - Maria Garcia`
+- Example: `PR 01 Submission - John Smith`
 
-## Common Issues and Solutions
+---
+
+## Common Issues
 
 ### "Permission Denied" When Pushing
-- Make sure you're pushing to YOUR fork, not the course repository
+- Make sure you're pushing to YOUR fork
 - Check with: `git remote -v`
 
 ### Need to Update Your Submission
-1. Make changes to your file
-2. On the same branch:
 ```bash
-git add pullrequest_01/Assignment_FirstName_LastName.docx
-git commit -m "Update PR 01 submission - FirstName LastName"
+git add pullrequest_01/firstname_lastname/
+git commit -m "Update PR 01 submission"
 git push origin pr01_firstname_lastname
 ```
-3. The PR will automatically update
+The PR will automatically update.
 
-### Merge Conflicts
-If you see merge conflicts:
-```bash
-# Update from instructor's repo
-git fetch upstream
-git merge upstream/main
-# Resolve any conflicts
-git add .
-git commit -m "Resolve merge conflicts"
-git push origin your-branch-name
-```
+### Pull Request Going to Wrong Branch
+- Change base branch to `submissions`, not `main`
 
-## Grading Notes
-- ✅ Correct file naming = Full points
-- ✅ Proper PR title = Easy identification
-- ✅ Clean commit history = Professional practice
-- ❌ Wrong format = Point deductions
-- ❌ Direct push attempts = Submission not accepted
+---
 
-## Why This Workflow?
-This is **exactly** how professional developers work:
-- **Fork**: Create your own workspace
-- **Branch**: Isolate your changes
-- **Pull Request**: Submit work for review
-- **Code Review**: Get feedback (instructor comments)
+## Branch Structure
 
-You're learning real industry practices that you'll use in internships and jobs!
+- `main` - Course materials (sync from here)
+- `submissions` - Where PRs get merged (submit PRs here)
 
-## Questions?
-1. Review these instructions carefully
-2. Check the Git module materials
-3. Ask during office hours
-4. Post in the course discussion forum
+---
 
-Remember: This workflow might seem complex at first, but it's preparing you for real software development. Every tech company uses this process!
+*Questions? Ask during office hours!*

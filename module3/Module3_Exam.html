@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSCI 101 - Module 3 Exam: Networking Fundamentals</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .exam-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .exam-header h1 {
+            margin: 0 0 10px 0;
+        }
+        .exam-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .question-header {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .points {
+            color: #e74c3c;
+            font-weight: bold;
+            float: right;
+        }
+        .question-text {
+            margin: 15px 0;
+            font-size: 1.05em;
+        }
+        .choices {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .choice {
+            margin: 8px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 3px;
+        }
+        .answer {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        .answer-label {
+            font-weight: bold;
+            color: #155724;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .answer-text {
+            color: #155724;
+        }
+        .correct-answer {
+            background-color: #d1f2eb;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        .short-answer-space {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 80px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        .rubric {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+        .rubric-title {
+            font-weight: bold;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="exam-header">
+        <h1>CSCI 101 - Module 3 Exam</h1>
+        <h2>Computer Networking Fundamentals & CLI</h2>
+        <p>Total Points: 100 | Total Questions: 36</p>
+    </div>
+
+    <div class="exam-info">
+        <h3>Exam Instructions</h3>
+        <p><strong>Time Limit:</strong> 75 minutes</p>
+        <p><strong>Question Types:</strong></p>
+        <ul>
+            <li>Part 1: True/False (Questions 1-10, 2 points each = 20 points)</li>
+            <li>Part 2: Multiple Choice (Questions 11-25, varying points = 41 points)</li>
+            <li>Part 3: Short Answer (Questions 26-32, varying points = 29 points)</li>
+            <li>Part 4: CLI Questions (Questions 34-37, varying points = 10 points)</li>
+        </ul>
+        <p><em>Note: Question 33 has been removed from this exam.</em></p>
+        <p><strong>Exam Policy:</strong></p>
+        <ul>
+            <li><strong>OPEN BOOK, OPEN NOTES:</strong> You may use your notes, textbook, and course materials</li>
+            <li><strong>NO AI TOOLS:</strong> You may NOT use AI tools (ChatGPT, Claude, Copilot, etc.)</li>
+            <li><strong>NO COLLABORATION:</strong> You may not communicate with others during the exam</li>
+        </ul>
+
+        <p><strong>Paper Submission Requirements:</strong></p>
+        <ul>
+            <li><strong>Questions 30 and 32 MUST be completed on paper and turned in separately</strong></li>
+            <li>Show all work for these questions</li>
+            <li>Submit EITHER:
+                <ul>
+                    <li>Hand paper directly to the professor, OR</li>
+                    <li>Upload a clear photo/scan to Canvas</li>
+                </ul>
+            </li>
+            <li>Write your name clearly on the paper</li>
+        </ul>
+
+        <p><strong>General Guidelines:</strong></p>
+        <ul>
+            <li>Write all answers clearly and legibly</li>
+            <li>Answer all questions to the best of your ability</li>
+            <li>Manage your time using the suggestions below</li>
+        </ul>
+        <p><strong>Time Management Suggestion:</strong></p>
+        <ul>
+            <li>Part 1 (True/False): 8-10 minutes</li>
+            <li>Part 2 (Multiple Choice): 18-20 minutes</li>
+            <li>Part 3 (Short Answer): 30-35 minutes</li>
+            <li>Part 4 (CLI): 10-12 minutes</li>
+            <li>Review: 5 minutes</li>
+        </ul>
+        <p><strong>Note:</strong> This document includes answer keys for instructor reference. Answers are highlighted in green boxes.</p>
+    </div>
+
+    <!-- PART 1: TRUE/FALSE -->
+    <div class="section">
+        <h2>Part 1: True/False Questions (20 points total)</h2>
+        <p><em>Circle T for True or F for False. Each question is worth 2 points.</em></p>
+
+        <div class="question">
+            <div class="question-header">
+                Question 1 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                Leonard Kleinrock's 1961 dissertation on packet switching provided the mathematical foundation for modern computer networking.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>TRUE</strong> - Kleinrock's 1961 MIT dissertation on queuing theory and packet switching provided the theoretical foundation for packet-switched networks.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 2 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                The OSI model has 7 layers while the TCP/IP model has 5 layers.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>FALSE</strong> - The OSI model has 7 layers, but the TCP/IP model has 4 layers (Application, Transport, Internet, Network Interface).</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 3 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                IPv4 uses 32-bit addresses, providing approximately 4.3 billion unique addresses.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>TRUE</strong> - IPv4 uses 32-bit addresses (2^32 = approximately 4.3 billion addresses).</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 4 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                TCP provides connectionless, unreliable data transmission while UDP provides connection-oriented, reliable data transmission.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>FALSE</strong> - This is reversed. TCP provides connection-oriented, reliable transmission. UDP provides connectionless, unreliable transmission.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 5 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                ARPANET's design emphasized decentralization and resilience, allowing the network to continue functioning even if individual nodes or connections failed.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>TRUE</strong> - ARPANET was designed with distributed architecture and packet switching to create a resilient network that could survive node failures, which was a key requirement for military and research applications.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 6 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                Private IPv4 addresses (like 192.168.x.x) can be used freely within an organization's internal network but cannot be routed directly on the public Internet.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>TRUE</strong> - Private addresses are reserved for internal use and are not routable on the public Internet. NAT is required for devices with private addresses to communicate with external networks.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 7 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                IPv6 was developed primarily to address the IPv4 address exhaustion problem and uses 128-bit addresses.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>TRUE</strong> - IPv6 uses 128-bit addresses (providing 340 undecillion addresses) and was developed to solve IPv4 address exhaustion.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 8 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                The Data Link Layer (Layer 2) is responsible for routing packets across multiple networks.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>FALSE</strong> - The Network Layer (Layer 3) is responsible for routing across networks. The Data Link Layer provides reliable communication between directly connected devices.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 9 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                Circuit switching is more efficient than packet switching for bursty computer data communications.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>FALSE</strong> - Packet switching is more efficient for bursty data because it allows multiple communications to share network resources. Circuit switching reserves a dedicated path that sits idle during pauses.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 10 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                Traditional shared-medium Ethernet uses CSMA/CD (Carrier Sense Multiple Access with Collision Detection) to manage access to the network and handle collisions.
+            </div>
+            <div class="choices">
+                <div class="choice">T / F</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>TRUE</strong> - CSMA/CD was the protocol used in early shared-medium Ethernet (hubs, coaxial cable) to coordinate access and handle collisions. Modern switched, full-duplex Ethernet does not require CSMA/CD.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PART 2: MULTIPLE CHOICE -->
+    <div class="section">
+        <h2>Part 2: Multiple Choice Questions (41 points total)</h2>
+        <p><em>Select the best answer for each question. Questions 11-22 are worth 3 points each; Question 23 is worth 1 point; Questions 24-25 are worth 2 points each.</em></p>
+
+        <div class="question">
+            <div class="question-header">
+                Question 11 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                What is the main function of the Network Layer (Layer 3) in the OSI model?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Converting bits to electrical signals</div>
+                <div class="choice">B) Managing error detection in frames between directly connected devices</div>
+                <div class="choice">C) Routing packets across multiple networks using logical addresses</div>
+                <div class="choice">D) Establishing reliable end-to-end connections between applications</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) Routing packets across multiple networks using logical addresses</strong> - The Network Layer (Layer 3) is responsible for logical addressing (IP addresses) and routing packets across internetworks.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 12 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                At which OSI layer does a router primarily operate?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Layer 1 (Physical)</div>
+                <div class="choice">B) Layer 2 (Data Link)</div>
+                <div class="choice">C) Layer 3 (Network)</div>
+                <div class="choice">D) Layer 4 (Transport)</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) Layer 3 (Network)</strong> - Routers operate at Layer 3, forwarding packets based on IP addresses and connecting different networks.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 13 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                Which of the following is NOT one of the four layers in the TCP/IP model?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Application Layer</div>
+                <div class="choice">B) Transport Layer</div>
+                <div class="choice">C) Session Layer</div>
+                <div class="choice">D) Internet Layer</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) Session Layer</strong> - The TCP/IP model has 4 layers: Application, Transport, Internet, and Network Interface. Session Layer is part of the OSI model.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 14 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                You're video chatting with a friend when you pause to check your email for 30 seconds, then resume the conversation. What advantage of packet switching makes this scenario more efficient than circuit switching?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Packet switching reserves a dedicated path for your video call</div>
+                <div class="choice">B) Packet switching allows other users to share network resources during your 30-second pause</div>
+                <div class="choice">C) Packet switching guarantees your video quality stays constant</div>
+                <div class="choice">D) Packet switching prevents your email from interfering with your video call</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) Packet switching allows other users to share network resources during your 30-second pause</strong> - Packet switching efficiently shares network infrastructure. During your pause, other users can utilize the bandwidth instead of it sitting idle (which would happen with circuit switching's dedicated path).</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 15 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                Which protocol is used for the three-way handshake to establish a reliable connection?
+            </div>
+            <div class="choices">
+                <div class="choice">A) UDP</div>
+                <div class="choice">B) IP</div>
+                <div class="choice">C) TCP</div>
+                <div class="choice">D) ICMP</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) TCP</strong> - TCP uses a three-way handshake (SYN, SYN-ACK, ACK) to establish reliable connections.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 16 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                What does CIDR stand for, and what problem does it address?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Centralized Internet Domain Routing; it centralizes DNS management</div>
+                <div class="choice">B) Classless Inter-Domain Routing; it provides more flexible IP address allocation</div>
+                <div class="choice">C) Computer Integrated Data Relay; it improves data transmission speeds</div>
+                <div class="choice">D) Connection-based Internet Data Routing; it ensures reliable connections</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) Classless Inter-Domain Routing; it provides more flexible IP address allocation</strong> - CIDR (RFC 1519, 1993) replaced classful addressing to conserve IPv4 address space.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 17 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                Which IPv6 transition mechanism allows IPv6 packets to be transmitted over IPv4 infrastructure?
+            </div>
+            <div class="choices">
+                <div class="choice">A) NAT</div>
+                <div class="choice">B) Tunneling</div>
+                <div class="choice">C) DHCP</div>
+                <div class="choice">D) ARP</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) Tunneling</strong> - Tunneling mechanisms (like 6to4, though now deprecated, or 6rd) encapsulate IPv6 packets within IPv4 packets for transmission over IPv4 networks.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 18 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                What is the purpose of the subnet mask in IPv4 addressing?
+            </div>
+            <div class="choices">
+                <div class="choice">A) To encrypt the IP address for security</div>
+                <div class="choice">B) To identify which portion of an IP address is the network ID and which is the host ID</div>
+                <div class="choice">C) To translate between IPv4 and IPv6 addresses</div>
+                <div class="choice">D) To compress IP addresses for efficient transmission</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) To identify which portion of an IP address is the network ID and which is the host ID</strong> - The subnet mask divides the IP address into network and host portions.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 19 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                Which IPv6 feature allows devices to automatically configure their own IP addresses without requiring a DHCP server?
+            </div>
+            <div class="choices">
+                <div class="choice">A) NAT (Network Address Translation)</div>
+                <div class="choice">B) SLAAC (Stateless Address Autoconfiguration)</div>
+                <div class="choice">C) ARP (Address Resolution Protocol)</div>
+                <div class="choice">D) CIDR (Classless Inter-Domain Routing)</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) SLAAC (Stateless Address Autoconfiguration)</strong> - SLAAC is a key IPv6 feature that allows devices to automatically generate their own IPv6 addresses using router advertisements, without needing a DHCP server.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 20 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                Your home has 5 devices (laptop, phone, tablet, smart TV, gaming console) all connected to Wi-Fi. Your ISP only gave you ONE public IP address (e.g., 73.45.123.67). How do all 5 devices access the internet simultaneously with just one public IP?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Each device takes turns using the public IP address</div>
+                <div class="choice">B) The router uses NAT to translate between private IPs (like 192.168.1.x) and the single public IP</div>
+                <div class="choice">C) The ISP automatically assigns temporary public IPs when needed</div>
+                <div class="choice">D) Devices share bandwidth by splitting the IP address into subnets</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) The router uses NAT to translate between private IPs (like 192.168.1.x) and the single public IP</strong> - NAT (Network Address Translation) allows multiple devices with private addresses to share a single public IP by translating between them.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 21 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                What was the primary motivation for developing the ARPANET in the late 1960s?
+            </div>
+            <div class="choices">
+                <div class="choice">A) To create a commercial Internet service for businesses</div>
+                <div class="choice">B) To replace the telephone system with digital communications</div>
+                <div class="choice">C) To enable resource sharing among research institutions and create a resilient, distributed network</div>
+                <div class="choice">D) To develop email and web browsing capabilities</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) To enable resource sharing among research institutions and create a resilient, distributed network</strong> - ARPANET was developed to allow researchers to share computing resources and to create a decentralized network that could survive node failures.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 22 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                Which protocol is responsible for translating domain names (like www.example.com) into IP addresses?
+            </div>
+            <div class="choices">
+                <div class="choice">A) DHCP</div>
+                <div class="choice">B) DNS</div>
+                <div class="choice">C) ARP</div>
+                <div class="choice">D) SMTP</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) DNS</strong> - The Domain Name System translates human-readable domain names into numerical IP addresses.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 23 <span class="points">1 point</span>
+            </div>
+            <div class="question-text">
+                At which layer of the OSI model does encapsulation begin when data is sent from an application?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Layer 1 (Physical)</div>
+                <div class="choice">B) Layer 3 (Network)</div>
+                <div class="choice">C) Layer 7 (Application)</div>
+                <div class="choice">D) Layer 4 (Transport)</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) Layer 7 (Application)</strong> - Encapsulation begins at the Application Layer and proceeds downward, with each layer adding its own header.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 24 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                How are IPv6 addresses typically represented in written form?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Four octets separated by dots (e.g., 192.168.1.1)</div>
+                <div class="choice">B) Eight groups of hexadecimal digits separated by colons (e.g., 2001:0db8:85a3::8a2e:0370:7334)</div>
+                <div class="choice">C) Binary notation with 128 ones and zeros</div>
+                <div class="choice">D) Four groups of decimal numbers separated by dashes</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) Eight groups of hexadecimal digits separated by colons</strong> - IPv6 addresses use hexadecimal notation with eight 16-bit groups separated by colons. Leading zeros can be omitted and consecutive groups of zeros can be replaced with :: (used once per address).</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 25 <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                Why did TCP/IP succeed over the OSI protocols in practical implementation?
+            </div>
+            <div class="choices">
+                <div class="choice">A) OSI was never fully specified or documented</div>
+                <div class="choice">B) TCP/IP was simpler, proven in operation, and available when needed</div>
+                <div class="choice">C) TCP/IP had more layers and was therefore more comprehensive</div>
+                <div class="choice">D) OSI required expensive proprietary hardware</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) TCP/IP was simpler, proven in operation, and available when needed</strong> - TCP/IP's pragmatic "rough consensus and running code" approach, operational validation in ARPANET, and availability made it succeed over OSI's theoretical approach.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PART 3: SHORT ANSWER -->
+    <div class="section">
+        <h2>Part 3: Short Answer Questions (29 points total)</h2>
+        <p><em>Provide clear, concise answers to the following questions. Point values are indicated for each question.</em></p>
+
+        <div class="question">
+            <div class="question-header">
+                Question 26 <span class="points">4 points</span>
+            </div>
+            <div class="question-text">
+                In this module, we discussed how TCP establishes reliable connections before data transfer.
+                <br><br>
+                a) List the three messages exchanged during TCP's three-way handshake in order. (1.5 points)
+                <br><br>
+                b) Explain why this process is called a "handshake" - what is being agreed upon between the two devices? (1.5 points)
+                <br><br>
+                c) What would happen if the third message (ACK) was lost due to network congestion? (1 point)
+            </div>
+            <div class="short-answer-space">
+                [Student answer space]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a)</strong> The three messages in order:</p>
+                    <ol>
+                        <li>SYN (Synchronize)</li>
+                        <li>SYN-ACK (Synchronize-Acknowledge)</li>
+                        <li>ACK (Acknowledge)</li>
+                    </ol>
+                    <p><strong>b)</strong> It's called a "handshake" because both devices agree on initial sequence numbers and confirm they are ready to communicate reliably. They establish parameters for the connection before exchanging actual data.</p>
+                    <p><strong>c)</strong> If the ACK is lost, the server doesn't know the client received its SYN-ACK. The server will wait for the ACK, eventually timeout, and may retransmit the SYN-ACK. The connection won't be fully established until the server receives the ACK.</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    • 1.5 points for part (a) - all three messages in correct order (0.5 each)<br>
+                    • 1.5 points for part (b) - explaining what is agreed upon (sequence numbers, readiness)<br>
+                    • 1 point for part (c) - explaining connection won't complete / server will timeout/retransmit
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 27 <span class="points">5 points</span>
+            </div>
+            <div class="question-text">
+                You're helping design a new application with these requirements:
+                <br><br>
+                <strong>Feature 1:</strong> A live video stream that broadcasts a lecturer speaking to 500 students
+                <br>
+                <strong>Feature 2:</strong> A chat system where students can ask questions to the lecturer
+                <br><br>
+                a) Which transport protocol (TCP or UDP) would you recommend for Feature 1 (video stream)? Explain your reasoning. (2 points)
+                <br><br>
+                b) Which transport protocol would you recommend for Feature 2 (chat)? Explain your reasoning. (2 points)
+                <br><br>
+                c) What trade-off exists when choosing UDP for video streaming? (1 point)
+            </div>
+            <div class="short-answer-space">
+                [Student answer space]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a)</strong> UDP for video streaming. Video needs low latency and can tolerate some packet loss (occasional frame drops). UDP's lower overhead makes it faster, and viewers won't notice if a few frames are lost. Retransmitting lost packets (TCP's approach) would cause delays that disrupt the live experience.</p>
+                    <p><strong>b)</strong> TCP for chat. Chat messages must arrive completely and in order - you can't have missing words or scrambled sentences. TCP's reliability ensures every message is delivered correctly, even if it takes slightly longer. The small delay is acceptable for chat.</p>
+                    <p><strong>c)</strong> The trade-off is reliability vs. speed. UDP is faster but doesn't guarantee delivery or correct ordering. Lost packets mean lost video frames, and there's no retransmission. This is acceptable for live video but would be problematic for data that must be complete.</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    • 2 points for part (a) - UDP choice with valid reasoning (low latency, packet loss tolerance)<br>
+                    • 2 points for part (b) - TCP choice with valid reasoning (reliability, message integrity)<br>
+                    • 1 point for part (c) - identifying speed/reliability trade-off or packet loss consequence
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 28 <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                A student says: "Network layering is just unnecessary complexity. A single monolithic protocol would be simpler and faster."
+                <br><br>
+                Respond to this student by:
+                <br>
+                a) Identifying one reason why they might think this (1 point)
+                <br><br>
+                b) Explaining two benefits of layering that prove why this claim is incorrect (2 points)
+            </div>
+            <div class="short-answer-space">
+                [Student answer space]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a)</strong> They might think this because layering does add some overhead (each layer adds headers) and requires coordination between layers, which can seem like extra complexity compared to a single unified system.</p>
+                    <p><strong>b)</strong> Two benefits that prove layering is actually better:</p>
+                    <ul>
+                        <li><strong>Modularity/Flexibility:</strong> You can upgrade or replace one layer without changing others. For example, you can switch from copper Ethernet to fiber optic at the Physical layer without changing any applications. A monolithic protocol would require complete replacement for any upgrade.</li>
+                        <li><strong>Troubleshooting:</strong> Problems can be isolated to specific layers. If you can't reach a website, you can systematically check: Physical (cables?), Network (IP config?), Transport (TCP?), Application (HTTP?). With a monolithic protocol, you'd have to debug the entire system at once.</li>
+                    </ul>
+                    <p>Alternative benefits: Interoperability (different vendors can build compatible equipment), Abstraction (layers hide complexity), Specialization (each layer focuses on one task).</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    • 1 point for part (a) - valid reason student might think layering is complex (overhead, coordination, abstraction)<br>
+                    • 2 points for part (b) - two valid benefits with explanations (1 point each: modularity, troubleshooting, interoperability, abstraction, flexibility)
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 29 <span class="points">5 points</span>
+            </div>
+            <div class="question-text">
+                a) What was the primary problem that drove the development of IPv6? (1 point)
+                <br><br>
+                b) List three improvements that IPv6 offers over IPv4. (1.5 points)
+                <br><br>
+                c) Of the three improvements you listed, which do you think is MOST important for the future of the internet? Explain your reasoning in 2-3 sentences. (2.5 points)
+            </div>
+            <div class="short-answer-space">
+                [Student answer space]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a) Primary problem:</strong> IPv4 address exhaustion - the Internet was running out of available IPv4 addresses (approximately 4.3 billion) due to explosive growth in connected devices.</p>
+
+                    <p><strong>b) Three improvements (students choose 3):</strong></p>
+                    <ul>
+                        <li>Vastly larger address space (128-bit vs. 32-bit addresses)</li>
+                        <li>Simplified header format for more efficient packet processing</li>
+                        <li>Built-in security (IPsec mandatory vs. optional)</li>
+                        <li>Improved auto-configuration (SLAAC)</li>
+                        <li>Better support for mobility</li>
+                        <li>No need for NAT</li>
+                        <li>Enhanced QoS support</li>
+                    </ul>
+
+                    <p><strong>c) Most important (student's choice - must justify):</strong></p>
+                    <p><em>Example answer:</em> "I think the larger address space is most important because it solves the fundamental limitation that created the need for IPv6 in the first place. Without enough addresses, the other improvements wouldn't matter. With 340 undecillion addresses, we can support the Internet of Things, where billions of devices need connectivity, without complex workarounds like NAT."</p>
+
+                    <p><em>Alternative example:</em> "I think built-in security is most important because cybersecurity threats are growing rapidly. While we can work around address limitations with NAT, we can't compromise on security. Mandatory IPsec ensures all IPv6 traffic can be encrypted and authenticated by default."</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    • 1 point for part (a) - identifying address exhaustion<br>
+                    • 1.5 points for part (b) - three valid improvements (0.5 each)<br>
+                    • 2.5 points for part (c) - judgment and justification:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;- 0.5 points for selecting one improvement<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;- 2 points for providing logical reasoning that demonstrates understanding<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;- Accept any improvement as "most important" if reasoning is sound
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 30 <span class="points">4 points</span>
+            </div>
+            <div class="question-text">
+                <strong style="color: #dc2626;">⚠️ TURN IN ON PAPER. SHOW ALL WORK.</strong>
+                <br><br>
+                Consider the following two devices on a network:
+                <br><br>
+                <strong>Device A:</strong> IP address 192.168.10.75/26<br>
+                <strong>Device B:</strong> IP address 192.168.10.135/26
+                <br><br>
+                a) Are these two devices on the same subnet or different subnets? (1 point)
+                <br><br>
+                b) Show your work by determining the network address for each device. (2 points)
+                <br><br>
+                c) What is the subnet mask in dotted decimal notation for this network? (1 point)
+            </div>
+            <div class="short-answer-space">
+                [Student completes on paper]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a) Answer:</strong> Different subnets</p>
+
+                    <p><strong>b) Work shown:</strong></p>
+
+                    <p><em>Step 1: Convert /26 to subnet mask</em></p>
+                    <ul>
+                        <li>/26 means 26 bits are set to 1 in the subnet mask</li>
+                        <li>11111111.11111111.11111111.11000000</li>
+                        <li>255.255.255.192</li>
+                    </ul>
+
+                    <p><em>Step 2: Determine network address for Device A (192.168.10.75)</em></p>
+                    <ul>
+                        <li>Fourth octet: 75 in binary = 01001011</li>
+                        <li>Mask: 11000000 (192)</li>
+                        <li>Network bits (AND operation): 01000000 = 64</li>
+                        <li><strong>Network address: 192.168.10.64</strong></li>
+                    </ul>
+
+                    <p><em>Step 3: Determine network address for Device B (192.168.10.135)</em></p>
+                    <ul>
+                        <li>Fourth octet: 135 in binary = 10000111</li>
+                        <li>Mask: 11000000 (192)</li>
+                        <li>Network bits (AND operation): 10000000 = 128</li>
+                        <li><strong>Network address: 192.168.10.128</strong></li>
+                    </ul>
+
+                    <p><strong>Conclusion:</strong> Device A is on network 192.168.10.64/26, Device B is on network 192.168.10.128/26. Since these are different network addresses, the devices are on <strong>different subnets</strong>.</p>
+
+                    <p><strong>c) Subnet mask in dotted decimal:</strong> 255.255.255.192</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    <strong>a) 1 point</strong> - Correct answer (Different subnets)
+                    <br><br>
+                    <strong>b) 2 points</strong> - Work shown:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Convert /26 to subnet mask: 255.255.255.192 (0.5 pt)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Device A network address: 192.168.10.64 (0.75 pt)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Device B network address: 192.168.10.128 (0.75 pt)
+                    <br><br>
+                    <strong>c) 1 point</strong> - 255.255.255.192
+                    <br><br>
+                    <strong>PARTIAL CREDIT:</strong><br>
+                    • Award points for methodology even if arithmetic errors<br>
+                    • Must show work for parts b and c
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 31 <span class="points">4 points</span>
+            </div>
+            <div class="question-text">
+                a) In 2-3 sentences, explain what packet switching is and how it differs from circuit switching. (2 points)
+                <br><br>
+                b) Imagine you're at home streaming a Netflix movie while also browsing social media. Using this personal scenario, explain why packet switching is better suited for this type of internet usage than circuit switching would be. (2 points)
+            </div>
+            <div class="short-answer-space">
+                [Student answer space]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a) Packet switching vs. circuit switching:</strong></p>
+                    <p>Packet switching breaks data into small packets that travel independently through the network and are reassembled at the destination. Circuit switching establishes a dedicated path between sender and receiver for the entire communication session. The key difference is that packet switching allows multiple users to share network resources dynamically, while circuit switching reserves bandwidth exclusively for one connection.</p>
+
+                    <p><strong>b) Personal scenario - Netflix + social media:</strong></p>
+                    <p>With packet switching, my Netflix stream and social media browsing can share my internet connection efficiently. When I pause to read a social media post, the Netflix packets slow down or stop, freeing up bandwidth. When I scroll past a video, those packets get priority. If I had to use circuit switching, I'd need two separate dedicated connections—one for Netflix and one for browsing—which would waste enormous amounts of bandwidth during idle moments. Packet switching allows both activities to dynamically share my limited home bandwidth, sending packets from whichever application needs them at any given moment.</p>
+
+                    <p><em>Alternative acceptable answer:</em> "Packet switching is perfect for this because my internet usage is 'bursty.' I'm not constantly downloading from Netflix—there are pauses when the buffer fills. Similarly, social media loads in bursts when I click links. Packet switching efficiently uses my bandwidth during these bursts. Circuit switching would reserve a constant connection for each activity even when nothing is being transmitted, wasting most of my available bandwidth."</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    <strong>a) 2 points:</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 1 point for explaining packet switching (breaks data into packets, independent routing)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 1 point for explaining circuit switching difference (dedicated path vs. shared resources)
+                    <br><br>
+                    <strong>b) 2 points:</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 1 point for applying concept to the scenario (both activities sharing connection)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 1 point for explaining why packet switching is better (bursty traffic, resource sharing, efficiency)
+                    <br><br>
+                    <strong>Accept any reasonable personal scenario explanation that demonstrates understanding</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 32 <span class="points">4 points</span>
+            </div>
+            <div class="question-text">
+                <strong style="color: #dc2626;">⚠️ TURN IN ON PAPER.</strong>
+                <br><br>
+                a) Build a table listing all <strong>8 non-zero subnet mask values</strong> for an octet in IPv4. Show both the binary notation (8 bits) and decimal value for each. (3 points)
+                <br><br>
+                b) Why are these the ONLY valid subnet mask values? What rule must subnet masks follow? (1 point)
+            </div>
+            <div class="short-answer-space">
+                [Student completes on paper]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a) Table of 8 possible subnet mask values:</strong></p>
+                    <table style="border-collapse: collapse; margin: 10px 0;">
+                        <tr style="border-bottom: 2px solid #333;">
+                            <th style="padding: 5px 15px; text-align: left;">Binary (8 bits)</th>
+                            <th style="padding: 5px 15px; text-align: left;">Decimal</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">10000000</td>
+                            <td style="padding: 5px 15px;">128</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">11000000</td>
+                            <td style="padding: 5px 15px;">192</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">11100000</td>
+                            <td style="padding: 5px 15px;">224</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">11110000</td>
+                            <td style="padding: 5px 15px;">240</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">11111000</td>
+                            <td style="padding: 5px 15px;">248</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">11111100</td>
+                            <td style="padding: 5px 15px;">252</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">11111110</td>
+                            <td style="padding: 5px 15px;">254</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 15px; font-family: monospace;">11111111</td>
+                            <td style="padding: 5px 15px;">255</td>
+                        </tr>
+                    </table>
+
+                    <p><strong>b) Why these are the ONLY valid values:</strong></p>
+                    <p>Subnet masks must consist of <strong>contiguous 1s followed by contiguous 0s</strong> (or all 1s). You cannot have a pattern like 10101010 or 11011000 because subnet masks identify the network portion (1s) and host portion (0s) of an IP address - these portions must be continuous blocks. The 1s must always come first, followed by 0s.</p>
+
+                    <p><em>Alternative acceptable answer:</em> "Subnet masks work by using a bitwise AND operation with IP addresses. The 1s identify which bits belong to the network address, and 0s identify host bits. To properly separate network and host portions, all network bits (1s) must be together on the left, and all host bits (0s) must be together on the right. This creates exactly 8 valid patterns for any octet (or 9 if you count 00000000, but that's not used in practice)."</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    <strong>a) 3 points - Table with 8 values:</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 1.5 points for all 8 binary values correct (or use judgment for mostly correct)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 1.5 points for all 8 decimal values correct (or use judgment for mostly correct)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Must show the pattern: contiguous 1s followed by contiguous 0s
+                    <br><br>
+                    <strong>b) 1 point - Explanation:</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Must state that subnet masks require contiguous 1s followed by contiguous 0s (or all 1s)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Partial credit (0.5) if student explains the concept but doesn't explicitly state "contiguous"
+                    <br><br>
+                    <strong>PARTIAL CREDIT:</strong><br>
+                    • Award points for correct methodology even if minor errors (e.g., one wrong binary-to-decimal conversion)<br>
+                    • Deduct heavily if pattern is wrong (e.g., includes 10101010)
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PART 4: CLI QUESTIONS -->
+    <div class="section">
+        <h2>Part 4: Command Line Interface Questions (10 points total)</h2>
+        <p><em>Answer the following questions about command line interface usage.</em></p>
+
+        <div class="question">
+            <div class="question-header">
+                Question 34 <span style="color: #16a34a; font-weight: bold; font-size: 0.9em;">(NEW)</span> <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                Which command would you use to display your computer's IP configuration?
+            </div>
+            <div class="choices">
+                <div class="choice">A) <code>ping</code> on all platforms</div>
+                <div class="choice">B) <code>ipconfig</code> on Windows; <code>ifconfig</code> on Mac/Linux</div>
+                <div class="choice">C) <code>tracert</code> on Windows; <code>traceroute</code> on Mac/Linux</div>
+                <div class="choice">D) <code>netstat</code> on all platforms</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>B) <code>ipconfig</code> on Windows; <code>ifconfig</code> on Mac/Linux</strong> - These commands display network configuration including IP address, subnet mask, and default gateway.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 35 <span style="color: #16a34a; font-weight: bold; font-size: 0.9em;">(NEW)</span> <span class="points">2 points</span>
+            </div>
+            <div class="question-text">
+                What command tests network connectivity by sending ICMP echo requests to a destination?
+            </div>
+            <div class="choices">
+                <div class="choice">A) <code>nslookup</code></div>
+                <div class="choice">B) <code>tracert</code> / <code>traceroute</code></div>
+                <div class="choice">C) <code>ping</code></div>
+                <div class="choice">D) <code>netstat</code></div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) <code>ping</code></strong> - The ping command tests connectivity and measures round-trip time, packet loss, and TTL (Time To Live) values.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 36 <span style="color: #16a34a; font-weight: bold; font-size: 0.9em;">(NEW)</span> <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                You run the command <code>nslookup google.com</code> and receive the following output:
+                <pre style="background: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 3px;">
+Server:  192.168.1.1
+Address:  192.168.1.1#53
+
+Name:    google.com
+Address:  142.250.185.46</pre>
+                What is 192.168.1.1 in this output?
+            </div>
+            <div class="choices">
+                <div class="choice">A) Google's web server IP address</div>
+                <div class="choice">B) Your computer's IP address</div>
+                <div class="choice">C) The DNS server being queried</div>
+                <div class="choice">D) The default gateway</div>
+            </div>
+            <div class="answer">
+                <span class="answer-label">CORRECT ANSWER:</span>
+                <span class="answer-text"><strong>C) The DNS server being queried</strong> - The "Server" line shows which DNS server nslookup used to perform the domain name lookup. In this case, 192.168.1.1 (likely the local router) is providing DNS services.</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <div class="question-header">
+                Question 37 <span style="color: #16a34a; font-weight: bold; font-size: 0.9em;">(NEW)</span> <span class="points">3 points</span>
+            </div>
+            <div class="question-text">
+                You're helping a friend troubleshoot their internet connection. You run <code>ping google.com</code> and notice:
+                <ul style="margin-top: 10px;">
+                    <li>Some packets are getting through (60% success rate)</li>
+                    <li>Response times vary wildly (20ms to 500ms)</li>
+                    <li>Several packets are lost</li>
+                </ul>
+                <br>
+                a) Should you run <code>tracert</code>/<code>traceroute</code> next? Why or why not? (2 points)
+                <br><br>
+                b) What information would <code>tracert</code>/<code>traceroute</code> show you that <code>ping</code> doesn't? (1 point)
+            </div>
+            <div class="short-answer-space">
+                [Student answer space]
+            </div>
+            <div class="answer">
+                <span class="answer-label">SAMPLE ANSWER:</span>
+                <div class="answer-text">
+                    <p><strong>a) Should you run tracert/traceroute next? YES.</strong></p>
+                    <p><strong>Reasoning:</strong> The ping results show that <em>some</em> connectivity exists but there's clearly a problem somewhere in the network path (packet loss and inconsistent response times). Tracert/traceroute is the perfect next step because it will help identify <em>where</em> along the path to Google the problem is occurring. You'll be able to see if the issue is with your ISP's local network, a peering connection, or somewhere else in the route. This narrows down whether it's a problem your friend can fix (local network) or needs to report to their ISP.</p>
+
+                    <p><strong>b) What tracert/traceroute shows that ping doesn't:</strong></p>
+                    <p>Tracert/traceroute displays the complete path that packets take to reach the destination, showing every router (hop) along the way with response times for each hop. Ping only tests the final destination endpoint. With tracert/traceroute, you can identify exactly which router or network segment is causing delays or packet loss.</p>
+
+                    <p><em>Alternative acceptable answer for part a:</em> "Yes, because ping shows a problem exists (packet loss, variable latency), but doesn't tell you where the problem is. Tracert will show if the problem is at hop 2 (local network), hop 5 (ISP), or hop 12 (somewhere in the backbone), which determines who needs to fix it."</p>
+                </div>
+                <div class="rubric">
+                    <span class="rubric-title">Grading Rubric:</span><br>
+                    <strong>a) 2 points:</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 0.5 points for correct decision (Yes, run tracert/traceroute)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 1.5 points for reasoning that demonstrates understanding:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Recognizing tracert helps locate WHERE the problem is (0.75 pt)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Explaining practical value for troubleshooting (0.75 pt)
+                    <br><br>
+                    <strong>b) 1 point:</strong><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Shows the path/route with each hop/router (not just the final destination)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exam-info" style="margin-top: 30px;">
+        <h3>End of Exam</h3>
+        <p><strong>Total Points: 100</strong></p>
+        <p><strong>Point Distribution:</strong></p>
+        <ul>
+            <li>Part 1 (True/False): 20 points</li>
+            <li>Part 2 (Multiple Choice): 41 points</li>
+            <li>Part 3 (Short Answer): 29 points</li>
+            <li>Part 4 (CLI Questions): 10 points</li>
+        </ul>
+        <p style="margin-top: 20px; font-style: italic;">
+            This exam assesses student understanding of Module 3 content including networking history,
+            OSI and TCP/IP models, IPv4 and IPv6 addressing, subnetting calculations, key protocols,
+            layered architecture benefits, fundamental networking concepts, and command line interface
+            tools for network diagnostics. The exam tests recall, comprehension, and practical application
+            of networking principles and CLI skills.
+        </p>
+    </div>
+
+</body>
+</html>

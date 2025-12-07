@@ -1,0 +1,245 @@
+Hunter Mongeon
+
+Professor Eve
+
+CSCI 101
+
+November 10th 2025
+
+Online dating has become one of the most influential ways people form
+romantic connections, with millions of users relying on apps such as
+Tinder, Bumble, Grindr, and Hinge to meet potential partners. As these
+platforms have grown, and influenced their underlying algorithms, which
+shape what users see, how often they are shown, and whom they are
+encouraged to match with. While dating apps present themselves as
+neutral tools designed to facilitate connection, research reveals that
+they may instead reinforce racial biases and perpetuate exclusionary
+dating patterns. This issue is especially critical given that online
+dating has become a dominant force in relationship formation, meaning
+that inequalities embedded in these systems can impact broader social
+dynamics and perpetuate racial hierarchies.
+
+Scholars and journalists have increasingly raised concerns about how
+dating apps collect and use racial data, how they rely on preference
+learning models, and how these systems often prioritize users based on
+patterns that reflect societal prejudices. In some cases, these biases
+result in users of color being seen less frequently, receiving fewer
+matches, or being filtered out entirely. These issues raise an important
+research question: How do dating app algorithms reinforce racial
+preferences and exclusion, shaping biased relationship patterns online?
+Understanding the mechanisms behind this bias is essential to
+identifying where discrimination occurs and how platforms can move
+toward a more equitable digital dating environment.
+
+This paper argues that dating app algorithms reinforce racial bias by
+learning and amplifying user preferences, resulting in the
+prioritization of white users and the marginalization of users of color.
+These systems not only reflect existing racial hierarchies but also
+strengthen them by normalizing exclusion in digital spaces. Through an
+examination of recent studies, legal cases, and expert analyses, this
+paper will demonstrate how racial preferences manifest in online dating,
+how algorithmic design amplifies these patterns, and what changes may be
+necessary to create fairer platforms.
+
+Algorithmic Learning and the Reinforcement of Racial Preferences
+
+Dating apps often deepen racial exclusion through the ways their
+algorithms learn and adjust to user behavior. These systems pay
+attention to patterns—who users swipe on, who they message, and even
+which profiles they linger on. Over time, the algorithm starts
+predicting what each user is drawn to and continues serving them similar
+profiles. While this is meant to create a personalized experience, it
+accidentally amplifies racial preferences, many of which come from
+long-standing social biases rather than conscious choices.
+
+Aldana and Salazar’s (2024) large study of Tinder users shows how
+powerful this dynamic can be. They found that people most often selected
+profiles from their own racial group or from groups that society tends
+to label as more desirable. Because of this, users of color had fewer
+chances to match at all, creating clear racial divides within the app
+experience. Their research suggests that algorithms don’t simply reflect
+racial patterns—they magnify them by learning from biased interactions
+already shaped by the outside world.
+
+Another important point from their study is how individual actions
+influence algorithmic logic. When many users swipe in racially biased
+ways, the system reads this as a genuine preference and begins
+prioritizing those racial categories. As a result, marginalized users
+appear less frequently in others’ recommendations. Over time, the feed
+becomes repetitive, almost like an echo chamber, showing users the same
+types of profiles they’ve already responded to. This reduces exposure to
+diverse matches and limits opportunities for cross-racial interactions,
+even for people who might not consciously intend to exclude anyone.
+
+Structural Biases Embedded in App Design
+
+Although user behavior plays a major role, the design of dating apps
+themselves also contributes heavily to racial inequality. Many platforms
+collect racial data, allow people to filter matches by race, or rely on
+scoring systems that reward people who already match dominant beauty
+standards.
+
+Hutson et al. (2019), writing for Wired, explain how Cornell researchers
+examined the 25 top-grossing dating apps in the U.S. Their findings were
+striking: 19 of the apps asked users to identify their race or
+ethnicity, 11 asked users to list racial preferences in potential
+partners, and 17 allowed racial filters outright. These tools make it
+incredibly easy to exclude entire racial groups with almost no effort.
+Rather than staying neutral, these design choices end up normalizing
+racial sorting and presenting it as just another feature.
+
+Popularity-based scoring systems add even more bias. Harding (2024)
+describes how Tinder’s old Elo score ranked users based on how many
+right swipes they received. Since attractiveness on many apps tends to
+follow Eurocentric beauty standards, white users often receive more
+early attention. This pushed them higher in the scoring system and made
+their profiles more visible. Users of color, meanwhile, were often
+fighting an uphill battle regardless of how strong their profiles were.
+
+These structural issues show that racial bias isn’t just a matter of
+user preference. It’s built into the design of major dating platforms.
+By enabling racial filtering and relying heavily on biased popularity
+metrics, these apps create spaces where racial exclusion becomes part of
+everyday use.
+
+Legal and Ethical Concerns: The Intersection of Algorithmic Bias and
+Discrimination
+
+Real-world legal cases demonstrate that algorithmic discrimination isn’t
+just a theoretical concern—it carries real ethical and regulatory
+consequences. De Jonge and Zuiderveen Borgesius (2024) examined a case
+from the Netherlands in which a dating app’s algorithm was shown to
+disadvantage non-white users. Their analysis looked closely at how the
+algorithm functioned and how current laws respond to discriminatory
+digital practices.
+
+The court found that the app consistently prioritized white users by
+ranking them higher, giving them more visibility and more opportunities
+for matches. Even though the company did not intentionally design the
+system to discriminate, the court ruled that it still violated European
+nondiscrimination laws because the developers failed to prevent the
+biased outcomes. This case shows that algorithmic bias can lead to real
+legal consequences, not just feelings of unfairness.
+
+The researchers argue that dating app companies need to commit to
+greater transparency and regular auditing of their systems. Without
+oversight, biased algorithms will continue reinforcing the racial
+inequalities that already exist offline. This case makes it clear that
+digital spaces can reproduce the same systems of racial advantage and
+disadvantage found in the physical world.
+
+Lived Experiences of Racial Bias in Online Dating
+
+Although studies and legal cases reveal structural inequality, personal
+experiences show just how emotionally and socially damaging racial bias
+on dating apps can be. Research focusing on the experiences of Black men
+using gay dating platforms highlights how deeply these issues run.
+
+Kalra et al. (2023) surveyed 500 young Black men about their experiences
+on Grindr and Jack’d. Nearly every participant—99%—reported dealing with
+sexual racism. This included receiving racial slurs, seeing exclusionary
+racial preferences in profiles, and facing biased matching patterns. For
+many participants, these apps became environments where racial
+stereotypes felt constant and exclusion seemed routine.
+
+These personal accounts show how algorithmic bias and user prejudice
+work hand in hand. Even apps that don’t explicitly allow racial
+filtering can still elevate certain groups over others through
+unconscious algorithmic patterns. Over time, marginalized users may feel
+invisible or undervalued, which can make dating apps emotionally
+draining rather than enjoyable.
+
+The experiences highlighted in this study show that algorithmic bias has
+real human costs. It affects people’s mental health, shapes their sense
+of belonging, and influences their ability to form meaningful
+relationships. These consequences go well beyond numbers and demonstrate
+why addressing algorithmic bias must be a priority.
+
+Counterarguement
+
+Although a growing body of research shows that dating app algorithms can
+reinforce racial bias, not everyone agrees that the platforms themselves
+are at fault. Some scholars and even a number of app developers argue
+that these apps simply reflect what users already prefer. According to
+this line of thinking, racial preferences in dating are nothing new—they
+existed long before online platforms became popular. In this view,
+dating apps don’t create bias; they just give people a space to act on
+ideas about attraction that they already hold.
+
+People who support this perspective also worry about what would happen
+if apps removed filtering options or ignored user preferences entirely.
+Customization is a major reason people use dating apps in the first
+place, and without some way of identifying what a user wants, the
+algorithm wouldn’t function as effectively. There’s also concern that
+pushing users to see profiles outside their stated preferences might
+lead to frustration, less engagement, or users leaving the platform
+altogether.
+
+These arguments raise valid points, but they overlook how algorithms
+don’t just mirror biases—they can amplify them. Arranz Aldana and
+Salazar’s (2024) research shows that racial preferences become stronger
+when algorithms repeatedly narrow user choices. Features like racial
+filters do more than express what users want; they actively shape and
+normalize exclusion. And importantly, personalization doesn’t have to
+rely on sensitive categories like race. Apps could focus on matching
+people through shared interests, values, or communication patterns
+rather than letting appearance-based stereotypes do most of the work.
+
+Overall, while user preference is part of the equation, platform design
+and algorithmic choices matter just as much. Ignoring that
+responsibility allows biased systems to continue operating without
+accountability, reinforcing patterns that harm users who are already
+marginalized.
+
+Conclusion
+
+Dating apps now play a major role in how people meet and form
+relationships, yet many of the algorithms behind these platforms
+unintentionally reinforce racial inequalities. By tracking user
+behavior, collecting racial information, using popularity scores, and
+allowing race-based filters, the systems often replicate biases already
+present in society. These practices can lead to real
+consequences—reduced visibility for users of color, discriminatory
+interactions, and, in some cases, even legal violations.
+
+Addressing these issues will require dating apps to rethink how their
+systems work. Increasing transparency, running consistent algorithm
+audits, and removing features that enable direct racial exclusion are
+important first steps. Platforms also need to explore new ways of
+personalizing matches that emphasize compatibility rather than relying
+so heavily on appearance-driven data. Regulators, too, must ensure that
+digital matchmaking services don’t become unchecked spaces where
+discrimination flourishes.
+
+Ultimately, creating fair and inclusive dating apps is not only a
+technical challenge but also an ethical one. If these platforms truly
+want to connect people instead of separating them, developers need to
+acknowledge the biases their systems reinforce and take meaningful
+action to correct them. With pressure from both users and advocates,
+dating apps have an opportunity to reshape online intimacy in a way that
+promotes equity, belonging, and genuine human connection.
+
+References
+
+1.  Arranz Aldana A (2024). Racial preferences in dating apps: an
+    experimental approach.
+
+Racial preferences in dating apps: an experimental approach
+
+2.  De Jonge, T. & Zuiderveen Borgesius, F. (2024). Mitigating digital
+    discrimination in dating apps.Mitigating Digital Discrimination in
+    Dating Apps – The Dutch Breeze case | Technology and Regulation
+
+3.  Hutson , J, et al. (2019). Are the algorithms that power dating apps
+    racially biased? Are the algorithms that power dating apps racially
+    biased? | WIRED
+
+4.  Harding, X (2024, March 12). Are dating apps racist? Here's what
+    Tinder and others can do to protect users of color. Are Dating Apps
+    Racist? Here’s What Tinder And Others Can Do To Protect Users Of
+    Color - Mozilla Foundation
+
+5.  Kalra, R. A., Gupta, P., Varghese, B., & Rangaswamy, N. (2023).
+    Exploring gender disparities in Bumble match recommendations.
+    [2312.09626] Exploring Gender Disparities in Bumble's Match
+    Recommendations

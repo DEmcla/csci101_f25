@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPv4 & IPv6 RFC Reference Guide - CSCI 101</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .intro h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .topic-section {
+            margin-bottom: 50px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .topic-section.history {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .topic-section.ipv4 {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+
+        .topic-section.ipv6 {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+        }
+
+        .topic-section h2 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid rgba(255,255,255,0.5);
+        }
+
+        .topic-section.history h2 {
+            color: #d63031;
+        }
+
+        .topic-section.ipv4 h2 {
+            color: #0984e3;
+        }
+
+        .topic-section.ipv6 h2 {
+            color: #6c5ce7;
+        }
+
+        .topic-description {
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .rfc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .rfc-item {
+            background: rgba(255,255,255,0.95);
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .rfc-item:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .rfc-item.obsolete {
+            border-left-color: #95a5a6;
+            opacity: 0.85;
+        }
+
+        .rfc-item.current {
+            border-left-color: #27ae60;
+        }
+
+        .rfc-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .rfc-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .rfc-description {
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .badge.current {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge.obsolete {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .badge.historical {
+            background: #f39c12;
+            color: white;
+        }
+
+        .badge.essential {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .quick-links {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 2px solid #ffc107;
+        }
+
+        .quick-links h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            border: none;
+            padding: 0;
+            font-size: 1.4em;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .quick-links a {
+            color: #856404;
+            text-decoration: none;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 5px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .quick-links a:hover {
+            background: #856404;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: #2c3e50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .resources {
+            background: #d1ecf1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 2px solid #17a2b8;
+        }
+
+        .resources h3 {
+            color: #0c5460;
+            border: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .resources ul {
+            padding-left: 20px;
+        }
+
+        .resources li {
+            margin-bottom: 8px;
+        }
+
+        .resources a {
+            color: #0c5460;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .year-badge {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .quick-links ul {
+                grid-template-columns: 1fr;
+            }
+
+            .topic-section {
+                padding: 15px;
+            }
+        }
+
+        .collapsible {
+            background-color: rgba(255,255,255,0.9);
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .collapsible:hover {
+            background-color: white;
+            border-color: #667eea;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: #667eea;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+            font-size: 1.3em;
+        }
+
+        .collapsible.active:after {
+            content: "\2212";
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 5000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .cross-reference {
+            background: #e8f4f8;
+            padding: 10px 15px;
+            border-left: 4px solid #17a2b8;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+
+        .cross-reference strong {
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>IPv4 & IPv6 RFC Reference Guide</h1>
+            <p>Comprehensive Resource for CSCI 101 Network Addressing Module</p>
+            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Organized by Topic: History, IPv4, and IPv6</p>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <h2>About This Resource</h2>
+                <p>This interactive guide provides direct links to all relevant RFCs (Request for Comments) covering the history of networking, IPv4, and IPv6. RFCs are official technical specifications published by the Internet Engineering Task Force (IETF) that define how internet protocols work.</p>
+                <p style="margin-top: 10px;"><strong>Organization:</strong> This resource is organized by three main topics. Some RFCs appear in multiple sections because they're relevant to more than one topic.</p>
+                <p style="margin-top: 10px;"><strong>Click on any RFC number</strong> to read the full specification. Badges indicate the current status of each RFC.</p>
+            </div>
+
+            <div class="quick-links">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#history">📚 Networking History</a></li>
+                    <li><a href="#ipv4">🔵 IPv4</a></li>
+                    <li><a href="#ipv6">🔷 IPv6</a></li>
+                    <li><a href="#recommended">⭐ Recommended Reading</a></li>
+                    <li><a href="#reference-table">📊 Quick Reference Table</a></li>
+                </ul>
+            </div>
+
+            <!-- ==================== NETWORKING HISTORY ==================== -->
+            <div class="topic-section history" id="history">
+                <h2>📚 Networking History</h2>
+                <div class="topic-description">
+                    From the earliest visions of computer networking (1962) through ARPANET, the development of TCP/IP, to the modern Internet protocols and the transition to IPv6.
+                </div>
+
+                <button class="collapsible">Early Networking Concepts & Research (1962-1969)</button>
+                <div class="collapsible-content">
+                    <div class="cross-reference" style="margin-bottom: 15px;">
+                        <strong>Note:</strong> These are seminal papers and documents that predate the RFC series. They established the theoretical foundation for packet-switched networking.
+                    </div>
+                    <ul class="rfc-list">
+                        <li class="rfc-item">
+                            <a href="https://en.wikipedia.org/wiki/Paul_Baran" target="_blank" class="rfc-link">Paul Baran - On Distributed Communications</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1964)</span>
+                            <div class="rfc-description">On Distributed Communications Networks - RAND Corporation series on distributed, packet-switched communications. Pioneer of packet switching. <a href="https://www.rand.org/pubs/research_memoranda/RM3420.html" target="_blank" style="color: #667eea;">[RAND Archive]</a></div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.lk.cs.ucla.edu/data/files/Kleinrock/Information%20Flow%20in%20Large%20Communication%20Nets.pdf" target="_blank" class="rfc-link">Leonard Kleinrock Dissertation</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1962)</span>
+                            <div class="rfc-description">Information Flow in Large Communication Nets - MIT Ph.D. thesis on queuing theory and packet switching</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://en.wikipedia.org/wiki/Donald_Davies" target="_blank" class="rfc-link">Donald Davies - Wikipedia</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1965-1967)</span>
+                            <div class="rfc-description">Packet Switching pioneer at National Physical Laboratory (NPL), UK - Independently developed packet switching concept and coined the term "packet"</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank" class="rfc-link">J.C.R. Licklider - Internet History</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1962-1963)</span>
+                            <div class="rfc-description">"Intergalactic Computer Network" - Visionary memos describing networked computing. <a href="https://en.wikipedia.org/wiki/J._C._R._Licklider" target="_blank" style="color: #667eea;">[Wikipedia]</a></div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.darpa.mil/about/innovation-timeline" target="_blank" class="rfc-link">ARPANET - DARPA Timeline</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1967-1969)</span>
+                            <div class="rfc-description">ARPA (now DARPA) begins planning the first packet-switching network. <a href="https://www.computerhistory.org/internethistory/" target="_blank" style="color: #667eea;">[CHM History]</a></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Birth of ARPANET & Early RFCs (1969-1974)</button>
+                <div class="collapsible-content">
+                    <div class="cross-reference" style="margin-bottom: 15px;">
+                        <strong>Historical Milestone:</strong> October 29, 1969 - First ARPANET message sent between UCLA and Stanford. The RFC series began in April 1969.
+                    </div>
+                    <ul class="rfc-list">
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1.html" target="_blank" class="rfc-link">RFC 1</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(April 1969)</span>
+                            <div class="rfc-description">Host Software - The FIRST RFC ever published by Steve Crocker</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc2.html" target="_blank" class="rfc-link">RFC 2</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(April 1969)</span>
+                            <div class="rfc-description">Host software - Second RFC, discussing host-to-host protocols</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc33.html" target="_blank" class="rfc-link">RFC 33</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(February 1970)</span>
+                            <div class="rfc-description">New Host-Host Protocol - Early host communication protocol</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc54.html" target="_blank" class="rfc-link">RFC 54</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(June 1970)</span>
+                            <div class="rfc-description">Official Protocol Proffering - Formalizing network protocols</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc801.html" target="_blank" class="rfc-link">NCP (Network Control Protocol)</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1970-1983)</span>
+                            <div class="rfc-description">ARPANET's original host-to-host protocol, predecessor to TCP/IP (multiple RFCs: 54, 55, 60, etc.)</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc114.html" target="_blank" class="rfc-link">RFC 114</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(April 1971)</span>
+                            <div class="rfc-description">File Transfer Protocol (FTP) - Early version</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc318.html" target="_blank" class="rfc-link">RFC 318</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(April 1972)</span>
+                            <div class="rfc-description">Telnet Protocols - Remote terminal access</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc675.html" target="_blank" class="rfc-link">RFC 675</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(December 1974)</span>
+                            <div class="rfc-description">Specification of Internet Transmission Control Program - First TCP specification by Vint Cerf & Bob Kahn</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">TCP/IP Development Era (1973-1980)</button>
+                <div class="collapsible-content">
+                    <div class="cross-reference" style="margin-bottom: 15px;">
+                        <strong>Key Development:</strong> Vint Cerf and Bob Kahn published "A Protocol for Packet Network Intercommunication" (1974), introducing TCP. Later split into TCP and IP.
+                    </div>
+                    <ul class="rfc-list">
+                        <li class="rfc-item">
+                            <a href="https://www.cs.princeton.edu/courses/archive/fall06/cos561/papers/cerf74.pdf" target="_blank" class="rfc-link">Cerf & Kahn Paper (PDF)</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(May 1974)</span>
+                            <div class="rfc-description">A Protocol for Packet Network Intercommunication - IEEE Trans. Communications - THE foundational TCP/IP paper. <a href="https://ieeexplore.ieee.org/document/1092259" target="_blank" style="color: #667eea;">[IEEE Xplore]</a></div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc675.html" target="_blank" class="rfc-link">RFC 675</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(December 1974)</span>
+                            <div class="rfc-description">Specification of Internet Transmission Control Program - First RFC version of TCP</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc760.html" target="_blank" class="rfc-link">RFC 760</a>
+                            <span class="badge obsolete">OBSOLETE</span>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(January 1980)</span>
+                            <div class="rfc-description">DoD Standard Internet Protocol - Direct predecessor to RFC 791 (IPv4)</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc761.html" target="_blank" class="rfc-link">RFC 761</a>
+                            <span class="badge obsolete">OBSOLETE</span>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(January 1980)</span>
+                            <div class="rfc-description">DoD Standard Transmission Control Protocol - Direct predecessor to RFC 793 (TCP)</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc762.html" target="_blank" class="rfc-link">RFC 762</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(January 1980)</span>
+                            <div class="rfc-description">DoD Standard User Datagram Protocol - Early UDP specification</div>
+                        </li>
+                    </ul>
+                    <div class="cross-reference">
+                        <strong>Transition:</strong> January 1, 1983 - "Flag Day" when ARPANET officially switched from NCP to TCP/IP.
+                    </div>
+                </div>
+
+                <button class="collapsible">Foundational Internet Protocols (1980-1982)</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc768.html" target="_blank" class="rfc-link">RFC 768</a>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(1980)</span>
+                            <div class="rfc-description">User Datagram Protocol (UDP) - Connectionless transport protocol</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc791.html" target="_blank" class="rfc-link">RFC 791</a>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(1981)</span>
+                            <div class="rfc-description">Internet Protocol (IPv4) - THE foundational specification that defined the Internet Protocol version 4</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc792.html" target="_blank" class="rfc-link">RFC 792</a>
+                            <span class="year-badge">(1981)</span>
+                            <div class="rfc-description">Internet Control Message Protocol (ICMP) - Error reporting and diagnostics for IPv4</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc793.html" target="_blank" class="rfc-link">RFC 793</a>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(1981)</span>
+                            <div class="rfc-description">Transmission Control Protocol (TCP) - Reliable, connection-oriented transport protocol</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc826.html" target="_blank" class="rfc-link">RFC 826</a>
+                            <span class="year-badge">(1982)</span>
+                            <div class="rfc-description">Address Resolution Protocol (ARP) - Maps IP addresses to hardware addresses</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Evolution of Internet Requirements (1989-1995)</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1122.html" target="_blank" class="rfc-link">RFC 1122</a>
+                            <span class="year-badge">(1989)</span>
+                            <div class="rfc-description">Requirements for Internet Hosts -- Communication Layers</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1123.html" target="_blank" class="rfc-link">RFC 1123</a>
+                            <span class="year-badge">(1989)</span>
+                            <div class="rfc-description">Requirements for Internet Hosts -- Application and Support</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1812.html" target="_blank" class="rfc-link">RFC 1812</a>
+                            <span class="year-badge">(1995)</span>
+                            <div class="rfc-description">Requirements for IP Version 4 Routers</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">IPv4 Address Exhaustion & The Need for IPv6 (1991-1997)</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1287.html" target="_blank" class="rfc-link">RFC 1287</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1991)</span>
+                            <div class="rfc-description">Towards the Future Internet Architecture - Early recognition of IPv4 limitations</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1752.html" target="_blank" class="rfc-link">RFC 1752</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1995)</span>
+                            <div class="rfc-description">The Recommendation for the IP Next Generation Protocol - Official recommendation for IPv6</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc2101.html" target="_blank" class="rfc-link">RFC 2101</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1997)</span>
+                            <div class="rfc-description">IPv4 Address Behaviour Today - Analysis of IPv4 address space issues</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Birth of IPv6 (1995-1998)</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item obsolete">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1883.html" target="_blank" class="rfc-link">RFC 1883</a>
+                            <span class="badge obsolete">OBSOLETE</span>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1995)</span>
+                            <div class="rfc-description">Internet Protocol, Version 6 (IPv6) Specification - The ORIGINAL IPv6 specification</div>
+                        </li>
+                        <li class="rfc-item obsolete">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1886.html" target="_blank" class="rfc-link">RFC 1886</a>
+                            <span class="badge obsolete">OBSOLETE</span>
+                            <span class="year-badge">(1995)</span>
+                            <div class="rfc-description">DNS Extensions to support IPv6 - Original IPv6 DNS specification</div>
+                        </li>
+                        <li class="rfc-item obsolete">
+                            <a href="https://www.rfc-editor.org/rfc/rfc2401.html" target="_blank" class="rfc-link">RFC 2401</a>
+                            <span class="badge obsolete">OBSOLETE</span>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1998)</span>
+                            <div class="rfc-description">Security Architecture for the Internet Protocol - Original IPsec specification</div>
+                        </li>
+                        <li class="rfc-item obsolete">
+                            <a href="https://www.rfc-editor.org/rfc/rfc2460.html" target="_blank" class="rfc-link">RFC 2460</a>
+                            <span class="badge obsolete">OBSOLETE</span>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1998)</span>
+                            <div class="rfc-description">Internet Protocol, Version 6 (IPv6) Specification - Second version, widely referenced for years</div>
+                        </li>
+                    </ul>
+                    <div class="cross-reference">
+                        <strong>Note:</strong> These RFCs show the evolution of IPv6. See the <a href="#ipv6">IPv6 section</a> for current specifications.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== IPv4 ==================== -->
+            <div class="topic-section ipv4" id="ipv4">
+                <h2>🔵 IPv4</h2>
+                <div class="topic-description">
+                    Everything about Internet Protocol version 4: core specifications, addressing, subnetting, CIDR, private networks, and NAT.
+                </div>
+
+                <button class="collapsible">IPv4 Core Specifications</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc791.html" target="_blank" class="rfc-link">RFC 791</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(1981)</span>
+                            <div class="rfc-description">Internet Protocol (IPv4) - THE definitive IPv4 specification</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc792.html" target="_blank" class="rfc-link">RFC 792</a>
+                            <span class="year-badge">(1981)</span>
+                            <div class="rfc-description">Internet Control Message Protocol (ICMP) - Used for ping, traceroute, error messages</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc826.html" target="_blank" class="rfc-link">RFC 826</a>
+                            <span class="year-badge">(1982)</span>
+                            <div class="rfc-description">Address Resolution Protocol (ARP) - Maps IPv4 addresses to MAC addresses</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1122.html" target="_blank" class="rfc-link">RFC 1122</a>
+                            <span class="year-badge">(1989)</span>
+                            <div class="rfc-description">Requirements for Internet Hosts -- Communication Layers</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1812.html" target="_blank" class="rfc-link">RFC 1812</a>
+                            <span class="year-badge">(1995)</span>
+                            <div class="rfc-description">Requirements for IP Version 4 Routers</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Subnetting & CIDR</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc950.html" target="_blank" class="rfc-link">RFC 950</a>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(1985)</span>
+                            <div class="rfc-description">Internet Standard Subnetting Procedure - How to divide networks into subnets</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1519.html" target="_blank" class="rfc-link">RFC 1519</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(1993)</span>
+                            <div class="rfc-description">Classless Inter-Domain Routing (CIDR) - Replaced classful addressing to conserve IPv4 space</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Private IPv4 Addresses</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" class="rfc-link">RFC 1918</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(1996)</span>
+                            <div class="rfc-description">Address Allocation for Private Internets - Defines 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3927.html" target="_blank" class="rfc-link">RFC 3927</a>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">Dynamic Configuration of IPv4 Link-Local Addresses (169.254.0.0/16)</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Network Address Translation (NAT)</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item obsolete">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1631.html" target="_blank" class="rfc-link">RFC 1631</a>
+                            <span class="badge obsolete">OBSOLETE</span>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1994)</span>
+                            <div class="rfc-description">The IP Network Address Translator (NAT) - Original NAT specification</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc2663.html" target="_blank" class="rfc-link">RFC 2663</a>
+                            <span class="year-badge">(1999)</span>
+                            <div class="rfc-description">IP Network Address Translator (NAT) Terminology and Considerations</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3022.html" target="_blank" class="rfc-link">RFC 3022</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2001)</span>
+                            <div class="rfc-description">Traditional IP Network Address Translator (Traditional NAT) - Current NAT standard</div>
+                        </li>
+                    </ul>
+                    <div class="cross-reference">
+                        <strong>Note:</strong> NAT was a workaround for IPv4 address exhaustion. IPv6 eliminates the need for NAT.
+                    </div>
+                </div>
+
+                <button class="collapsible">IPv4 Address Space Issues</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc1287.html" target="_blank" class="rfc-link">RFC 1287</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1991)</span>
+                            <div class="rfc-description">Towards the Future Internet Architecture - Early recognition of IPv4 limitations</div>
+                        </li>
+                        <li class="rfc-item">
+                            <a href="https://www.rfc-editor.org/rfc/rfc2101.html" target="_blank" class="rfc-link">RFC 2101</a>
+                            <span class="badge historical">HISTORICAL</span>
+                            <span class="year-badge">(1997)</span>
+                            <div class="rfc-description">IPv4 Address Behaviour Today - Analysis of IPv4 address space depletion</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ==================== IPv6 ==================== -->
+            <div class="topic-section ipv6" id="ipv6">
+                <h2>🔷 IPv6</h2>
+                <div class="topic-description">
+                    Everything about Internet Protocol version 6: core specifications, addressing architecture, autoconfiguration, security, transition mechanisms, and deployment.
+                </div>
+
+                <button class="collapsible">IPv6 Core Specifications</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc8200.html" target="_blank" class="rfc-link">RFC 8200</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2017)</span>
+                            <div class="rfc-description">Internet Protocol, Version 6 (IPv6) Specification - THE CURRENT IPv6 standard</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4443.html" target="_blank" class="rfc-link">RFC 4443</a>
+                            <span class="year-badge">(2006)</span>
+                            <div class="rfc-description">Internet Control Message Protocol (ICMPv6) for IPv6 - Error reporting and diagnostics</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc8504.html" target="_blank" class="rfc-link">RFC 8504</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="year-badge">(2019)</span>
+                            <div class="rfc-description">IPv6 Node Requirements - What devices must implement</div>
+                        </li>
+                    </ul>
+                    <div class="cross-reference">
+                        <strong>Historical Evolution:</strong> See <a href="#history">Networking History</a> for RFC 1883 (1995) and RFC 2460 (1998).
+                    </div>
+                </div>
+
+                <button class="collapsible">IPv6 Addressing Architecture</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4291.html" target="_blank" class="rfc-link">RFC 4291</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2006)</span>
+                            <div class="rfc-description">IP Version 6 Addressing Architecture - CORE ADDRESSING SPECIFICATION (unicast, multicast, anycast, special addresses)</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc5952.html" target="_blank" class="rfc-link">RFC 5952</a>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2010)</span>
+                            <div class="rfc-description">A Recommendation for IPv6 Address Text Representation - How to properly write and compress IPv6 addresses</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3587.html" target="_blank" class="rfc-link">RFC 3587</a>
+                            <span class="year-badge">(2003)</span>
+                            <div class="rfc-description">IPv6 Global Unicast Address Format (2000::/3)</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4193.html" target="_blank" class="rfc-link">RFC 4193</a>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">Unique Local IPv6 Unicast Addresses (fc00::/7) - IPv6's equivalent to private addresses</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3879.html" target="_blank" class="rfc-link">RFC 3879</a>
+                            <span class="year-badge">(2004)</span>
+                            <div class="rfc-description">Deprecating Site Local Addresses</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4007.html" target="_blank" class="rfc-link">RFC 4007</a>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">IPv6 Scoped Address Architecture (link-local, site-local, etc.)</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc5156.html" target="_blank" class="rfc-link">RFC 5156</a>
+                            <span class="year-badge">(2008)</span>
+                            <div class="rfc-description">Special-Use IPv6 Addresses</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">IPv4-Mapped & Embedded Addresses</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4291.html#section-2.5.5" target="_blank" class="rfc-link">RFC 4291 (Section 2.5.5)</a>
+                            <span class="year-badge">(2006)</span>
+                            <div class="rfc-description">IPv4-Mapped IPv6 Addresses (::ffff:0:0/96) - Allows IPv6 apps to communicate with IPv4</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6052.html" target="_blank" class="rfc-link">RFC 6052</a>
+                            <span class="year-badge">(2010)</span>
+                            <div class="rfc-description">IPv6 Addressing of IPv4/IPv6 Translators</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4038.html" target="_blank" class="rfc-link">RFC 4038</a>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">Application Aspects of IPv6 Transition</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Neighbor Discovery & Autoconfiguration</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4861.html" target="_blank" class="rfc-link">RFC 4861</a>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2007)</span>
+                            <div class="rfc-description">Neighbor Discovery for IP version 6 (NDP) - Replaces ARP, includes router discovery</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4862.html" target="_blank" class="rfc-link">RFC 4862</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2007)</span>
+                            <div class="rfc-description">IPv6 Stateless Address Autoconfiguration (SLAAC) - Automatic IPv6 address configuration</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">DHCPv6</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc8415.html" target="_blank" class="rfc-link">RFC 8415</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2018)</span>
+                            <div class="rfc-description">Dynamic Host Configuration Protocol for IPv6 (DHCPv6) - Stateful IPv6 address assignment</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3736.html" target="_blank" class="rfc-link">RFC 3736</a>
+                            <span class="year-badge">(2004)</span>
+                            <div class="rfc-description">Stateless DHCPv6 - Provides configuration options without address assignment</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3646.html" target="_blank" class="rfc-link">RFC 3646</a>
+                            <span class="year-badge">(2003)</span>
+                            <div class="rfc-description">DNS Configuration options for DHCPv6</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">IPsec Security (Mandatory in IPv6)</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4301.html" target="_blank" class="rfc-link">RFC 4301</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">Security Architecture for the Internet Protocol - IPsec architecture</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4302.html" target="_blank" class="rfc-link">RFC 4302</a>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">IP Authentication Header (AH) - Provides authentication and integrity</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4303.html" target="_blank" class="rfc-link">RFC 4303</a>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">IP Encapsulating Security Payload (ESP) - Provides encryption and authentication</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc7296.html" target="_blank" class="rfc-link">RFC 7296</a>
+                            <span class="year-badge">(2014)</span>
+                            <div class="rfc-description">Internet Key Exchange Protocol Version 2 (IKEv2) - Key management for IPsec</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Multicast in IPv6</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4291.html#section-2.7" target="_blank" class="rfc-link">RFC 4291 (Section 2.7)</a>
+                            <span class="year-badge">(2006)</span>
+                            <div class="rfc-description">IPv6 Multicast Addresses (ff00::/8)</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc2710.html" target="_blank" class="rfc-link">RFC 2710</a>
+                            <span class="year-badge">(1999)</span>
+                            <div class="rfc-description">Multicast Listener Discovery (MLD) for IPv6 - IPv6's version of IGMP</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3810.html" target="_blank" class="rfc-link">RFC 3810</a>
+                            <span class="year-badge">(2004)</span>
+                            <div class="rfc-description">Multicast Listener Discovery Version 2 (MLDv2)</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">DNS for IPv6</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3596.html" target="_blank" class="rfc-link">RFC 3596</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="year-badge">(2003)</span>
+                            <div class="rfc-description">DNS Extensions to Support IPv6 - AAAA records for IPv6 addresses</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6147.html" target="_blank" class="rfc-link">RFC 6147</a>
+                            <span class="year-badge">(2011)</span>
+                            <div class="rfc-description">DNS64: DNS Extensions for Network Address Translation from IPv6 Clients to IPv4 Servers</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Transition Mechanisms: Dual Stack</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4213.html" target="_blank" class="rfc-link">RFC 4213</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2005)</span>
+                            <div class="rfc-description">Basic Transition Mechanisms for IPv6 Hosts and Routers - Dual-stack and configured tunnels</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6434.html" target="_blank" class="rfc-link">RFC 6434</a>
+                            <span class="year-badge">(2011)</span>
+                            <div class="rfc-description">IPv6 Node Requirements - Includes dual-stack requirements</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Transition Mechanisms: Tunneling</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item obsolete">
+                            <a href="https://www.rfc-editor.org/rfc/rfc3056.html" target="_blank" class="rfc-link">RFC 3056</a>
+                            <span class="badge obsolete">DEPRECATED</span>
+                            <span class="year-badge">(2001)</span>
+                            <div class="rfc-description">Connection of IPv6 Domains via IPv4 Clouds (6to4) - Now deprecated</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc7596.html" target="_blank" class="rfc-link">RFC 7596</a>
+                            <span class="year-badge">(2015)</span>
+                            <div class="rfc-description">Deprecation of the 6to4 IPv6 Transition Mechanism</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc5969.html" target="_blank" class="rfc-link">RFC 5969</a>
+                            <span class="year-badge">(2010)</span>
+                            <div class="rfc-description">IPv6 Rapid Deployment on IPv4 Infrastructures (6rd)</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc4380.html" target="_blank" class="rfc-link">RFC 4380</a>
+                            <span class="year-badge">(2006)</span>
+                            <div class="rfc-description">Teredo: Tunneling IPv6 over UDP through Network Address Translations</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">Transition Mechanisms: Translation (NAT64/DNS64)</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6144.html" target="_blank" class="rfc-link">RFC 6144</a>
+                            <span class="year-badge">(2011)</span>
+                            <div class="rfc-description">Framework for IPv4/IPv6 Translation</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6145.html" target="_blank" class="rfc-link">RFC 6145</a>
+                            <span class="year-badge">(2011)</span>
+                            <div class="rfc-description">IP/ICMP Translation Algorithm</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6146.html" target="_blank" class="rfc-link">RFC 6146</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="badge essential">ESSENTIAL</span>
+                            <span class="year-badge">(2011)</span>
+                            <div class="rfc-description">Stateful NAT64: Network Address and Protocol Translation from IPv6 Clients to IPv4 Servers</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">IPv6 Deployment & Best Practices</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6177.html" target="_blank" class="rfc-link">RFC 6177</a>
+                            <span class="year-badge">(2011)</span>
+                            <div class="rfc-description">IPv6 Address Assignment to End Sites</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc7084.html" target="_blank" class="rfc-link">RFC 7084</a>
+                            <span class="year-badge">(2013)</span>
+                            <div class="rfc-description">Basic Requirements for IPv6 Customer Edge Routers</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="collapsible">IPv6 Header Fields</button>
+                <div class="collapsible-content">
+                    <ul class="rfc-list">
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc6437.html" target="_blank" class="rfc-link">RFC 6437</a>
+                            <span class="badge current">CURRENT</span>
+                            <span class="year-badge">(2011)</span>
+                            <div class="rfc-description">IPv6 Flow Label Specification - QoS and traffic management</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc8200.html#section-4.5" target="_blank" class="rfc-link">RFC 8200 (Section 4.5)</a>
+                            <span class="year-badge">(2017)</span>
+                            <div class="rfc-description">IPv6 Fragment Header - Fragmentation is done only by source hosts</div>
+                        </li>
+                        <li class="rfc-item current">
+                            <a href="https://www.rfc-editor.org/rfc/rfc5722.html" target="_blank" class="rfc-link">RFC 5722</a>
+                            <span class="year-badge">(2009)</span>
+                            <div class="rfc-description">Handling of Overlapping IPv6 Fragments</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RECOMMENDED READING -->
+            <div class="section" id="recommended" style="background: #e8f5e9; padding: 25px; border-radius: 10px; border: 2px solid #4caf50;">
+                <h2 style="color: #2e7d32;">⭐ Recommended Reading Order for CSCI 101 Students</h2>
+
+                <h3 style="color: #2e7d32; border-left-color: #4caf50;">Essential RFCs (Start Here)</h3>
+                <ol style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc791.html" target="_blank" class="rfc-link">RFC 791</a> - IPv4 Specification</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc8200.html" target="_blank" class="rfc-link">RFC 8200</a> - IPv6 Specification (Current)</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc4291.html" target="_blank" class="rfc-link">RFC 4291</a> - IPv6 Addressing Architecture</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc5952.html" target="_blank" class="rfc-link">RFC 5952</a> - IPv6 Address Text Representation</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" class="rfc-link">RFC 1918</a> - Private IPv4 Addresses</li>
+                </ol>
+
+                <h3 style="color: #2e7d32; border-left-color: #4caf50;">Understanding Transitions</h3>
+                <ol start="6" style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc4213.html" target="_blank" class="rfc-link">RFC 4213</a> - Basic IPv6 Transition Mechanisms</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc6146.html" target="_blank" class="rfc-link">RFC 6146</a> - Stateful NAT64</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc3022.html" target="_blank" class="rfc-link">RFC 3022</a> - Traditional NAT</li>
+                </ol>
+
+                <h3 style="color: #2e7d32; border-left-color: #4caf50;">Autoconfiguration</h3>
+                <ol start="9" style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc4862.html" target="_blank" class="rfc-link">RFC 4862</a> - IPv6 SLAAC</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc8415.html" target="_blank" class="rfc-link">RFC 8415</a> - DHCPv6</li>
+                </ol>
+
+                <h3 style="color: #2e7d32; border-left-color: #4caf50;">Historical Context</h3>
+                <ol start="11" style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc1883.html" target="_blank" class="rfc-link">RFC 1883</a> - Original IPv6 Spec (1995)</li>
+                    <li style="margin-bottom: 10px;"><a href="https://www.rfc-editor.org/rfc/rfc1519.html" target="_blank" class="rfc-link">RFC 1519</a> - CIDR Introduction</li>
+                </ol>
+            </div>
+
+            <!-- REFERENCE TABLE -->
+            <div class="section" id="reference-table">
+                <h2>📊 Quick Reference Table</h2>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Topic</th>
+                                <th>Current RFC</th>
+                                <th>Obsoleted RFC (Historical)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>IPv4</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc791.html" target="_blank">RFC 791 (1981)</a></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IPv6 Core</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc8200.html" target="_blank">RFC 8200 (2017)</a></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc2460.html" target="_blank">RFC 2460 (1998)</a>, <a href="https://www.rfc-editor.org/rfc/rfc1883.html" target="_blank">RFC 1883 (1995)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>IPv6 Addressing</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc4291.html" target="_blank">RFC 4291 (2006)</a></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc3513.html" target="_blank">RFC 3513 (2003)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>DHCPv6</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc8415.html" target="_blank">RFC 8415 (2018)</a></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc3315.html" target="_blank">RFC 3315 (2003)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>IPv6 Node Requirements</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc8504.html" target="_blank">RFC 8504 (2019)</a></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc6434.html" target="_blank">RFC 6434 (2011)</a>, <a href="https://www.rfc-editor.org/rfc/rfc4294.html" target="_blank">RFC 4294 (2006)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>IPsec Architecture</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc4301.html" target="_blank">RFC 4301 (2005)</a></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc2401.html" target="_blank">RFC 2401 (1998)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>DNS for IPv6</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc3596.html" target="_blank">RFC 3596 (2003)</a></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc1886.html" target="_blank">RFC 1886 (1995)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>SLAAC</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc4862.html" target="_blank">RFC 4862 (2007)</a></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>NAT (IPv4)</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc3022.html" target="_blank">RFC 3022 (2001)</a></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc1631.html" target="_blank">RFC 1631 (1994)</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CIDR</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc1519.html" target="_blank">RFC 1519 (1993)</a></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Private Addresses</strong></td>
+                                <td><a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank">RFC 1918 (1996)</a> - IPv4<br><a href="https://www.rfc-editor.org/rfc/rfc4193.html" target="_blank">RFC 4193 (2005)</a> - IPv6</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RESOURCES -->
+            <div class="resources">
+                <h3>📚 Where to Access RFCs</h3>
+                <p>All RFCs are freely available and can be accessed at:</p>
+                <ul>
+                    <li><a href="https://www.rfc-editor.org/" target="_blank">RFC Editor</a> - Official source for all RFCs</li>
+                    <li><a href="https://datatracker.ietf.org/doc/" target="_blank">IETF Datatracker</a> - Track RFC development and current status</li>
+                    <li><a href="https://tools.ietf.org/" target="_blank">IETF Tools</a> - Various RFC-related tools and resources</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Direct Link Format:</strong> https://www.rfc-editor.org/rfc/rfcXXXX.html<br>(Replace XXXX with the RFC number)</p>
+                <p style="margin-top: 15px;"><strong>Tip:</strong> RFCs labeled as "OBSOLETE" are shown for historical context. Always refer to the "CURRENT" version for implementation.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 CSCI 101 - IPv4 & IPv6 RFC Reference Guide</p>
+            <p style="margin-top: 5px; font-size: 0.9em;">All RFCs are published by the Internet Engineering Task Force (IETF)</p>
+            <p style="margin-top: 5px; font-size: 0.85em; opacity: 0.8;">Organized by Topic: Networking History, IPv4, and IPv6</p>
+        </footer>
+    </div>
+
+    <script>
+        // Collapsible sections functionality
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.rfc-item').forEach((item) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.5s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
