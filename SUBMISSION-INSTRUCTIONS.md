@@ -8,7 +8,14 @@
 - Create your first Pull Request
 
 ## Overview
-This course uses 5 pull request submissions. Each submission builds upon the previous one, demonstrating your growth in programming and problem-solving skills throughout CSCI 101.
+This tutorial has five pull requests. Each pull request is a separate, isolated submission containing only the materials for that specific assignment.
+
+**Important:** Each pull request should only include files from its corresponding folder:
+- PR 01 → only `pullrequest_01/` files
+- PR 02 → only `pullrequest_02/` files
+- PR 03 → only `pullrequest_03/` files
+- PR 04 → only `pullrequest_04/` files
+- PR 05 → only `pullrequest_05/` files
 
 **We will use the professional Fork & Pull Request workflow - the same process used by software developers worldwide!**
 
