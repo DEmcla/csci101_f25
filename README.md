@@ -15,7 +15,7 @@ Each PR requires a `README.md` + one file:
 |--------|------------|-----------------|
 | pullrequest_01/ | Word Document | README.md + Assignment.docx |
 | pullrequest_02/ | Python Program | README.md + helloWorld.py |
-| pullrequest_03/ | Markdown File | README.md + about_me.md |
+| pullrequest_03/ | Markdown File | README.md + markdown_demo.md |
 
 ## Branch Structure
 

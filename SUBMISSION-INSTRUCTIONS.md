@@ -60,7 +60,7 @@ print("Hello, World!")
 ### PR 03: Markdown File
 **Files required in your subfolder:**
 - `README.md` - Describes your submission
-- `about_me.md` - A Markdown file about yourself
+- `markdown_demo.md` - A Markdown file demonstrating formatting
 
 **Purpose:** Learn Markdown syntax by creating a formatted document. This reinforces why README.md files are powerful!
 
@@ -68,29 +68,27 @@ print("Hello, World!")
 ```
 pullrequest_03/john_smith/
   README.md
-  about_me.md
+  markdown_demo.md
 ```
 
-**Your about_me.md should include:**
-- A heading with your name
-- A brief introduction
-- A bulleted list (hobbies, interests, or goals)
-- At least one **bold** or *italic* text
+**Your markdown_demo.md must demonstrate:**
+- A heading (`#`)
+- A subheading (`##`)
+- A bulleted list (`-`)
+- **Bold** text (`**bold**`)
+- *Italic* text (`*italic*`)
 
-**Example about_me.md:**
+**Example markdown_demo.md:**
 ```markdown
-# About Me - John Smith
+# Markdown Demo - John Smith
 
-## Introduction
-I'm a computer science student learning to code!
+## What is Markdown?
+Markdown is a **lightweight** markup language for creating *formatted* text.
 
-## My Interests
-- Programming
-- Video games
-- **Machine learning**
-
-## Goals
-I want to become a *software developer* after graduation.
+## Common Uses
+- README files
+- Documentation
+- Notes
 ```
 
 ---

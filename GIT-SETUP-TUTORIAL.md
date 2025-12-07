@@ -233,7 +233,7 @@ You've just completed your first Pull Request using the same workflow profession
 |----|----------------|
 | PR 01 | README.md + Word document (.docx) |
 | PR 02 | README.md + Python program (helloWorld.py) |
-| PR 03 | README.md + Markdown file (about_me.md) |
+| PR 03 | README.md + Markdown file (markdown_demo.md) |
 
 See `SUBMISSION-INSTRUCTIONS.md` for detailed requirements for each PR.
 
