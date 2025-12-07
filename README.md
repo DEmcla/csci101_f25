@@ -1,22 +1,20 @@
-# CSCI 101 - Semester Project Submissions
+# CSCI 101 - Course Submissions
 
-## 🆕 New to Git?
-**Start here:** [Git Setup Tutorial](GIT-SETUP-TUTORIAL.md) - Complete walk-through for first-time setup!
+## 🆕 New to GitHub?
+**Start here:** [GitHub Tutorial](GIT-SETUP-TUTORIAL.md) - Complete walk-through for first-time setup!
 
-## Project Steps
-This repository contains folders for each step of the semester project:
-- project-step-1/
-- project-step-2/
-- project-step-3/
-- project-step-4/
-- project-step-5/
-- project-step-6/
-- project-step-7/
+## Pull Request Folders
+This repository contains folders for each pull request submission:
+- pullrequest_01/
+- pullrequest_02/
+- pullrequest_03/
+- pullrequest_04/
+- pullrequest_05/
 
 ## Submission Instructions
 Please refer to `SUBMISSION-INSTRUCTIONS.md` for detailed submission guidelines.
 
 ## Important
 - Follow the file naming convention exactly
-- Submit your work to the correct project-step folder
+- Submit your work to the correct pullrequest folder
 - Do not modify other students' files

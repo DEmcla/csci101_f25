@@ -1,4 +1,4 @@
-# Git Setup Tutorial: Your First Submission
+# GitHub Tutorial: Your First Submission
 ## A Complete Walk-Through for CSCI 101 Students
 
 ---
@@ -104,11 +104,11 @@ You should see your name and email in the output.
 ## Part 4: Fork the Course Repository
 
 ### Step 4.1: Find the Course Repository
-1. Go to your instructor's repository:
+1. Go to the course repository:
    ```
-   https://github.com/[INSTRUCTOR_USERNAME]/csci101_f25
+   https://github.com/csci101_f25/csci101_f25
    ```
-2. You should see the course repository with project-step folders
+2. You should see the course repository with pullrequest folders
 
 ### Step 4.2: Fork It!
 1. Click the "Fork" button (top-right of the page)
@@ -156,22 +156,22 @@ ls
 ```
 You should see:
 ```
-project-step-1/
-project-step-2/
-project-step-3/
-... etc
+pullrequest_01/
+pullrequest_02/
+pullrequest_03/
+pullrequest_04/
+pullrequest_05/
 README.md
 SUBMISSION-INSTRUCTIONS.md
 ```
 
 ---
 
-## Part 6: Connect to Instructor's Repository
+## Part 6: Connect to Course Repository
 
 ### Step 6.1: Add Upstream Remote
-Replace `INSTRUCTOR_USERNAME` with your instructor's GitHub username:
 ```bash
-git remote add upstream https://github.com/INSTRUCTOR_USERNAME/csci101_f25.git
+git remote add upstream https://github.com/csci101_f25/csci101_f25.git
 ```
 
 ### Step 6.2: Verify Your Remotes
@@ -182,13 +182,13 @@ You should see:
 ```
 origin    https://github.com/YOUR_USERNAME/csci101_f25.git (fetch)
 origin    https://github.com/YOUR_USERNAME/csci101_f25.git (push)
-upstream  https://github.com/INSTRUCTOR_USERNAME/csci101_f25.git (fetch)
-upstream  https://github.com/INSTRUCTOR_USERNAME/csci101_f25.git (push)
+upstream  https://github.com/csci101_f25/csci101_f25.git (fetch)
+upstream  https://github.com/csci101_f25/csci101_f25.git (push)
 ```
 
 **What this means:**
 - `origin` = Your fork (where you push your work)
-- `upstream` = Instructor's repository (where you submit via Pull Request)
+- `upstream` = Course repository (where you submit via Pull Request)
 
 ---
 
@@ -258,7 +258,7 @@ You might be prompted for your GitHub username and password:
 1. Click "Pull requests"
 2. Click "New pull request"
 3. Make sure the settings are:
-   - Base repository: `INSTRUCTOR_USERNAME/csci101_f25`
+   - Base repository: `csci101_f25/csci101_f25`
    - Base: `main`
    - Head repository: `YOUR_USERNAME/csci101_f25`
    - Compare: `practice_john_smith`
@@ -271,7 +271,7 @@ You might be prompted for your GitHub username and password:
 ### Step 8.3: Success!
 You should see your pull request created! The URL will be something like:
 ```
-https://github.com/INSTRUCTOR_USERNAME/csci101_f25/pull/1
+https://github.com/csci101_f25/csci101_f25/pull/1
 ```
 
 ---
@@ -292,17 +292,17 @@ git push origin main
 ### For Each Assignment:
 ```bash
 # 1. Create a new branch
-git checkout -b step1_john_smith
+git checkout -b pr01_john_smith
 
 # 2. Add your assignment file to the correct folder
-# (Put your Word doc in project-step-1/ folder)
+# (Put your file in the pullrequest_01/ folder)
 
 # 3. Add and commit
-git add project-step-1/Project_John_Smith.docx
-git commit -m "Add Step 1 submission - John Smith"
+git add pullrequest_01/Assignment_John_Smith.docx
+git commit -m "Add PR 01 submission - John Smith"
 
 # 4. Push
-git push origin step1_john_smith
+git push origin pr01_john_smith
 
 # 5. Go to GitHub and create Pull Request
 ```
@@ -342,7 +342,7 @@ Before starting real assignments, confirm:
 - [ ] I've added the upstream remote
 - [ ] I successfully created a practice PR
 - [ ] I understand the difference between:
-  - My fork (origin) vs Instructor's repo (upstream)
+  - My fork (origin) vs Course repo (upstream)
   - Branches vs Main
   - Local vs Remote
 
@@ -372,17 +372,17 @@ Keep this handy for assignments:
 ```bash
 # Before starting assignment
 git fetch upstream
-git checkout main  
+git checkout main
 git merge upstream/main
 git push origin main
 
 # Create branch for work
-git checkout -b step1_firstname_lastname
+git checkout -b pr01_firstname_lastname
 
 # After adding your file
-git add project-step-1/Project_FirstName_LastName.docx
-git commit -m "Add Step 1 submission - FirstName LastName"
-git push origin step1_firstname_lastname
+git add pullrequest_01/Assignment_FirstName_LastName.docx
+git commit -m "Add PR 01 submission - FirstName LastName"
+git push origin pr01_firstname_lastname
 
 # Then create PR on GitHub
 ```

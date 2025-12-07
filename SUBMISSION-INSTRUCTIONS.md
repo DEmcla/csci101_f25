@@ -1,14 +1,14 @@
-# Semester Project Submission Instructions
+# Course Submission Instructions
 
 ## 🚀 First Time Here?
-**Start with the [Git Setup Tutorial](GIT-SETUP-TUTORIAL.md)** - A complete walk-through that will:
+**Start with the [GitHub Tutorial](GIT-SETUP-TUTORIAL.md)** - A complete walk-through that will:
 - Help you install Git
-- Set up your GitHub account  
+- Set up your GitHub account
 - Practice making a submission
 - Create your first Pull Request
 
 ## Overview
-This semester-long project will develop through 7 steps. Each step builds upon the previous one, demonstrating your growth in programming and problem-solving skills throughout CSCI 101.
+This course uses 5 pull request submissions. Each submission builds upon the previous one, demonstrating your growth in programming and problem-solving skills throughout CSCI 101.
 
 **We will use the professional Fork & Pull Request workflow - the same process used by software developers worldwide!**
 
@@ -29,23 +29,22 @@ cd csci101_f25
 
 ### Step 3: Set Up the Upstream Remote
 ```bash
-# Connect to the original repository for updates
-# Replace INSTRUCTOR_USERNAME with your instructor's GitHub username
-git remote add upstream https://github.com/INSTRUCTOR_USERNAME/csci101_f25.git
+# Connect to the course repository for updates
+git remote add upstream https://github.com/csci101_f25/csci101_f25.git
 
 # Verify your remotes
 git remote -v
 # You should see:
 # origin = your fork
-# upstream = instructor's original
+# upstream = course repository
 ```
 
-## Submission Process for Each Project Step
+## Submission Process for Each Pull Request
 
 ### 1. Update Your Fork
 Before starting each assignment, get the latest updates:
 ```bash
-# Get updates from the instructor's repository
+# Get updates from the course repository
 git fetch upstream
 git checkout main
 git merge upstream/main
@@ -55,37 +54,37 @@ git push origin main
 ### 2. Create a Branch for Your Work
 ```bash
 # Create a new branch for your submission
-# Format: step#_firstname_lastname
-git checkout -b step1_john_smith
+# Format: pr0#_firstname_lastname
+git checkout -b pr01_john_smith
 ```
 
-### 3. Add Your Project File
-- **File name**: `Project_FirstName_LastName.docx`
-- **Location**: Place in the appropriate project-step folder
-- **Example**: `project-step-1/Project_John_Smith.docx`
+### 3. Add Your Assignment File
+- **File name**: `Assignment_FirstName_LastName.docx`
+- **Location**: Place in the appropriate pullrequest folder
+- **Example**: `pullrequest_01/Assignment_John_Smith.docx`
 
 ### 4. Commit Your Work
 ```bash
 # Add your file
-git add project-step-1/Project_John_Smith.docx
+git add pullrequest_01/Assignment_John_Smith.docx
 
 # Commit with a clear message
-git commit -m "Add Step 1 submission - John Smith"
+git commit -m "Add PR 01 submission - John Smith"
 
 # Push to YOUR fork
-git push origin step1_john_smith
+git push origin pr01_john_smith
 ```
 
 ### 5. Create a Pull Request
 1. Go to YOUR fork on GitHub
 2. Click "Pull requests" → "New pull request"
 3. Make sure:
-   - Base repository: Instructor's repository
+   - Base repository: Course repository (csci101_f25/csci101_f25)
    - Base branch: main
    - Head repository: Your fork
-   - Compare branch: Your step branch (e.g., step1_john_smith)
+   - Compare branch: Your PR branch (e.g., pr01_john_smith)
 4. Click "Create pull request"
-5. **Title your PR**: `Step 1 Submission - FirstName LastName`
+5. **Title your PR**: `PR 01 Submission - FirstName LastName`
 6. Add any comments about your submission
 7. Click "Create pull request"
 
@@ -94,47 +93,47 @@ git push origin step1_john_smith
 ### File Naming Convention
 **MUST follow this format exactly:**
 ```
-Project_FirstName_LastName.docx
+Assignment_FirstName_LastName.docx
 ```
 Examples:
-- ✅ `Project_John_Smith.docx`
-- ✅ `Project_Maria_Garcia.docx`
-- ❌ `project-john-smith.docx` (wrong format)
-- ❌ `John Smith Project.docx` (wrong format)
+- ✅ `Assignment_John_Smith.docx`
+- ✅ `Assignment_Maria_Garcia.docx`
+- ❌ `assignment-john-smith.docx` (wrong format)
+- ❌ `John Smith Assignment.docx` (wrong format)
 
 ### Branch Naming Convention
 **MUST follow this format:**
 ```
-step#_firstname_lastname
+pr0#_firstname_lastname
 ```
 Examples:
-- ✅ `step1_john_smith`
-- ✅ `step2_maria_garcia`
-- ❌ `Step1-John-Smith` (wrong format)
-- ❌ `john_step1` (wrong format)
+- ✅ `pr01_john_smith`
+- ✅ `pr02_maria_garcia`
+- ❌ `PR01-John-Smith` (wrong format)
+- ❌ `john_pr01` (wrong format)
 
 ### Pull Request Title Convention
 **MUST follow this format:**
 ```
-Step # Submission - FirstName LastName
+PR 0# Submission - FirstName LastName
 ```
 Examples:
-- ✅ `Step 1 Submission - John Smith`
-- ✅ `Step 2 Submission - Maria Garcia`
+- ✅ `PR 01 Submission - John Smith`
+- ✅ `PR 02 Submission - Maria Garcia`
 
 ## Common Issues and Solutions
 
 ### "Permission Denied" When Pushing
-- Make sure you're pushing to YOUR fork, not the instructor's repository
+- Make sure you're pushing to YOUR fork, not the course repository
 - Check with: `git remote -v`
 
 ### Need to Update Your Submission
 1. Make changes to your file
 2. On the same branch:
 ```bash
-git add project-step-1/Project_FirstName_LastName.docx
-git commit -m "Update Step 1 submission - FirstName LastName"
-git push origin step1_firstname_lastname
+git add pullrequest_01/Assignment_FirstName_LastName.docx
+git commit -m "Update PR 01 submission - FirstName LastName"
+git push origin pr01_firstname_lastname
 ```
 3. The PR will automatically update
 
